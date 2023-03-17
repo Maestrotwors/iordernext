@@ -1,0 +1,60 @@
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["multiSchema"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+
+  schemas  = ["base", "user", "product"]
+
+}
+
+// prisma/schema.prisma
+
+model Article {
+  id          Int      @id @default(autoincrement())
+  title       String   @unique
+  description String?
+  body        String
+  published   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt @default(now())
+
+  @@schema("base")
+}
+
+model User {
+  id          Int      @id @default(autoincrement())
+  login       String   @unique
+  email       String   @unique
+  name        String
+  password    String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt @default(now())
+
+  @@schema("base")
+}
+
+model Supplier {
+  id          Int      @id @default(autoincrement())
+  name        String   @unique
+
+  @@schema("base")
+}
+
+model Product {
+  id          Int      @id @default(autoincrement())
+  name        String
+
+  @@schema("base")
+}
+
+model Catalog {
+  id               Int      @id @default(autoincrement())
+  productId        Int
+
+
+  @@schema("base")
+}

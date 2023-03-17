@@ -1,0 +1,57 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@base/*": ["./*"],
+      "@libs/*": ["libs/*"],
+      "@constants/*": ["constants/*"],
+      "@frontend/*": ["apps/frontend/projects/*"],
+      "@lib/adaptive": ["libs/frontend/core/adaptive/src/index.ts"],
+      "@libs/adaptive/*": ["libs/frontend/core/adaptive/*"],
+      "@be-cache": [
+        "libs/backend/cache/src/index.ts"
+      ],
+      "@be-cache/services/*": [
+        "libs/backend/cache/src/lib/*"
+      ],
+      "@be-kafka": [
+        "libs/backend/kafka/src/index.ts"
+      ],
+      "@be-kafka/services/*": [
+        "libs/backend/kafka/src/lib/services/*"
+      ],
+      "@be-models": [
+        "libs/backend/models/src/index.ts"
+      ],
+      "@be-models/*": [
+        "libs/backend/models/src/lib/*"
+      ],
+      "@be-repository": [
+        "libs/backend/repository/src/index.ts"
+      ],
+      "@be-repository/services/*": [
+        "libs/backend/repository/src/lib/*"
+      ],
+      "@be-system": [
+        "libs/backend/system/src/index.ts"
+      ],
+      "@be-system/services/*": [
+        "libs/backend/system/src/lib/*"
+      ],
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

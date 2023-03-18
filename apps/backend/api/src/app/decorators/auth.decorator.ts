@@ -1,4 +1,4 @@
-import { SetMetadata, UseGuards, applyDecorators } from "@nestjs/common";
+import { UseGuards, applyDecorators } from "@nestjs/common";
 
 import { ApiUnauthorizedResponse } from '@nestjs/swagger';
 import { AuthGuard } from '../modules/auth/guards/auth.guard';

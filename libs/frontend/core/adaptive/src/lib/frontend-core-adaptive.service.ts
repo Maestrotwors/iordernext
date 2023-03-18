@@ -1,6 +1,6 @@
 import { EventEmitter, Injectable } from '@angular/core';
 
-import { ADAPTIVE } from '@constants/adaptive';
+import { ADAPTIVE } from '@fe-constants/adaptive';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { Device } from './device.type';
 import { Subject } from 'rxjs/internal/Subject';

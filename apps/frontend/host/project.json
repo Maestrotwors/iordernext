@@ -15,7 +15,10 @@
         "polyfills": ["zone.js"],
         "tsConfig": "apps/frontend/host/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["apps/frontend/host/src/favicon.ico", "apps/frontend/host/src/assets"],
+        "assets": [
+          "apps/frontend/host/src/favicon.ico",
+          "apps/frontend/host/src/assets"
+        ],
         "styles": ["apps/frontend/host/src/styles.scss"],
         "scripts": []
       },
@@ -71,7 +74,10 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/frontend/host/**/*.ts", "apps/frontend/host/**/*.html"]
+        "lintFilePatterns": [
+          "apps/frontend/host/**/*.ts",
+          "apps/frontend/host/**/*.html"
+        ]
       }
     },
     "test": {
@@ -141,7 +147,7 @@
     }
   },
   "tags": [],
-  "schematics": {
+  "generators": {
     "@schematics/angular": {
       "component": {
         "changeDetection": "OnPush",

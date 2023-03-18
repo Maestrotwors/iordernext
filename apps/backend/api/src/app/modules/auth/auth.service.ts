@@ -26,7 +26,7 @@ export class AuthService {
 	}
 
 	logout() {
-    return 'logout!!!!';
+    return {param:1, value:1};
   }
 
 	async refreshToken(token: string): Promise<UserTokensDto | null> {
@@ -110,7 +110,10 @@ export class AuthService {
 			if (!user) {
 				throw new UnauthorizedException("Invalid login or password");
 			} else {
-				return this.generateUserTokens(user);
+				return {
+          ... await this.generateUserTokens(user),
+          memberShipType: 'PublicUser'
+        };
 			}
 		}
 		return this.loginFromRepository(login, password);
@@ -122,7 +125,10 @@ export class AuthService {
 			this.cacheService.setValue(user.login, user);
 		}
 		if (user) {
-			return this.generateUserTokens(user);
+			return {
+        ... await this.generateUserTokens(user),
+        memberShipType: 'PublicUser'
+      };
 		} else {
 			throw new UnauthorizedException("Invalid login or password");
 		}

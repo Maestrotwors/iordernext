@@ -1,10 +1,13 @@
+import { IsCustomerGuard } from './guards/customer.guard';
 import { Route } from '@angular/router';
 
 export const routes: Route[] = [
   {
     path: '',
     loadChildren: () =>
-      import('@frontend/landing/landing.module').then((m) => m.LandingModule),
+      import('../../../projects/landing/landing.module').then(
+        (m) => m.LandingModule
+      ),
   },
   {
     path: 'contact-us',
@@ -18,6 +21,7 @@ export const routes: Route[] = [
   },
   {
     path: 'member-user',
+    canActivate: [IsCustomerGuard],
     loadChildren: () =>
       import('@frontend/customer/customer.module').then(
         (m) => m.CustomerModule

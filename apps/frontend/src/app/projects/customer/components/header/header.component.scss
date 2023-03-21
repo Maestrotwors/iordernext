@@ -1,0 +1,24 @@
+.banner {
+	background-color: grey;
+}
+
+.header {
+	background-color: var(--main-bg-color);
+
+	.header-content {
+		.logo-icon {
+			height: 1.3rem;
+		}
+
+		padding: 10px var(--standard-padding);
+	}
+}
+
+.under-header-content {
+	padding: 2px var(--standard-padding);
+	border-bottom: 1px solid var(--standard-border-color);
+}
+
+.banner-content {
+	padding: 2px var(--standard-padding);
+}

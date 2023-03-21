@@ -15,7 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@app/frontrnd/core/http": ["libs/frontrnd/core/http/src/index.ts"],
+      "@app-services/*": ["apps/frontend/src/app/services/core/*"],
+      "@app/frontend/ui/ui": ["libs/frontend/ui/ui/src/index.ts"],
+      "@app/ui/ui": ["libs/ui/ui/src/index.ts"],
       "@base/*": ["./*"],
       "@be-cache": ["libs/backend/cache/src/index.ts"],
       "@be-cache/services/*": ["libs/backend/cache/src/lib/*"],
@@ -27,15 +29,13 @@
       "@be-repository/services/*": ["libs/backend/repository/src/lib/*"],
       "@be-system": ["libs/backend/system/src/index.ts"],
       "@be-system/services/*": ["libs/backend/system/src/lib/*"],
-
-      "@frontend/*": ["apps/frontend/projects/*"],
-      "@lib/adaptive": ["libs/frontend/core/adaptive/src/index.ts"],
-      "@libs/*": ["libs/*"],
-      "@libs/adaptive/*": ["libs/frontend/core/adaptive/*"],
-
       "@fe-constants/*": ["constants/*"],
       "@fe-http": ["libs/frontend/core/http/src/index.ts"],
       "@fe-http/*": ["libs/frontend/core/http/src/lib/*"],
+      "@frontend/*": ["apps/frontend/projects/*"],
+      "@lib/adaptive": ["libs/frontend/core/adaptive/src/index.ts"],
+      "@libs/*": ["libs/*"],
+      "@libs/adaptive/*": ["libs/frontend/core/adaptive/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

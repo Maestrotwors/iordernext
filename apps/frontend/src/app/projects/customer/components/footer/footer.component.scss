@@ -1,0 +1,41 @@
+
+.footer {
+  background-color: var(--footer-bg-color);
+  min-height: 50px;
+  height: 100%;
+}
+
+.desktop {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 1rem;
+  width: 100%;
+  padding: 1rem 20px;
+
+  .logo {
+    margin: 0.7rem 0;
+  }
+
+  .text-title {
+    margin: 0.4rem 0;
+    color: grey;
+
+  }
+}
+
+.smallMobile {
+  display: grid;
+  text-align: center;
+  margin: auto;
+  padding: 1rem 0;
+
+  .logo {
+    margin: auto;
+	display: block;
+	margin-top: 4rem;
+  }
+
+  .small-mobile-link {
+    margin: 0.3rem 0;
+  }
+}

@@ -1,7 +1,7 @@
 import { UseGuards, applyDecorators } from "@nestjs/common";
 
 import { ApiUnauthorizedResponse } from '@nestjs/swagger';
-import { AuthGuard } from '../modules/auth/guards/auth.guard';
+import { AuthGuard } from '../modules/core/auth/guards/auth.guard';
 import { Role } from "@be-models/auth/roles";
 
 export function Auth(roles: Role[]) {

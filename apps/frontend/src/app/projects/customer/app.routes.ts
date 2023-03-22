@@ -23,7 +23,7 @@ export const routes: Route[] = [
             (c) => c.CatalogComponent
           ),
         data: {
-          preloadAfter: 1800,
+          preloadAfter: 400,
         },
       },
       {
@@ -31,7 +31,35 @@ export const routes: Route[] = [
         loadComponent: () =>
           import('./pages/order/order.component').then((c) => c.OrderComponent),
         data: {
-          preloadAfter: 1900,
+          preloadAfter: 900,
+        },
+      },
+      {
+        path: 'delivery',
+        loadComponent: () =>
+          import('./pages/delivery/delivery.component').then((c) => c.DeliveryComponent),
+      },
+      {
+        path: 'how-to-use',
+        loadComponent: () =>
+          import('./pages/how-to-use/how-to-use.component').then((c) => c.HowToUseComponent),
+      },
+      {
+        path: 'refund',
+        loadComponent: () =>
+          import('./pages/refund/refund.component').then((c) => c.RefundComponent),
+      },
+      {
+        path: 'rules',
+        loadComponent: () =>
+          import('./pages/rules/rules.component').then((c) => c.RulesComponent),
+      },
+      {
+        path: 'profile',
+        loadComponent: () =>
+          import('./pages/profile/profile.component').then((c) => c.ProfileComponent),
+        data: {
+          preloadAfter: 800,
         },
       },
     ],

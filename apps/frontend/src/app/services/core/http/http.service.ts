@@ -1,4 +1,5 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { backendConstants } from '@fe-constants/backend';
@@ -27,11 +28,13 @@ export class HttpService {
   }
 
   getWithToken$(url: string) {
-    return this.http.get(this.hostUrl + url).pipe(this.checkPipe);
+    return this.http
+      .get(this.hostUrl + url, this.processOptionsWithToken())
+      .pipe(this.checkPipe);
   }
 
   postWithToken$(url: string, body: object) {
-    return this.http.post(this.hostUrl + url, body).pipe(this.checkPipe);
+    return this.http.post(this.hostUrl + url, this.processOptionsWithToken(body)).pipe(this.checkPipe);
   }
 
   // putWithToken() {}
@@ -67,5 +70,22 @@ export class HttpService {
         return of({ data: err.error, hasError: true, status: err.status });
       })
     ));
+  }
+
+  private getAccessToken() {
+    return localStorage.getItem('access_token');
+  }
+
+  private processOptionsWithToken(options: object = {}) {
+    const auth = {
+      headers: new HttpHeaders().set(
+        'Authorization',
+        `Bearer ${this.getAccessToken()}`
+      ),
+    };
+    return {
+      ...options,
+      ...auth
+    };
   }
 }

@@ -3,3 +3,10 @@
 /member-user/suppliers
 /member-user/catalog
 /member-user/order
+/member-user/profile
+/member-user/contact-us
+/member-user/delivery
+/member-user/how-to-use
+/member-user/refund
+/member-user/rules
+/member-user/delivery

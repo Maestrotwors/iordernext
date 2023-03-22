@@ -148,5 +148,16 @@
         "standalone": true
       }
     }
+  },
+  "projects": {
+    "frontend": {
+      "root": "",
+      "sourceRoot": "src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": { 
+      }
+    }
   }
 }

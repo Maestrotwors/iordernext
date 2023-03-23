@@ -17,25 +17,23 @@ export class HttpService {
   iAmWaitingForNewToken = new BehaviorSubject(false);
 
   get$(url: string) {
-    return this.http.get(this.hostUrl + url).pipe(this.checkPipe.bind(this));
+    return this.http.get(this.hostUrl + url).pipe(this.checkPipe);
   }
 
   post$(url: string, body: object) {
-    return this.http
-      .post(this.hostUrl + url, body)
-      .pipe(this.checkPipe.bind(this));
+    return this.http.post(this.hostUrl + url, body).pipe(this.checkPipe);
   }
 
   getWithToken$(url: string) {
     return this.http
       .get(this.hostUrl + url, this.processOptionsWithToken())
-      .pipe(this.checkPipe.bind(this), this.retryPipe);
+      .pipe(this.checkPipe);
   }
 
   postWithToken$(url: string, body: object) {
     return this.http
       .post(this.hostUrl + url, this.processOptionsWithToken(body))
-      .pipe(this.checkPipe.bind(this), this.retryPipe);
+      .pipe(this.checkPipe);
   }
 
   // putWithToken() {}
@@ -58,6 +56,17 @@ export class HttpService {
     return await lastValueFrom(this.postWithToken$(url, body));
   }
 
+  async refreshTokens() {
+    this.iAmWaitingForNewToken.next(true);
+    const response: any = await this.post('auth/refresh-token', {
+      refreshToken: this.getRefreshToken(),
+    });
+    console.log(response);
+    localStorage.setItem('access_token', response['data']?.['access_token']);
+    localStorage.setItem('refresh_token', response['data']?.['refresh_token']);
+    this.iAmWaitingForNewToken.next(false);
+  }
+
   private checkPipe<T>(source: Observable<T>) {
     return source.pipe(
       map((data) => {
@@ -68,24 +77,6 @@ export class HttpService {
         };
       }),
       catchError(async (err) => {
-        if (err.status === 401) {
-          await this.refreshTokens();
-          return throwError(()=> new Error('errr'));
-        } else {
-          return of({ data: err.error, hasError: true, status: err.status });
-        }
-      })
-    );
-  }
-
-  private retryPipe<T>(source: Observable<T>) {
-    return source.pipe(
-      map((data) => {
-        console.log(data);
-        return data;
-      }),
-      catchError((err) => {
-        console.log(err);
         return of({ data: err.error, hasError: true, status: err.status });
       })
     );
@@ -110,16 +101,5 @@ export class HttpService {
       ...options,
       ...auth,
     };
-  }
-
-  private async refreshTokens() {
-    this.iAmWaitingForNewToken.next(true);
-    const response:any = await this.post('auth/refresh-token', {
-      refreshToken: this.getRefreshToken(),
-    });
-    console.log(response);
-    localStorage.setItem('access_token', response['data']?.['access_token']);
-    localStorage.setItem('refresh_token', response['data']?.['refresh_token']);
-    this.iAmWaitingForNewToken.next(false);
   }
 }

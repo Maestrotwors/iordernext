@@ -1,8 +1,10 @@
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+
 import { AppComponent } from './app.component';
 import { AppCoreModule } from './modules/core.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { CustomPreloadingStrategyService } from '@app-services/preloading-strategy/preloading-strategy.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpError401Interceptor } from './interceptors/401.interceptor';
 import { IsCustomerGuard } from './guards/customer.guard';
 import { IsSupplierGuard } from './guards/supplier.guard';
 import { NgModule } from '@angular/core';
@@ -20,7 +22,15 @@ import { routes } from './app.routes';
     HttpClientModule,
     AppCoreModule.forRoot(),
   ],
-  providers: [IsCustomerGuard, IsSupplierGuard],
+  providers: [
+    IsCustomerGuard,
+    IsSupplierGuard,
+    /*{
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpError401Interceptor,
+      multi: true
+    }*/
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

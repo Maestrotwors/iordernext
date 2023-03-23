@@ -17,7 +17,6 @@
     "paths": {
       "@app-services/*": ["apps/frontend/src/app/services/core/*"],
       "@app/frontend/ui/ui": ["libs/frontend/ui/ui/src/index.ts"],
-      "@app/ui/ui": ["libs/ui/ui/src/index.ts"],
       "@base/*": ["./*"],
       "@be-cache": ["libs/backend/cache/src/index.ts"],
       "@be-cache/services/*": ["libs/backend/cache/src/lib/*"],

@@ -1,0 +1,7 @@
+<div>
+	<ul>
+		<li *ngFor="let menu of MENU_LIST">
+			<a [routerLink]="['/', 'member-supplier', menu['link']]">{{menu['name']}}</a>
+		</li>
+	</ul>
+</div>

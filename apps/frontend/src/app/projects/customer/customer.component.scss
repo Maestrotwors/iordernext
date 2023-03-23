@@ -1,10 +1,5 @@
 @import './styles/variables/variables.scss';
-@import './styles/mixins/width.scss';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.width-container {
-	@include width-container;
-}

@@ -1,0 +1,12 @@
+@import '../../styles/base-colors.scss';
+@import '../../styles/width.scss';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.supplier-content {
+	display: grid;
+	grid-template-columns: 16rem 1fr;
+}

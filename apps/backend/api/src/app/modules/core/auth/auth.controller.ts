@@ -58,7 +58,7 @@ export class AuthController {
     try {
       return await this.authService.refreshToken(body.refreshToken);
     } catch {
-      throw new UnauthorizedException('Invalid refresh token');
+      throw new NotAcceptableException('Invalid refresh token');
     }
   }
 }

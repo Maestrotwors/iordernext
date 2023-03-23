@@ -8,8 +8,6 @@ import { catchError } from 'rxjs/internal/operators/catchError';
 import { lastValueFrom } from 'rxjs/internal/lastValueFrom';
 import { map } from 'rxjs/internal/operators/map';
 import { of } from 'rxjs/internal/observable/of';
-import { repeat } from 'rxjs';
-import { retry } from 'rxjs/internal/operators/retry';
 import { throwError } from 'rxjs/internal/observable/throwError';
 
 @Injectable({ providedIn: 'root' })
@@ -76,8 +74,7 @@ export class HttpService {
         } else {
           return of({ data: err.error, hasError: true, status: err.status });
         }
-      }),
-      //retry({ count: 1, resetOnSuccess: true})
+      })
     );
   }
 
@@ -92,13 +89,6 @@ export class HttpService {
         return of({ data: err.error, hasError: true, status: err.status });
       })
     );
-  }
-
-  private async refreshToken() {
-    const response = this.post('auth/refresh-token', {
-      refresh_token: this.getRefreshToken(),
-    });
-    console.log(response);
   }
 
   private getAccessToken() {
@@ -123,28 +113,13 @@ export class HttpService {
   }
 
   private async refreshTokens() {
-    return new Promise((resolve) => {
-      this.iAmWaitingForNewToken.next(true);
-      fetch(this.hostUrl + 'auth/refresh-token', {
-        method: 'POST',
-        body: JSON.stringify({
-          refreshToken: this.getRefreshToken(),
-        }),
-        headers: {
-          'Content-Type': 'application/json; charset=utf-8',
-        },
-      })
-        .then(async (response: any) => {
-          const resp = await response.json();
-          localStorage.setItem('access_token', resp?.['access_token']);
-          localStorage.setItem('refresh_token', resp?.['refresh_token']);
-          this.iAmWaitingForNewToken.next(true);
-          resolve(true);
-        })
-        .catch(() => {
-          this.iAmWaitingForNewToken.next(true);
-          resolve(false);
-        })
+    this.iAmWaitingForNewToken.next(true);
+    const response:any = await this.post('auth/refresh-token', {
+      refreshToken: this.getRefreshToken(),
     });
+    console.log(response);
+    localStorage.setItem('access_token', response['data']?.['access_token']);
+    localStorage.setItem('refresh_token', response['data']?.['refresh_token']);
+    this.iAmWaitingForNewToken.next(false);
   }
 }

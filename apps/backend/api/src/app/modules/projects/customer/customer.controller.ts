@@ -8,7 +8,7 @@ import { SuppliersService } from './services/suppliers/suppliers.service';
 export class CustomerController {
   constructor(private suppliersService: SuppliersService) {}
 
-  @Get('getSuppliers')
+  @Get('get-suppliers')
   @Auth([Role.Customer])
   async getSuppliers() {
     return await this.suppliersService.getSuppliers();

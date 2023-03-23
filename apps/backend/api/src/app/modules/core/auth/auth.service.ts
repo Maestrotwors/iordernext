@@ -1,5 +1,5 @@
 import { ChangePasswordDataDto, ChangePasswordDto } from './dto/change-password.dto';
-import { ForbiddenException, Injectable, UnauthorizedException } from '@nestjs/common';
+import { ForbiddenException, Injectable, NotAcceptableException, UnauthorizedException } from '@nestjs/common';
 import { compare, hash } from 'bcrypt';
 
 import { CacheService } from "@be-cache/services/cache.service";
@@ -32,17 +32,17 @@ export class AuthService {
 	async refreshToken(token: string): Promise<UserTokensDto | null> {
 		const verificedToken = await this.tokenService.verifyRefreshToken(token);
 		if (!verificedToken) {
-			throw new UnauthorizedException("Invalid refresh token");
+			throw new NotAcceptableException("Invalid refresh token");
 		}
 		const user: UserEntity | null = await this.userService.getUserById(verificedToken.id);
 		if (!user) {
-			throw new UnauthorizedException("Invalid refresh token");
+			throw new NotAcceptableException('Invalid refresh token');
 		}
 		const tokenDecoded = this.tokenService.decodeToken(token);
 		if (this.dateService.compare(user.updatedAt, tokenDecoded?.["uat"])) {
 			return await this.generateUserTokens(user);
 		}
-		throw new UnauthorizedException("Invalid refresh token");
+		throw new NotAcceptableException('Invalid refresh token');
 	}
 
 	async verifyAccessToken(token: string) {

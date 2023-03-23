@@ -33,7 +33,7 @@ export class AuthController {
     }
   }
 
-  @Auth([Role.Student, Role.Teacher])
+  @Auth([Role.Customer, Role.Supplier])
   @Post('change-password')
   async changePassword(
     @Body() body: ChangePasswordDto,

@@ -6,11 +6,10 @@ export class AuthService {
   constructor(private http: HttpService) {}
 
   async logIn(login: string, password: string) {
-    const response = await this.http.post('auth/login', { login, password });
-    console.log(response.data);
+    const response:any = await this.http.post('auth/login', { login, password });
     if (!response.hasError) {
       localStorage.setItem('access_token', response.data?.['access_token']);
-      localStorage.setItem('refresh_token', response.data?.['access_token']);
+      localStorage.setItem('refresh_token', response.data?.['refresh_token']);
       localStorage.setItem('memberShipType', response.data?.['memberShipType']);
 
       if (response.data['memberShipType'] === 'PublicUser') {

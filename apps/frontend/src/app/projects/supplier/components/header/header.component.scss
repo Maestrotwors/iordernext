@@ -6,8 +6,11 @@
 		display: grid;
 		grid-template-columns: auto 1fr auto;
 
-		.logo-icon {
-			height: 1.3rem;
+		.header-icon {
+			width: 5rem;
+			.logo-icon {
+				height: 1.3rem;
+			}
 		}
 
 		.header-title {

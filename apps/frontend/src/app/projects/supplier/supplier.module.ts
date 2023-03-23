@@ -5,6 +5,7 @@ import { MenuDesktopComponent } from './components/menu/menu-desktop/menu-deskto
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SupplierComponent } from './supplier.component';
+import { TitleComponent } from './components/title/title.component';
 import { routes } from './app.routes';
 
 @NgModule({
@@ -13,7 +14,8 @@ import { routes } from './app.routes';
     RouterModule.forChild(routes),
     HeaderComponent,
     FooterComponent,
-    MenuDesktopComponent
+    MenuDesktopComponent,
+    TitleComponent
   ],
   declarations: [SupplierComponent],
 })

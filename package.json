@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "install": "npm run migrate && npm run seed:mock",
+    "install-all": "npm run migrate && npm run seed:mock",
     "start": "concurrently \"npm:serve:api\" \"npm:serve:front\"",
     "start:docker": "docker-compose up",
     "migrate": "npx prisma migrate dev --name 'init'",
@@ -14,6 +14,7 @@
     "start:front:server": "nx run frontend:server",
     "serve:ssr": "node dist/apps/frontend/server/main.js",
     "build:ssr": "nx build frontend --prod && nx run frontend:prerender --routes-file routes.txt",
+    "build:front": "nx build frontend --prod",
     "serve:api": "nx serve backend-api",
     "start:microservice:xxxxxxxxxxx": "nx serve xxxxxxxxxxx --args=--threads=3",
     "clear-cache": "sudo npm cache clean --force "
@@ -32,7 +33,7 @@
     "@nestjs/schematics": "^9.0.0",
     "@nestjs/testing": "^9.0.0",
     "@nguniversal/builders": "~15.2.0",
-    "@nrwl/angular": "^15.8.6",
+    "@nrwl/angular": "^15.8.8",
     "@nrwl/cypress": "15.8.6",
     "@nrwl/eslint-plugin-nx": "15.8.6",
     "@nrwl/jest": "15.8.6",

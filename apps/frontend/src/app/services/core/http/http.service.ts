@@ -51,9 +51,7 @@ export class HttpService extends HttpServiceBase {
   }
 
   async post(url: string, body: object) {
-    const postResp = await lastValueFrom(this.post$(url, body));
-    console.log(postResp);
-    return postResp; 
+    return await lastValueFrom(this.post$(url, body));
   }
 
   async getWithToken(url: string) {

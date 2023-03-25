@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, UnauthorizedException, NotAcceptableException, Req, Res, HttpStatus } from '@nestjs/common';
+import { Controller, Get, Post, Body, UnauthorizedException, NotAcceptableException, Req, Res, HttpStatus, ForbiddenException } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { LogInDto } from './dto/logIn.dto';
 import { RefreshTokenDto } from './dto/refresh-token.dto';
@@ -58,7 +58,7 @@ export class AuthController {
     try {
       return await this.authService.refreshToken(body.refreshToken);
     } catch {
-      throw new NotAcceptableException('Invalid refresh token');
+      throw new ForbiddenException('Invalid refresh token');
     }
   }
 }

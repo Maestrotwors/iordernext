@@ -38,7 +38,6 @@ export class AuthService {
     const response: any = await this.http.post('auth/refresh-token', {
       refreshToken: this.tokenService.getRefreshToken(),
     });
-    console.log(response);
     const access_token = response['data']?.['access_token'];
     const refresh_token = response['data']?.['refresh_token'];
     localStorage.setItem('access_token', access_token);

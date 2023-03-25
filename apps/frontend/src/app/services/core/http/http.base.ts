@@ -3,7 +3,6 @@ import { TokenService } from '@app-services/token/token.service';
 import { backendConstants } from '@base/constants/backend';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { Observable } from 'rxjs/internal/Observable';
-import { of } from 'rxjs/internal/observable/of';
 import { catchError } from 'rxjs/internal/operators/catchError';
 import { map } from 'rxjs/internal/operators/map';
 
@@ -25,7 +24,7 @@ export class HttpServiceBase {
         };
       }),
       catchError(async (err) => {
-        return of({ data: err.error, hasError: true });
+        return { data: err.error, hasError: true };
       })
     );
   }

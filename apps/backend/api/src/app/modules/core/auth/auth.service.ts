@@ -1,5 +1,5 @@
 import { ChangePasswordDataDto, ChangePasswordDto } from './dto/change-password.dto';
-import { ForbiddenException, Injectable, NotAcceptableException, UnauthorizedException } from '@nestjs/common';
+import { Injectable, NotAcceptableException, UnauthorizedException } from '@nestjs/common';
 import { compare, hash } from 'bcrypt';
 
 import { CacheService } from "@be-cache/services/cache.service";
@@ -26,8 +26,8 @@ export class AuthService {
 	}
 
 	logout() {
-    return {param:1, value:1};
-  }
+		return {param:1, value:1};
+	}
 
 	async refreshToken(token: string): Promise<UserTokensDto | null> {
 		const verificedToken = await this.tokenService.verifyRefreshToken(token);
@@ -92,7 +92,7 @@ export class AuthService {
 				"status": "ok"
 			};
 		} else {
-			throw new ForbiddenException("Invalid password.");
+			throw new UnauthorizedException('Invalid password/user.');
 		}
 	}
 

@@ -35,19 +35,33 @@ export const routes: Route[] = [
         },
       },
       {
+        path: 'order/final-page',
+        loadComponent: () =>
+          import('./pages/order-final-page/order-final-page.component').then((c) => c.OrderFinalPageComponent),
+        data: {
+          preloadAfter: 8000,
+        },
+      },
+      {
         path: 'delivery',
         loadComponent: () =>
-          import('./pages/delivery/delivery.component').then((c) => c.DeliveryComponent),
+          import('./pages/delivery/delivery.component').then(
+            (c) => c.DeliveryComponent
+          ),
       },
       {
         path: 'how-to-use',
         loadComponent: () =>
-          import('./pages/how-to-use/how-to-use.component').then((c) => c.HowToUseComponent),
+          import('./pages/how-to-use/how-to-use.component').then(
+            (c) => c.HowToUseComponent
+          ),
       },
       {
         path: 'refund',
         loadComponent: () =>
-          import('./pages/refund/refund.component').then((c) => c.RefundComponent),
+          import('./pages/refund/refund.component').then(
+            (c) => c.RefundComponent
+          ),
       },
       {
         path: 'rules',
@@ -57,7 +71,9 @@ export const routes: Route[] = [
       {
         path: 'profile',
         loadComponent: () =>
-          import('./pages/profile/profile.component').then((c) => c.ProfileComponent),
+          import('./pages/profile/profile.component').then(
+            (c) => c.ProfileComponent
+          ),
         data: {
           preloadAfter: 800,
         },

@@ -5,6 +5,7 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { Observable } from 'rxjs/internal/Observable';
 import { catchError } from 'rxjs/internal/operators/catchError';
 import { map } from 'rxjs/internal/operators/map';
+//import { startWith } from 'rxjs/internal/operators/startWith';
 
 export class HttpServiceBase {
   constructor(private tokenService: TokenService) {}
@@ -17,6 +18,7 @@ export class HttpServiceBase {
 
   protected checkPipe<T>(source: Observable<T>) {
     return source.pipe(
+      //startWith(this.iAmWaitingForNewToken.value === false),
       map((data) => {
         return {
           data: data,

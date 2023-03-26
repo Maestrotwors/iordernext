@@ -32,10 +32,12 @@
       "@fe-http": ["libs/frontend/core/http/src/index.ts"],
       "@fe-http/*": ["libs/frontend/core/http/src/lib/*"],
       "@frontend/*": ["apps/frontend/projects/*"],
+      "@frontend/components/customer/*": [
+        "apps/frontend/src/app/projects/customer/components/*"
+      ],
       "@lib/adaptive": ["libs/frontend/core/adaptive/src/index.ts"],
       "@libs/*": ["libs/*"],
-      "@libs/adaptive/*": ["libs/frontend/core/adaptive/*"],
-      "@frontend/components/customer/*": ["apps/frontend/src/app/projects/customer/components/*"]
+      "@libs/adaptive/*": ["libs/frontend/core/adaptive/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

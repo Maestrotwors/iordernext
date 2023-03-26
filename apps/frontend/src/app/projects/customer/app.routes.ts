@@ -37,7 +37,9 @@ export const routes: Route[] = [
       {
         path: 'order/final-page',
         loadComponent: () =>
-          import('./pages/order-final-page/order-final-page.component').then((c) => c.OrderFinalPageComponent),
+          import('./pages/order-final-page/order-final-page.component').then(
+            (c) => c.OrderFinalPageComponent
+          ),
         data: {
           preloadAfter: 8000,
         },
@@ -70,10 +72,10 @@ export const routes: Route[] = [
       },
       {
         path: 'profile',
-        loadComponent: () =>
-          import('./pages/profile/profile.component').then(
-            (c) => c.ProfileComponent
-          ),
+        loadChildren: () =>
+          import(
+            './pages/profile/profile.module'
+          ).then((m) => m.ProfileModule),
         data: {
           preloadAfter: 800,
         },

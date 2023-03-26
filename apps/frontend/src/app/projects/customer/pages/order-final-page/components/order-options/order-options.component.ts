@@ -6,9 +6,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './order-options.component.html',
-  styleUrls: ['./order-options.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./order-options.component.scss', '../order-final-shared.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class OrderOptionsComponent {
-
-}
+export class OrderOptionsComponent {}

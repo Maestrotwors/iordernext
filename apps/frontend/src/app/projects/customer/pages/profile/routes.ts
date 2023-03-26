@@ -36,6 +36,10 @@ export const routes: Route[] = [
           preloadAfter: 700,
         },
       },
+      {
+        path: '**',
+        redirectTo: 'register'
+      },
     ],
   },
 ];

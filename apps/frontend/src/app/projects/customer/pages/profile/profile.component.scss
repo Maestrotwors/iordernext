@@ -1,0 +1,9 @@
+.profile-container {
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  grid-gap: 1rem;
+}
+
+a {
+  cursor: pointer;
+}

@@ -1,7 +1,3 @@
-.banner {
-	background-color: grey;
-}
-
 .header {
 	background-color: var(--main-bg-color);
 
@@ -10,15 +6,14 @@
 			height: 1.3rem;
 		}
 
+    display: grid;
+    grid-template-columns: 15rem 1fr;
 		padding: 10px var(--standard-padding);
+
+    .header-data-panel {
+      display: grid;
+      grid-template-columns: auto 1fr auto auto auto;
+      grid-gap: 1.5rem;
+    }
 	}
-}
-
-.under-header-content {
-	padding: 2px var(--standard-padding);
-	border-bottom: 1px solid var(--standard-border-color);
-}
-
-.banner-content {
-	padding: 2px var(--standard-padding);
 }

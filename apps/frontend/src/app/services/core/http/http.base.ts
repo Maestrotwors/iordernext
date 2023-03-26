@@ -4,21 +4,25 @@ import { backendConstants } from '@base/constants/backend';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { Observable } from 'rxjs/internal/Observable';
 import { catchError } from 'rxjs/internal/operators/catchError';
+import { filter } from 'rxjs/internal/operators/filter';
 import { map } from 'rxjs/internal/operators/map';
-//import { startWith } from 'rxjs/internal/operators/startWith';
-
+import { switchMap } from 'rxjs/internal/operators/switchMap';
 export class HttpServiceBase {
   constructor(private tokenService: TokenService) {}
   protected hostUrl = backendConstants.host + ':' + backendConstants.port + '/api/';
-  protected iAmWaitingForNewToken: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  iAmWaitingForNewToken: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   blockRequestsUntilTokenRefreshed(value: boolean) {
     this.iAmWaitingForNewToken.next(value);
   }
 
   protected checkPipe<T>(source: Observable<T>) {
+    //console.log(this.iAmWaitingForNewToken.getValue);
+    /*return this.iAmWaitingForNewToken.pipe(
+      filter((x) => x === false),
+      switchMap(() => source)
+    ).pipe(*/
     return source.pipe(
-      //startWith(this.iAmWaitingForNewToken.value === false),
       map((data) => {
         return {
           data: data,

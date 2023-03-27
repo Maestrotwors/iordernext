@@ -24,6 +24,11 @@ export const routes: Route[] = [
           ),
         data: {
           preloadAfter: 400,
+          showOptions: {
+            searchPanel: true,
+            basketPanel: true,
+            deliveryPointPanel: true,
+          },
         },
       },
       {
@@ -32,6 +37,21 @@ export const routes: Route[] = [
           import('./pages/order/order.component').then((c) => c.OrderComponent),
         data: {
           preloadAfter: 900,
+        },
+      },
+      {
+        path: 'product/:id',
+        loadComponent: () =>
+          import('./pages/product/product.component').then(
+            (c) => c.ProductComponent
+          ),
+        data: {
+          preloadAfter: 190,
+          showOptions: {
+            searchPanel: true,
+            basketPanel: true,
+            deliveryPointPanel: true,
+          },
         },
       },
       {
@@ -73,9 +93,7 @@ export const routes: Route[] = [
       {
         path: 'profile',
         loadChildren: () =>
-          import(
-            './pages/profile/profile.module'
-          ).then((m) => m.ProfileModule),
+          import('./pages/profile/profile.module').then((m) => m.ProfileModule),
         data: {
           preloadAfter: 800,
         },

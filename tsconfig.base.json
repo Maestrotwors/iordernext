@@ -37,7 +37,9 @@
       ],
       "@lib/adaptive": ["libs/frontend/core/adaptive/src/index.ts"],
       "@libs/*": ["libs/*"],
-      "@libs/adaptive/*": ["libs/frontend/core/adaptive/*"]
+      "@libs/adaptive/*": ["libs/frontend/core/adaptive/*"],
+      "@front-interfaces/*": ["apps/frontend/src/app/interfaces/*"],
+      "tslib" : ["path/to/node_modules/tslib/tslib.d.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -47,9 +47,7 @@ export class TokenService {
 
 	private async verifyToken(token: string, secret: string) {
 		try {
-			console.log(token);
 			const result = await this.jwtService.verifyAsync(token, { secret });
-			console.log(result);
 			const currDatetime = new Date().getTime() / 1000;
 			if (currDatetime > result.exp) {
 				return false;

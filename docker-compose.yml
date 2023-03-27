@@ -71,19 +71,20 @@ services:
   #    - app-network
 
   frontend:
-    build: 
+    build:
       dockerfile: frontend.Dockerfile
     container_name: frontend
     restart: always
     ports:
-      - '4200:4200'
+      - '8080:8080'
     networks:
       - app-network
 
   #api:
-  #  build: ./apps/backend/api
+  #  build:
+   #   dockerfile: backend-api.Dockerfile
   #  container_name: api
-  #  restart: always
+  # restart: always
   #  ports:
   #    - '3333:3333'
   #  networks:

@@ -12,14 +12,13 @@ export class Http401ErrorService {
   constructor(private authService: AuthService) {}
 
   async handle401Error(request: HttpRequest<any>, next: HttpHandler) {
-    console.log('401');
     const access_token = await this.authService.refreshToken();
- 
+
     const newRequest = request.clone({
       setHeaders: {
         Authorization: `Bearer ${access_token}`,
       },
     });
-    return lastValueFrom(next.handle(newRequest));
+    return await lastValueFrom(next.handle(newRequest));
   }
 }

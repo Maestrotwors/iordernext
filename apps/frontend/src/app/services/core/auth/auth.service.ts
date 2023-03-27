@@ -1,11 +1,12 @@
 import { HttpService } from '../http/http.service';
 import { Injectable } from '@angular/core';
 import { TokenService } from '@app-services/token/token.service';
+//import { IHttpResponse } from '@front-interfaces/http-response.interface';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   constructor(private http: HttpService, private tokenService: TokenService) {}
-  
+
   async logIn(login: string, password: string) {
     const response: any = await this.http.post('auth/login', {
       login,
@@ -35,11 +36,12 @@ export class AuthService {
 
   async refreshToken() {
     this.http.blockRequestsUntilTokenRefreshed(true);
+    // TODO IHttpResponse
     const response: any = await this.http.post('auth/refresh-token', {
       refreshToken: this.tokenService.getRefreshToken(),
     });
-    const access_token = response['data']?.['access_token'];
-    const refresh_token = response['data']?.['refresh_token'];
+    const access_token = response?.data?.['access_token'];
+    const refresh_token = response?.data?.['refresh_token'];
     localStorage.setItem('access_token', access_token);
     localStorage.setItem('refresh_token', refresh_token);
     this.http.blockRequestsUntilTokenRefreshed(false);

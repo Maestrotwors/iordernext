@@ -10,6 +10,9 @@ import { IsSupplierGuard } from './guards/supplier.guard';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
+import { OfflineComponent } from './shared/components/offline/offline.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NZ_DATE_CONFIG, NZ_I18N, uk_UA } from 'ng-zorro-antd/i18n';
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,6 +24,8 @@ import { routes } from './app.routes';
     }),
     HttpClientModule,
     AppCoreModule.forRoot(),
+    BrowserAnimationsModule,
+    OfflineComponent,
   ],
   providers: [
     IsCustomerGuard,
@@ -30,6 +35,8 @@ import { routes } from './app.routes';
       useClass: Interceptor,
       multi: true,
     },
+    { provide: NZ_I18N, useValue: uk_UA },
+    { provide: NZ_DATE_CONFIG, useValue: { firstDayOfWeek: 1 } },
   ],
   bootstrap: [AppComponent],
 })

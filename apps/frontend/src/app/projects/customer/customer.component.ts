@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
+import { CustomerStoreService } from './services/core/customer-store/customer-store.service';
 
 @Component({
   selector: 'app-customer',
@@ -6,5 +7,8 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
   styleUrls: ['./customer.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
+  providers: [CustomerStoreService],
 })
-export class CustomerComponent {}
+export class CustomerComponent {
+  constructor(private customerStoreService: CustomerStoreService) {}
+}

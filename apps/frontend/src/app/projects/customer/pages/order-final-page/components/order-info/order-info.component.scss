@@ -6,3 +6,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+}

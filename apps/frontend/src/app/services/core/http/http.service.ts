@@ -13,35 +13,39 @@ export class HttpService extends HttpServiceBase {
   // Observable Http //
 
   get$(url: string) {
-    return this.http.get(this.hostUrl + url).pipe(this.checkPipe);
+    return this.http
+      .get(this.hostUrl + url)
+      .pipe((source) => this.checkPipeWithoutToken(source));
   }
 
   post$(url: string, body: object) {
-    return this.http.post(this.hostUrl + url, body).pipe(this.checkPipe);
+    return this.http
+      .post(this.hostUrl + url, body)
+      .pipe((source) => this.checkPipeWithoutToken(source));
   }
 
   getWithToken$(url: string) {
     return this.http
       .get(this.hostUrl + url, this.processOptionsWithToken())
-      .pipe(this.checkPipe);
+      .pipe((source) => this.checkPipeWithToken(source));
   }
 
   postWithToken$(url: string, body: object) {
     return this.http
       .post(this.hostUrl + url, this.processOptionsWithToken(body))
-      .pipe(this.checkPipe);
+      .pipe((source) => this.checkPipeWithToken(source));
   }
 
   putWithToken$(url: string, body: object) {
     return this.http
       .get(this.hostUrl + url, this.processOptionsWithToken(body))
-      .pipe(this.checkPipe);
+      .pipe((source) => this.checkPipeWithToken(source));
   }
 
   deleteWithToken$(url: string, body: object) {
     return this.http
       .delete(this.hostUrl + url, this.processOptionsWithToken(body))
-      .pipe(this.checkPipe);
+      .pipe((source) => this.checkPipeWithToken(source));
   }
 
   // Promise Http //

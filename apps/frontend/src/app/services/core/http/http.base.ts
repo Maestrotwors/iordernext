@@ -4,10 +4,10 @@ import { backendConstants } from '@base/constants/backend';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { Observable } from 'rxjs/internal/Observable';
 import { catchError } from 'rxjs/internal/operators/catchError';
-import { filter } from 'rxjs/internal/operators/filter';
 import { map } from 'rxjs/internal/operators/map';
 import { tap } from 'rxjs/internal/operators/tap';
 import { switchMap } from 'rxjs/internal/operators/switchMap';
+import { first } from 'rxjs';
 export class HttpServiceBase {
   constructor(private tokenService: TokenService) {}
   protected hostUrl =
@@ -26,7 +26,7 @@ export class HttpServiceBase {
       tap((v) => {
         console.log(v);
       }),
-      filter((x) => x === false),
+      first((x) => x === false),
       switchMap(() => source)
     );
 

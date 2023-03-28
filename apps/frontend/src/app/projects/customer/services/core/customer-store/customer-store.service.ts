@@ -7,7 +7,7 @@ export class CustomerStoreService {
   constructor(storeService: StoreService) {
     storeService.store.account = {
       catalog: {
-        products: new BehaviorSubject({})
+        products: new BehaviorSubject({loading: true})
       },
       order: {},
       selectedProduct: {}

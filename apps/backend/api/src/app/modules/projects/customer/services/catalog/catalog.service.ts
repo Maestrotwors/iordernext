@@ -1,9 +1,17 @@
-import { Injectable, NotAcceptableException } from '@nestjs/common';
+import { PrismaService } from '@base/libs/backend/repository/src/lib/prisma.service';
+import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class CatalogService {
+  constructor(private prisma: PrismaService) {}
+
   async getCatalog() {
-    try {
+    const catalog = await this.prisma.product.findMany();
+    return {
+      productsCount: 3,
+      products: catalog,
+    };
+    /*try {
       return {
         productsCount: 3,
         products: [
@@ -11,7 +19,7 @@ export class CatalogService {
             id: '1',
             name: 'Product 1',
             price: 100,
-            avaliable: 5,
+            available: 5,
             image:
               'https://prodasnovastacc.blob.core.windows.net/product-small-images/3/7702018874293.jpg',
           },
@@ -19,7 +27,7 @@ export class CatalogService {
             id: '2',
             name: 'Product 2',
             price: 100,
-            avaliable: 5,
+            available: 5,
             image:
               'https://prodasnovastacc.blob.core.windows.net/product-small-images/3/7702018874293.jpg',
           },
@@ -27,7 +35,7 @@ export class CatalogService {
             id: '3',
             name: 'Product 3',
             price: 100,
-            avaliable: 5,
+            available: 5,
             image:
               'https://prodasnovastacc.blob.core.windows.net/product-small-images/3/7702018874293.jpg',
           },
@@ -35,6 +43,6 @@ export class CatalogService {
       };
     } catch {
       throw new NotAcceptableException();
-    }
+    }*/
   }
 }

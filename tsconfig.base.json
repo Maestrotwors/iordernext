@@ -39,6 +39,7 @@
       "@libs/*": ["libs/*"],
       "@libs/adaptive/*": ["libs/frontend/core/adaptive/*"],
       "@front-interfaces/*": ["apps/frontend/src/app/interfaces/*"],
+      "@styles/*": ["styles/*"],
       "tslib" : ["path/to/node_modules/tslib/tslib.d.ts"]
     }
   },

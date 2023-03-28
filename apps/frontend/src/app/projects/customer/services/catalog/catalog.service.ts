@@ -13,8 +13,7 @@ export class CatalogService {
     this.http.getWithToken$('customer/get-catalog').pipe(
 
     ).subscribe(x => {
-      this.store.catalog.products.next(x.data);
-      console.log(this.storeService.store);
+      this.store.catalog.products.next({...x.data, loading: false});
     });
   }
 }

@@ -12,7 +12,7 @@ import { CatalogPaginationComponent } from './components/catalog-pagination/cata
     CommonModule,
     ProductsListViewComponent,
     ProductsBlockViewComponent,
-    CatalogPaginationComponent,
+    CatalogPaginationComponent
   ],
   templateUrl: './catalog-content.component.html',
   styleUrls: ['./catalog-content.component.scss'],

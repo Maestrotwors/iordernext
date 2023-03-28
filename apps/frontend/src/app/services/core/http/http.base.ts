@@ -20,9 +20,10 @@ export class HttpServiceBase {
     this.iAmWaitingForNewToken.next(value);
   }
 
-  // TODO optimize double code
-  protected checkPipeWithToken<IHttpResponse>(source: Observable<IHttpResponse>) {
-    const filteredPipe = this.iAmWaitingForNewToken.pipe(
+  protected checkPipeWithToken<IHttpResponse>(
+    source: Observable<IHttpResponse>
+  ) {
+    const filtered = this.iAmWaitingForNewToken.pipe(
       tap((v) => {
         console.log(v);
       }),
@@ -30,31 +31,13 @@ export class HttpServiceBase {
       switchMap(() => source)
     );
 
-    return filteredPipe.pipe(
-      map((data) => {
-        return {
-          data: data,
-          hasError: false,
-        };
-      }),
-      catchError(async (err) => {
-        return { data: err.error, hasError: true };
-      })
-    );
+    return this.check(filtered);
   }
 
-  protected checkPipeWithoutToken<IHttpResponse>(source: Observable<IHttpResponse>) {
-    return source.pipe(
-      map((data) => {
-        return {
-          data: data,
-          hasError: false,
-        };
-      }),
-      catchError(async (err) => {
-        return { data: err.error, hasError: true };
-      })
-    );
+  protected checkPipeWithoutToken<IHttpResponse>(
+    source: Observable<IHttpResponse>
+  ) {
+    return this.check(source);
   }
 
   protected processOptionsWithToken(options: object = {}) {
@@ -68,6 +51,20 @@ export class HttpServiceBase {
       ...options,
       ...auth,
     };
+  }
+
+  private check<IHttpResponse>(source: Observable<IHttpResponse>) {
+    return source.pipe(
+      map((data) => {
+        return {
+          data: data,
+          hasError: false,
+        };
+      }),
+      catchError(async (err) => {
+        return { data: err.error, hasError: true };
+      })
+    );
   }
 }
 

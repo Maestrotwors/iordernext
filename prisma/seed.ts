@@ -7,41 +7,29 @@ const prisma = new PrismaClient();
 
 async function main() {
 	// create dummy articles
-	const post1 = await prisma.article.upsert({
-		where: { title: "Prisma Adds Support for MongoDB" },
-		update: {},
-		create: {
-			title: "Prisma Adds Support for MongoDB",
-			body: "Support for MongoDB has been one of the most requested features since the initial release of...",
-			description:
-				"We are excited to share that today's Prisma ORM release adds stable support for MongoDB!",
-			published: false
-		}
-	});
+		const product1 = await prisma.product.upsert({
+      where: { id: 1 },
+      update: {},
+      create: {
+        name: 'Gilette',
+        available: 200,
+        price: 20,
+        image:
+          'https://prodasnovastacc.blob.core.windows.net/product-small-images/3/7702018874293.jpg',
+      },
+    });
 
-	const post2 = await prisma.article.upsert({
-		where: { title: "What's new in Prisma? (Q1/22)" },
-		update: {},
-		create: {
-			title: "What's new in Prisma? (Q1/22)",
-			body: "Our engineers have been working hard, issuing new releases with many improvements...",
-			description:
-				"Learn about everything in the Prisma ecosystem and community from January to March 2022.",
-			published: true
-		}
-	});
-
-	const post3 = await prisma.article.upsert({
-		where: { title: "111What's new in Prisma? (Q1/22)" },
-		update: {},
-		create: {
-			title: "111What's new in Prisma? (Q1/22)",
-			body: "11Our engineers have been working hard, issuing new releases with many improvements...",
-			description:
-				"11Learn about everything in the Prisma ecosystem and community from January to March 2022.",
-			published: true
-		}
-	});
+    const product2 = await prisma.product.upsert({
+      where: { id: 2 },
+      update: {},
+      create: {
+        name: 'Fairy',
+        available: 5000,
+        price: 40,
+        image:
+          'https://prodasnovastacc.blob.core.windows.net/product-small-images/3/5413149314092.jpg',
+      },
+    });
 
 	// password = "test", hash is $2a$10$JjEFoHbJH32awcKgsFfPReonEVy3P9ZEpNlqm2tWB/dOQ6IxknM4S
 	const user1 = await prisma.user.upsert({
@@ -55,7 +43,7 @@ async function main() {
 		}
 	});
 
-	console.log({ post1, post2, post3, user1 });
+	console.log({ product1, product2, user1 });
 }
 
 // execute the main function

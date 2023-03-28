@@ -1,3 +1,7 @@
-<div class="products-list">
+<div class="products-list" *ngIf="(products | async)?.loading === false; else loadingtmpl">
 	<app-product-block *ngFor="let product of (products | async)?.['products']" [product]="product"></app-product-block>
 </div>
+
+<ng-template #loadingtmpl>
+  <app-spinner-circle></app-spinner-circle>
+</ng-template>

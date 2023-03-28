@@ -1,12 +1,12 @@
 <div class="product-block">
   <div class="image-container">
-    <img src="https://prodasnovastacc.blob.core.windows.net/product-small-images/3/7702018874293.jpg">
+    <img [src]="product.image">
   </div>
   <div class="price-container">{{product.price}} грн.</div>
   <div class="title-container">{{product.name}}</div>
   <div class="additional-container table-2-col">
-    <div>Доступно: {{product.available}}</div>
-    <div>8+2шт</div>
+    <div>Доступно:</div>
+    <div>{{product.available}}</div>
   </div>
   <div class="order-container table-2-col">
     <div>input</div>

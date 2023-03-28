@@ -54,6 +54,15 @@ model Product {
   @@schema("base")
 }
 
+model Category {
+  id             Int      @id @unique @default(autoincrement())
+  name           String
+  parentId       Int?
+  subSupplierId  Int
+
+  @@schema("base")
+}
+
 model Catalog {
   id               Int      @id @default(autoincrement())
   productId        Int

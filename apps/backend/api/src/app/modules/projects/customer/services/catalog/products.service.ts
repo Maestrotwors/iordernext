@@ -2,13 +2,13 @@ import { PrismaService } from '@base/libs/backend/repository/src/lib/prisma.serv
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class CatalogService {
+export class ProductsService {
   constructor(private prisma: PrismaService) {}
 
-  async getCatalog() {
+  async getProducts() {
     const catalog = await this.prisma.product.findMany();
     return {
-      productsCount: 3,
+      productsCount: 33333,
       products: catalog,
     };
     /*try {

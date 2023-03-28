@@ -1,1 +1,5 @@
-<p>categories-list works!</p>
+<div>
+  <ul *ngIf="(categories | async)?.categories?.length > 0">
+    <li *ngFor="let category of (categories | async)?.categories">{{category.name}}</li>
+  </ul>
+</div>

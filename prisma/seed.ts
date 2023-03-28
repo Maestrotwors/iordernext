@@ -31,6 +31,31 @@ async function main() {
       },
     });
 
+  const category1 = await prisma.category.upsert({
+    where: { id: 1 },
+    update: {},
+    create: {
+      name: 'Ватно-паперові гігієнічні вироби',
+      subSupplierId: 1,
+    },
+  });
+  const category2 = await prisma.category.upsert({
+    where: { id: 2 },
+    update: {},
+    create: {
+      name: 'Гелі для душу /мило жіночі',
+      subSupplierId: 1,
+    },
+  });
+  const category3 = await prisma.category.upsert({
+    where: { id: 3 },
+    update: {},
+    create: {
+      name: 'Гелі для душу /мило чоловічі',
+      subSupplierId: 1,
+    },
+  });
+
 	// password = "test", hash is $2a$10$JjEFoHbJH32awcKgsFfPReonEVy3P9ZEpNlqm2tWB/dOQ6IxknM4S
 	const user1 = await prisma.user.upsert({
 		where: { login: "test" },

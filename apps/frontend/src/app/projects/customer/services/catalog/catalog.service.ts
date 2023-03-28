@@ -3,17 +3,26 @@ import { StoreService } from '@app-services/store/store/store.service';
 import { HttpService } from '@app-services/http/http.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CatalogService {
   private store = this.storeService.store.account;
-  constructor(private http: HttpService, private storeService: StoreService) { }
+  constructor(private http: HttpService, private storeService: StoreService) {}
 
-  async getCatalog() {
-    this.http.getWithToken$('customer/get-catalog').pipe(
+  getCatalog() {
+    this.http
+      .getWithToken$('customer/get-catalog')
+      .pipe()
+      .subscribe((x) => {
+        this.store.catalog.products.next({ ...x.data, loading: false });
+      });
+  }
 
-    ).subscribe(x => {
-      this.store.catalog.products.next({...x.data, loading: false});
-    });
+  getCategories() {
+    this.http
+      .getWithToken$('customer/get-categories')
+      .subscribe((x) => {
+        this.store.catalog.categories.next({ categories: x.data, loading: false });
+      });
   }
 }

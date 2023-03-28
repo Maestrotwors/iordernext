@@ -8,6 +8,7 @@ export class StoreService {
     userInfo: {
       name: 'Ракзін Роман Сергіович',
       memberShipType: 'PublicUser',
-    }
+    },
+    account: {}
   };
 }

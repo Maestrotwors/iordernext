@@ -1,0 +1,28 @@
+.title {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin: 1rem 0;
+}
+
+.available {
+  color: var(--product-available-color);
+  margin: 1rem 0;
+}
+
+.order {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  grid-gap: 1rem;
+}
+nz-tag {
+  cursor: pointer;
+}
+
+nz-tag:hover .tag {
+  text-decoration: underline;
+}

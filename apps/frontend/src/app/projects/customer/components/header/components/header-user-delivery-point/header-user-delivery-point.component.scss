@@ -1,0 +1,26 @@
+.dropdown-menu {
+  background-color: rgb(247, 247, 247);
+  z-index: 10;
+  width: 20rem;
+  padding: 1rem;
+}
+
+.title {
+  font-weight: bold;
+  text-align: center;
+}
+
+.change-supplier {
+  text-align: center;
+  cursor: pointer;
+  margin: 0.2rem 0;
+}
+
+.row {
+  border-top: 1px solid var(--standard-border-color);
+  .row-title {
+    color: gray;
+    font-size: 0.7rem;
+  }
+}
+

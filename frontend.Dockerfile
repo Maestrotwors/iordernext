@@ -1,13 +1,7 @@
-FROM node:18 as build-env
+FROM katsuba/spa-nginx:1.23
 
-WORKDIR /app
+COPY dist/apps/frontend /usr/share/nginx/html
 
-COPY . .
-RUN npm install
-RUN npm run build:front
+EXPOSE 8080
 
-FROM nginx:1.18.0
-
-COPY --from=build-env /app/dist/apps/frontend /app
-COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
-CMD nginx -g 'daemon off;'
+CMD ["nginx", "-c", "/etc/nginx/conf.d/default.conf", "-p", "."]

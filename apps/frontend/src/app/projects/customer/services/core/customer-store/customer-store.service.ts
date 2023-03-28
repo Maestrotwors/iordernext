@@ -1,11 +1,16 @@
 import { Injectable } from '@angular/core';
 import { StoreService } from '../../../../../services/core/store/store/store.service';
+import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 
 @Injectable()
 export class CustomerStoreService {
   constructor(storeService: StoreService) {
     storeService.store.account = {
-      param: 'value'
+      catalog: {
+        products: new BehaviorSubject({})
+      },
+      order: {},
+      selectedProduct: {}
     };
     console.log(storeService.store);
   }

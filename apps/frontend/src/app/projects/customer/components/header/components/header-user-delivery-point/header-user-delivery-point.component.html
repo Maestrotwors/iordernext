@@ -1,10 +1,17 @@
 <div nz-dropdown [nzDropdownMenu]="menu">header-user-delivery-point works!</div>
 
-<nz-dropdown-menu #menu="nzDropdownMenu">
-  <ul nz-menu nzSelectable>
-    <li nz-menu-item>1st menu item</li>
-    <li nz-menu-item>2nd menu item</li>
-    <li nz-menu-item>3rd menu item</li>
-    <li nz-menu-item nzDanger>4th danger item</li>
-  </ul>
+<nz-dropdown-menu #menu="nzDropdownMenu" >
+  <div class="dropdown-menu">
+    <div class="title">Інформація по замовленню</div>
+    <div class="change-supplier">Змінити</div>
+    <div class="row">
+      <div class="row-title">Юридична особа</div>
+      <div>Новий для КПК</div>
+    </div>
+    <div class="row">
+      <div class="row-title">Адреса доставки</div>
+      <div>Миколаївська обл., Баштанський р-н, м.Баштанка, вул. Яновського 28
+      </div>
+    </div>
+  </div>
 </nz-dropdown-menu>

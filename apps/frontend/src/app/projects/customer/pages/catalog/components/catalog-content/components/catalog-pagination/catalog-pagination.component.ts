@@ -2,13 +2,13 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-product-info',
+  selector: 'app-catalog-pagination',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './product-info.component.html',
-  styleUrls: ['./product-info.component.scss'],
+  templateUrl: './catalog-pagination.component.html',
+  styleUrls: ['./catalog-pagination.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProductInfoComponent {
+export class CatalogPaginationComponent {
 
 }

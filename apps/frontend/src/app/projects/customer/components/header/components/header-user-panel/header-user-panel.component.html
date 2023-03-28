@@ -1,1 +1,9 @@
-<p>header-user-panel works!</p>
+<div nz-dropdown [nzDropdownMenu]="menu" [nzPlacement]="'bottomRight'">header-user-panel works!</div>
+
+<nz-dropdown-menu #menu="nzDropdownMenu">
+  <ul nz-menu nzSelectable>
+    <li nz-menu-item *ngFor="let item of userMenuLinks">
+      <a routerLink="/member-user/order">{{item.label}}</a>
+    </li>
+  </ul>
+</nz-dropdown-menu>

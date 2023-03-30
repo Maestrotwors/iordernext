@@ -30,8 +30,8 @@ export class AuthService {
   }
 
   logOut() {
-    localStorage.clear();
-    location.replace('/');
+    //localStorage.clear();
+    //location.replace('/');
   }
 
   async refreshToken() {

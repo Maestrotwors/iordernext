@@ -5,6 +5,7 @@ import { SuppliersService } from './services/suppliers/suppliers.service';
 import { ProductsService } from './services/catalog/products.service';
 import { PrismaService } from '@base/libs/backend/repository/src/lib/prisma.service';
 import { CategoryService } from './services/catalog/category.service';
+import { ProductService } from './services/product/product.service';
 
 @Module({
   imports: [AuthModule],
@@ -12,6 +13,7 @@ import { CategoryService } from './services/catalog/category.service';
   providers: [
     SuppliersService,
     ProductsService,
+    ProductService,
     PrismaService,
     CategoryService,
   ],

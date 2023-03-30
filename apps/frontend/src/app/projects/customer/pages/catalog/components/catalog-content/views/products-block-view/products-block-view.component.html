@@ -1,5 +1,8 @@
 <div class="products-list" *ngIf="(products | async)?.loading === false; else loadingtmpl">
-	<app-product-block *ngFor="let product of (products | async)?.['products']" [product]="product"></app-product-block>
+	<app-product-block *ngFor="let product of (products | async)?.['products']; trackBy: identify; let index = index"
+    [@fadeIn]="{value: '', params: { time:200, delay:  index < 20 ? index * 200 : 0}}"
+    [product]="product">
+  </app-product-block>
 </div>
 
 <ng-template #loadingtmpl>

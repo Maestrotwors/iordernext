@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { SupplierComponent } from './supplier.component';
 import { TitleComponent } from './components/title/title.component';
 import { routes } from './app.routes';
+import { OfflineComponent } from '../../shared/components/offline/offline.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { routes } from './app.routes';
     HeaderComponent,
     FooterComponent,
     MenuDesktopComponent,
-    TitleComponent
+    TitleComponent,
+    OfflineComponent
   ],
   declarations: [SupplierComponent],
 })

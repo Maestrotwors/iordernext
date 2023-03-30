@@ -4,11 +4,11 @@ import { Injectable } from '@angular/core';
 export class StoreService {
   constructor() {}
 
-  store:any = {
+  store: any = {
     userInfo: {
       name: 'Ракзін Роман Сергіович',
       memberShipType: 'PublicUser',
     },
-    account: {}
+    account: {},
   };
 }

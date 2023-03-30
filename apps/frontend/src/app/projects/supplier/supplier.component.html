@@ -1,4 +1,4 @@
-<div>
+<ng-container *ngIf="(offlineService.onlineStatus | async) === onlineStatus.online">
   <app-header></app-header>
   <div class="p-container supplier-content width-container">
     <app-menu-desktop></app-menu-desktop>
@@ -8,4 +8,5 @@
     </div>
   </div>
   <app-footer></app-footer>
-</div>
+</ng-container>
+<app-offline *ngIf="(offlineService.onlineStatus | async) === onlineStatus.offline"></app-offline>

@@ -1,17 +1,19 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 
 import { Auth } from '../../../decorators/auth.decorator';
 import { Role } from '@base/libs/backend/models/src/lib/auth/roles';
 import { SuppliersService } from './services/suppliers/suppliers.service';
 import { ProductsService } from './services/catalog/products.service';
 import { CategoryService } from './services/catalog/category.service';
+import { ProductService } from './services/product/product.service';
 
 @Controller('customer')
 export class CustomerController {
   constructor(
     private suppliersService: SuppliersService,
     private productsService: ProductsService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private productService: ProductService
   ) {}
 
   @Get('get-suppliers')
@@ -30,5 +32,12 @@ export class CustomerController {
   @Auth([Role.Customer])
   async getCategories() {
     return await this.categoryService.getCategories();
+  }
+
+  // TODO add class validator, SQL injection protection
+  @Get('get-product/:id')
+  @Auth([Role.Customer])
+  async getProductById(@Param('id') id: number) {
+    return await this.productService.getProductById(id);
   }
 }

@@ -39,8 +39,10 @@ export class AuthService {
 			throw new NotAcceptableException('Invalid refresh token');
 		}
 		const tokenDecoded = this.tokenService.decodeToken(token);
+
 		if (this.dateService.compare(user.updatedAt, tokenDecoded?.["uat"])) {
-			return await this.generateUserTokens(user);
+      const data = await this.generateUserTokens(user);
+			return data;
 		}
 		throw new NotAcceptableException('Invalid refresh token');
 	}
@@ -97,6 +99,7 @@ export class AuthService {
 	}
 
 	private async generateUserTokens(user): Promise<UserTokensDto> {
+    // TODO: analog forkJoin
 		return {
 			access_token: await this.tokenService.signAccessToken(user),
 			refresh_token: await this.tokenService.signRefreshToken(user)

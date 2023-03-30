@@ -56,6 +56,7 @@ export class AuthController {
     @Body() body: RefreshTokenDto
   ): Promise<UserTokensDto | null> {
     try {
+      console.log(body);
       return await this.authService.refreshToken(body.refreshToken);
     } catch {
       throw new ForbiddenException('Invalid refresh token');

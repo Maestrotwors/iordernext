@@ -1,0 +1,14 @@
+.container {
+  .caption {
+    color: gray;
+    font-size: 0.8rem
+  }
+}
+
+::ng-deep .ant-select {
+  min-width: 10rem;
+}
+
+.width-full {
+  min-width: 100%;
+}

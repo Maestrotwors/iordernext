@@ -40,7 +40,14 @@ model User {
 model Supplier {
   id          Int      @id @unique @default(autoincrement())
   name        String   @unique
+  image       String
+  @@schema("base")
+}
 
+model SupplierDeliveryPoint {
+  id                Int      @id @unique @default(autoincrement())
+  supplierId        Int
+  deliveryPointId   Int
   @@schema("base")
 }
 

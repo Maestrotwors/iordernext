@@ -68,6 +68,25 @@ async function main() {
 		}
 	});
 
+  const supplier1 = await prisma.supplier.upsert({
+    where: { id: 1 },
+    update: {},
+    create: {
+      name: 'SavService Neproducti',
+      image:
+        'https://prodasnovastacc.blob.core.windows.net/supplier-logos/3.png'
+    },
+  });
+  const supplier2 = await prisma.supplier.upsert({
+    where: { id: 2 },
+    update: {},
+    create: {
+      name: 'Rusalochka',
+      image:
+        'https://prodasnovastacc.blob.core.windows.net/supplier-logos/22.png',
+    },
+  });
+
 	console.log({ product1, product2, user1 });
 }
 

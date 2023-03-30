@@ -9,10 +9,10 @@ export class OfflineService {
   constructor() {
     this.listenToOnlineStatus();
   }
-   currentOnlineStatus = new BehaviorSubject(onlineStatus.online);
-  onlineStatus = this.currentOnlineStatus.asObservable();
+  private currentOnlineStatus = new BehaviorSubject(onlineStatus.online);
+  public onlineStatus = this.currentOnlineStatus.asObservable();
 
-  listenToOnlineStatus(): void {
+  private listenToOnlineStatus(): void {
     window.addEventListener('online', () => {
       this.currentOnlineStatus.next(onlineStatus.online);
     });

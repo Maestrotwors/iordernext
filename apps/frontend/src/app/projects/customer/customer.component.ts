@@ -1,5 +1,7 @@
+import { OfflineService } from './../../services/core/offline/offline.service';
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 import { CustomerStoreService } from './services/core/customer-store/customer-store.service';
+import { onlineStatus } from '@app-services/offline/online-status.type';
 
 @Component({
   selector: 'app-customer',
@@ -10,5 +12,10 @@ import { CustomerStoreService } from './services/core/customer-store/customer-st
   providers: [CustomerStoreService],
 })
 export class CustomerComponent {
-  constructor(private customerStoreService: CustomerStoreService) {}
+  constructor(
+    private customerStoreService: CustomerStoreService,
+    protected offlineService: OfflineService
+  ) {}
+
+  onlineStatus = onlineStatus;
 }

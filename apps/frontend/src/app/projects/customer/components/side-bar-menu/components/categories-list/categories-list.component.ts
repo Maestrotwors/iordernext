@@ -13,5 +13,10 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 })
 export class CategoriesListComponent {
   constructor(private storeService: StoreService) {}
-  categories: BehaviorSubject<any> = this.storeService.store.account.catalog.categories;
+  categories: BehaviorSubject<any> =
+    this.storeService.store.account.catalog.categories;
+
+  identify(index: number, item: any) {
+    return item.id;
+  }
 }

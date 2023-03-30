@@ -2,10 +2,14 @@ import { PrismaService } from '@base/libs/backend/repository/src/lib/prisma.serv
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class SuppliersService {
+export class ProductService {
   constructor(private prisma: PrismaService) {}
 
-  async getSuppliers() {
-    return await this.prisma.supplier.findMany();
+  async getProductById(id: number) {
+    return await this.prisma.product.findUnique({
+      where: {
+        id: Number(id),
+      },
+    });
   }
 }

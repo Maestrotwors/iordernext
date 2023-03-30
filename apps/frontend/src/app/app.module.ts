@@ -10,7 +10,6 @@ import { IsSupplierGuard } from './guards/supplier.guard';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
-import { OfflineComponent } from './shared/components/offline/offline.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NZ_DATE_CONFIG, NZ_I18N, uk_UA } from 'ng-zorro-antd/i18n';
 
@@ -25,7 +24,6 @@ import { NZ_DATE_CONFIG, NZ_I18N, uk_UA } from 'ng-zorro-antd/i18n';
     HttpClientModule,
     AppCoreModule.forRoot(),
     BrowserAnimationsModule,
-    OfflineComponent,
   ],
   providers: [
     IsCustomerGuard,

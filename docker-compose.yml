@@ -80,15 +80,15 @@ services:
     networks:
       - app-network
 
-  #api:
-  #  build:
-   #   dockerfile: backend-api.Dockerfile
-  #  container_name: api
-  # restart: always
-  #  ports:
-  #    - '3333:3333'
-  #  networks:
-  #    - app-network
+  backend:
+    build:
+      dockerfile: backend-api.Dockerfile
+    container_name: backend
+    restart: always
+    ports:
+      - '3333:3333'
+    networks:
+      - app-network
 
 volumes:
   postgres:

@@ -18,17 +18,10 @@ export const routes: Route[] = [
       },
       {
         path: 'catalog',
-        loadComponent: () =>
-          import('./pages/catalog/catalog.component').then(
-            (c) => c.CatalogComponent
-          ),
+        loadChildren: () =>
+          import('./pages/catalog/catalog.module').then((m) => m.CatalogModule),
         data: {
-          preloadAfter: 400,
-          showOptions: {
-            searchPanel: true,
-            basketPanel: true,
-            deliveryPointPanel: true,
-          },
+          preloadAfter: 250,
         },
       },
       {
@@ -37,21 +30,6 @@ export const routes: Route[] = [
           import('./pages/order/order.component').then((c) => c.OrderComponent),
         data: {
           preloadAfter: 900,
-        },
-      },
-      {
-        path: 'product/:id',
-        loadComponent: () =>
-          import('./pages/product/product.component').then(
-            (c) => c.ProductComponent
-          ),
-        data: {
-          preloadAfter: 190,
-          showOptions: {
-            searchPanel: true,
-            basketPanel: true,
-            deliveryPointPanel: true,
-          },
         },
       },
       {

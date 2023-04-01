@@ -14,7 +14,7 @@ export class ProductService {
   ) {}
 
   selectProduct(id: number) {
-    this.router.navigateByUrl('member-user/product/' + id);
+    this.router.navigateByUrl('member-user/catalog/product/' + id);
   }
 
   getProduct(id: number) {

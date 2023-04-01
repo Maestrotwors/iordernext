@@ -15,9 +15,17 @@ export class HttpServiceBase {
   private iAmWaitingForNewToken: BehaviorSubject<boolean> = new BehaviorSubject(
     false
   );
+  public receivingNewToken = this.iAmWaitingForNewToken.asObservable();
 
   blockRequestsUntilTokenRefreshed(value: boolean) {
-    this.iAmWaitingForNewToken.next(value);
+    return new Promise((resolve) => {
+        if (this.iAmWaitingForNewToken.value === true) {
+          resolve(false);
+        }
+        console.log(value);
+        this.iAmWaitingForNewToken.next(value);
+        resolve(true);
+    });
   }
 
   protected checkPipeWithToken<IHttpResponse>(

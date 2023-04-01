@@ -1,4 +1,3 @@
-import { SpinnerCircleComponent } from './../../../../../../shared/components/spinners/spinner-circle/spinner-circle.component';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductHeaderComponent } from './components/product-header/product-header.component';

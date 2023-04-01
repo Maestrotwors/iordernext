@@ -4,6 +4,7 @@
 
 <div class="contracts-container">
   <app-supplier-emblem-big
+    src="https://prodasnovastacc.blob.core.windows.net/supplier-logos/3.png"
     *ngFor="let supplier of (suppliers | async)?.['suppliers']; trackBy: identify; let index = index"
     [@fadeIn]="{value: '', params: { time:80, delay:  index < 20 ? index * 50 : 0}}">
   </app-supplier-emblem-big>

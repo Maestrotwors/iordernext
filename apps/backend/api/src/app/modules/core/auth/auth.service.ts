@@ -30,7 +30,10 @@ export class AuthService {
 	}
 
 	async refreshToken(token: string): Promise<UserTokensDto | null> {
+    console.log(token);
 		const verificedToken = await this.tokenService.verifyRefreshToken(token);
+    console.log('verificedToken');
+    console.log(verificedToken);
 		if (!verificedToken) {
 			throw new NotAcceptableException("Invalid refresh token");
 		}
@@ -38,7 +41,12 @@ export class AuthService {
 		if (!user) {
 			throw new NotAcceptableException('Invalid refresh token');
 		}
+    console.log('user');
+    console.log(user);
 		const tokenDecoded = this.tokenService.decodeToken(token);
+
+    console.log('tokenDecoded');
+    console.log(tokenDecoded);
 
 		if (this.dateService.compare(user.updatedAt, tokenDecoded?.["uat"])) {
       const data = await this.generateUserTokens(user);

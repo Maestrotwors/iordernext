@@ -1,3 +1,4 @@
+import { TopBarMenuComponent } from './../../components/top-bar-menu/top-bar-menu.component';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
@@ -12,11 +13,11 @@ import { CatalogPaginationComponent } from './components/catalog-pagination/cata
     CommonModule,
     ProductsListViewComponent,
     ProductsBlockViewComponent,
-    CatalogPaginationComponent
+    CatalogPaginationComponent,
+    TopBarMenuComponent
   ],
   templateUrl: './catalog-content.component.html',
   styleUrls: ['./catalog-content.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CatalogContentComponent {
-}
+export class CatalogContentComponent {}

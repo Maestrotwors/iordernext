@@ -6,8 +6,12 @@
   border-radius: 0.2rem;
   padding: 0.2rem;
   font-size: 0.8rem;
+  min-height: 3rem;
   cursor: pointer;
 
+  .text {
+    margin: auto 0;
+  }
 }
 
 .list:hover {

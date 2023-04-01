@@ -8,8 +8,9 @@ import { ImageLoaderComponent } from '@base/apps/frontend/src/app/shared/compone
   imports: [CommonModule, ImageLoaderComponent],
   templateUrl: './supplier-emblem-big.component.html',
   styleUrls: ['./supplier-emblem-big.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SupplierEmblemBigComponent {
   @Input() src = '';
+  @Input() hoverText = '';
 }

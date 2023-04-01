@@ -1,7 +1,18 @@
-FROM katsuba/spa-nginx:1.23
+FROM node:14 as build
 
-COPY dist/apps/frontend /usr/share/nginx/html
+WORKDIR /app
 
-EXPOSE 8080
+COPY package.json package-lock.json ./
+RUN npm i
 
-CMD ["nginx", "-c", "/etc/nginx/conf.d/default.conf", "-p", "."]
+COPY . .
+RUN npm run build
+
+# Stage 2: Serve the app with Nginx
+FROM nginx:1.21
+
+COPY --from=build /app/dist/apps/frontend/browser /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

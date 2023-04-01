@@ -1,7 +1,5 @@
 .product-dektop {
   display: grid;
-  grid-template-columns: var(--catalog-left-bar-width) 1fr;
-  grid-gap: 0.2rem;
 
   .product-main-container {
     padding-left: var(--standard-padding);

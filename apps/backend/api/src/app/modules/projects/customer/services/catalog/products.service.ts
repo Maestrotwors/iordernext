@@ -6,7 +6,14 @@ export class ProductsService {
   constructor(private prisma: PrismaService) {}
 
   async getProducts() {
-    const catalog = await this.prisma.product.findMany();
+    const catalog = await this.prisma.product.findMany({
+      take: 40,
+      where: {
+        id: {
+          gte: 9979,
+        }
+      }
+    });
     return {
       productsCount: 33333,
       products: catalog,

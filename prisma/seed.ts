@@ -55,6 +55,35 @@ async function main() {
       },
     });
 
+  for (var i = 0; i < 10000; i++) {
+    console.log('mock product created, id: ' + i + 6);
+    const productX = await prisma.product.upsert({
+      where: { id: i + 6 },
+      update: {},
+      create: {
+        name: 'MR PROPER Рідкий миючий засіб для прибирання підлоги та стін Лимон 1л - длинный текст далее длинный текст далее длинный текст далее',
+        available: 3000,
+        price: 30,
+        image:
+          'https://prodasnovastacc.blob.core.windows.net/product-images/3/4084500644762.jpg',
+      },
+    });
+
+  }
+
+  const productY = await prisma.product.upsert({
+    where: { id: 10_006 },
+    update: {},
+    create: {
+      name: 'GALA Руч СМЗ порошк. Аква-Пудра для кольорових речей Французький аромат 300г',
+      available: 5000,
+      price: 40,
+      image:
+        'https://prodasnovastacc.blob.core.windows.net/product-small-images/3/8006540512180.jpg',
+    },
+  });
+
+
   const category1 = await prisma.category.upsert({
     where: { id: 1 },
     update: {},

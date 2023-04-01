@@ -1,3 +1,4 @@
+import { ImageLoaderComponent } from './../../../../../../../../../../shared/components/image-loader/image-loader.component';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductService } from '@base/apps/frontend/src/app/projects/customer/services/product/product.service';
@@ -5,7 +6,7 @@ import { ProductService } from '@base/apps/frontend/src/app/projects/customer/se
 @Component({
   selector: 'app-product-block',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ImageLoaderComponent],
   templateUrl: './product-block.component.html',
   styleUrls: ['./product-block.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

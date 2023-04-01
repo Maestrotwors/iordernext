@@ -1,7 +1,9 @@
 import { OfflineService } from './../../services/core/offline/offline.service';
-import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { CustomerStoreService } from './services/core/customer-store/customer-store.service';
 import { onlineStatus } from '@app-services/offline/online-status.type';
+import { Router, ActivatedRoute} from '@angular/router';
+
 
 @Component({
   selector: 'app-customer',
@@ -11,11 +13,17 @@ import { onlineStatus } from '@app-services/offline/online-status.type';
   encapsulation: ViewEncapsulation.None,
   providers: [CustomerStoreService],
 })
-export class CustomerComponent {
+export class CustomerComponent implements OnInit {
   constructor(
     private customerStoreService: CustomerStoreService,
-    protected offlineService: OfflineService
+    protected offlineService: OfflineService,
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   onlineStatus = onlineStatus;
+
+  ngOnInit(): void {
+    console.log(this.router);
+  }
 }

@@ -19,5 +19,6 @@ export class CatalogComponent implements OnInit {
   ngOnInit() {
     this.catalogService.getCatalog();
     this.catalogService.getCategories();
+    this.catalogService.getSubSuppliers();
   }
 }

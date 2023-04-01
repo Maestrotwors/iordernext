@@ -32,6 +32,15 @@ export class CatalogService {
     });
   }
 
+  getSubSuppliers() {
+    this.http.getWithToken$('customer/get-sub-suppliers').subscribe((x) => {
+      this.store.catalog.subSuppliers.next({
+        subSuppliers: x.data,
+        loading: false,
+      });
+    });
+  }
+
   toCatalog() {
     this.router.navigateByUrl('member-user/catalog');
   }

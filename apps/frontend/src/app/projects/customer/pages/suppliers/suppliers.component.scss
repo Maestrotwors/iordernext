@@ -1,9 +1,10 @@
 .suppliers-container {
-  min-height: 100vh;
+  display: grid;
+  height: 100%;
 }
 
 .content {
   display: grid;
   grid-template-columns: 1fr 20rem;
-
+  min-height: 100%;
 }

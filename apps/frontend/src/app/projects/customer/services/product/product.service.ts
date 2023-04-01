@@ -18,7 +18,7 @@ export class ProductService {
   }
 
   getProduct(id: number) {
-    this.http.getWithToken$('customer/get-product/' + id).subscribe((data) => {
+    this.http.getWithToken$('customer/get-product/' + id).pipe().subscribe((data) => {
       this.storeService.store.account.product.next({
         product: data.data,
         loading: false,

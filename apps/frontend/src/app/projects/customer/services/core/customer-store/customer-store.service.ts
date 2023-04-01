@@ -9,6 +9,7 @@ export class CustomerStoreService {
       catalog: {
         products: new BehaviorSubject({ loading: true }),
         categories: new BehaviorSubject({ loading: true }),
+        subSuppliers: new BehaviorSubject({ loading: true }),
       },
       suppliers: new BehaviorSubject({ loading: true }),
       product: new BehaviorSubject({ loading: true }),

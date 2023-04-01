@@ -1,3 +1,4 @@
+import { SpinnerCircleComponent } from './../../../../shared/components/spinners/spinner-circle/spinner-circle.component';
 import { ProductImagesComponent } from './components/product-images/product-images.component';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -6,6 +7,8 @@ import { ProductAdditionalInfoComponent } from './components/product-additional-
 import { ProductContentComponent } from './components/product-content/product-content.component';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../services/product/product.service';
+import { StoreService } from '@app-services/store/store/store.service';
+import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 
 @Component({
   selector: 'app-product',
@@ -16,6 +19,7 @@ import { ProductService } from '../../services/product/product.service';
     ProductImagesComponent,
     ProductAdditionalInfoComponent,
     ProductContentComponent,
+    SpinnerCircleComponent
   ],
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss'],
@@ -24,8 +28,12 @@ import { ProductService } from '../../services/product/product.service';
 export class ProductComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
-    private productService: ProductService
+    private productService: ProductService,
+    private storeService: StoreService
   ) {}
+
+  public product: BehaviorSubject<any> =
+    this.storeService.store.account.product;
 
   ngOnInit(): void {
     this.productService.getProduct(this.productId);
@@ -35,3 +43,4 @@ export class ProductComponent implements OnInit {
     return this.route.snapshot.params['id'];
   }
 }
+

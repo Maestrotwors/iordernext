@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UnderHeaderComponent } from './components/under-header/under-header.component';
 import { HeaderUserPanelComponent } from './components/header-user-panel/header-user-panel.component';
@@ -23,4 +23,6 @@ import { BannerComponent } from './components/banner/banner.component';
   styleUrls: ['./header.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  constructor() {}
+}

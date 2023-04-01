@@ -13,4 +13,9 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 export class SelectComponent {
   @Input() caption = '';
   @Input() width = '';
+  @Input() data:any = [];
+
+  identify(index: number, item: any) {
+    return item.id;
+  }
 }

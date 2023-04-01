@@ -1,11 +1,11 @@
 <div>
-  <div class="title">GILLETTE 2 Бритви одноразові 8+2шт</div>
+  <div class="title">{{(product | async).product.name}}</div>
   <div>
     <nz-tag>
       <span class="tag">Код товару: 7702018874293</span>
     </nz-tag>
   </div>
-  <div class="price">111,50 грн.</div>
+  <div class="price">{{(product | async).product.price}} грн.</div>
   <div class="available">Доступно товарів: 2163</div>
   <div class="order">
     <div>

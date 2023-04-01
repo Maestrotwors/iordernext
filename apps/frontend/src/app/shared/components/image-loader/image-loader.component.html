@@ -1,15 +1,21 @@
-<!--<ng-container [ngSwitch]="status" class="image-container">
-  <div *ngSwitchCase="null" class="preloader">
-    <div>
-      <app-spinner-bounce-mini color="grey" *ngIf="status === null"></app-spinner-bounce-mini>
+<div>
+  <ng-container [ngSwitch]="status" class="image-container">
+    <div *ngSwitchCase="null" class="preloader">
+      <div class="loading-spinner-outer">
+        <app-spinner-small class="loading-spinner-inner"
+          *ngIf="status === null"></app-spinner-small>
+      </div>
+      <img [lazyLoad]="src" class="invisible-img"
+        (onStateChange)="callbackFunction($event)" appHideMissing>
     </div>
-    <img [lazyLoad]="src" class="invisible-img" (onStateChange)="callbackFunction($event)" appHideMissing>
-  </div>
-  <div *ngSwitchCase="true" class="image-container">
-    <img [src]="src" *ngIf="status === true">
-  </div>
-  <div *ngSwitchCase="false" class="image-container not-found-container">
-    <fa-icon [icon]="faImage">
-    </fa-icon>
-  </div>
-</ng-container>-->
+    <div *ngSwitchCase="true" class="image-container">
+      <ng-content></ng-content>
+    </div>
+    <div *ngSwitchCase="false" class="image-container not-found-container">
+      not-found
+      <!--<fa-icon [icon]="faImage">
+      </fa-icon>-->
+    </div>
+  </ng-container>
+</div>
+

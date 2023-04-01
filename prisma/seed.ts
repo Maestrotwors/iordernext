@@ -19,6 +19,30 @@ async function main() {
       },
     });
 
+    		const product4 = await prisma.product.upsert({
+          where: { id: 4 },
+          update: {},
+          create: {
+            name: 'Gilette',
+            available: 200,
+            price: 20,
+            image:
+              'https://prodasnovastacc.blob.core.windows.net/product-small-images/3/7702018874293.jpg',
+          },
+        });
+
+        		const product5 = await prisma.product.upsert({
+              where: { id: 5 },
+              update: {},
+              create: {
+                name: 'Gilette',
+                available: 200,
+                price: 20,
+                image:
+                  'https://prodasnovastacc.blob.core.windows.net/product-small-images/3/7702018874293.jpg',
+              },
+            });
+
     const product2 = await prisma.product.upsert({
       where: { id: 2 },
       update: {},
@@ -86,6 +110,26 @@ async function main() {
         'https://prodasnovastacc.blob.core.windows.net/supplier-logos/22.png',
     },
   });
+
+    const supplier3 = await prisma.supplier.upsert({
+      where: { id: 3 },
+      update: {},
+      create: {
+        name: 'Rusalochka 3',
+        image:
+          'https://prodasnovastacc.blob.core.windows.net/supplier-logos/22.png',
+      },
+    });
+
+      const supplier4 = await prisma.supplier.upsert({
+        where: { id: 4 },
+        update: {},
+        create: {
+          name: 'Rusalochka 4',
+          image:
+            'https://prodasnovastacc.blob.core.windows.net/supplier-logos/22.png',
+        },
+      });
 
 	console.log({ product1, product2, user1 });
 }

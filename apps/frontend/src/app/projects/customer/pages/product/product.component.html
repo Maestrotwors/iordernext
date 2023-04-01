@@ -1,7 +1,7 @@
 <div class="width-container p-container">
   <div class="product-dektop">
     <app-side-bar-menu></app-side-bar-menu>
-    <div class="product-main-container">
+    <div class="product-main-container" *ngIf="!(product | async)?.loading; else loadingtmpl">
       <div class="product-container">
         <app-product-images></app-product-images>
         <app-product-content></app-product-content>
@@ -10,3 +10,7 @@
     </div>
   </div>
 </div>
+
+<ng-template #loadingtmpl>
+  <app-spinner-circle></app-spinner-circle>
+</ng-template>

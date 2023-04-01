@@ -1,11 +1,15 @@
+import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core';
 import { StateChange } from 'ng-lazyload-image';
+import { SpinnerSmallComponent } from '../spinners/spinner-small/spinner-small.component';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 @Component({
   selector: 'app-image-loader',
   templateUrl: './image-loader.component.html',
   styleUrls: ['./image-loader.component.scss'],
   standalone: true,
+  imports: [SpinnerSmallComponent, CommonModule, LazyLoadImageModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ImageLoaderComponent {

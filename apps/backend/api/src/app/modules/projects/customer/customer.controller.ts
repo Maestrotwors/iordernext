@@ -6,6 +6,7 @@ import { SuppliersService } from './services/suppliers/suppliers.service';
 import { ProductsService } from './services/catalog/products.service';
 import { CategoryService } from './services/catalog/category.service';
 import { ProductService } from './services/product/product.service';
+import { SubSuppliersService } from './services/subsuppliers/subsuppliers.service';
 
 @Controller('customer')
 export class CustomerController {
@@ -13,7 +14,8 @@ export class CustomerController {
     private suppliersService: SuppliersService,
     private productsService: ProductsService,
     private categoryService: CategoryService,
-    private productService: ProductService
+    private productService: ProductService,
+    private subSuppliersService: SubSuppliersService
   ) {}
 
   @Get('get-suppliers')
@@ -39,5 +41,11 @@ export class CustomerController {
   @Auth([Role.Customer])
   async getProductById(@Param('id') id: number) {
     return await this.productService.getProductById(id);
+  }
+
+  @Get('get-sub-suppliers')
+  @Auth([Role.Customer])
+  async getSubSuppliers() {
+    return await this.subSuppliersService.getSubSuppliers();
   }
 }

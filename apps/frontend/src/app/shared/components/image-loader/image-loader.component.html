@@ -9,7 +9,8 @@
         (onStateChange)="callbackFunction($event)" appHideMissing>
     </div>
     <div *ngSwitchCase="true" class="image-container">
-      <ng-content></ng-content>
+      <img [src]="src" class="image" />
+      <!--<ng-content></ng-content>-->
     </div>
     <div *ngSwitchCase="false" class="image-container not-found-container">
       not-found

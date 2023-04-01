@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ImageLoaderComponent } from '@base/apps/frontend/src/app/shared/components/image-loader/image-loader.component';
 
@@ -11,5 +11,5 @@ import { ImageLoaderComponent } from '@base/apps/frontend/src/app/shared/compone
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SupplierEmblemBigComponent {
-
+  @Input() src = '';
 }

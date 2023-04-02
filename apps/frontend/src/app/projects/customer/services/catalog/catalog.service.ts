@@ -14,12 +14,18 @@ export class CatalogService {
     private router: Router
   ) {}
 
-  getCatalog() {
+  getCatalog(query: any = {}) {
+    query = { limit: 40, page: 1, ...query};
+    this.store.catalog.products.next({ loading: true });
     this.http
-      .getWithToken$('customer/get-catalog')
+      .getWithToken$('customer/get-catalog', query)
       .pipe()
       .subscribe((x) => {
-        this.store.catalog.products.next({ ...x.data, loading: false });
+        this.store.catalog.products.next({
+          ...x.data,
+          page: query['page'],
+          loading: false,
+        });
       });
   }
 

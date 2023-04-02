@@ -6,7 +6,7 @@ import { ProductContentComponent } from './components/product-content/product-co
 import { ActivatedRoute } from '@angular/router';
 import { StoreService } from '@app-services/store/store/store.service';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
-import { SpinnerCircleComponent } from '@base/apps/frontend/src/app/shared/components/spinners/spinner-circle/spinner-circle.component';
+import { SpinnerCircleComponent } from '@base/apps/frontend/src/app/shared/components/loaders/spinner-circle/spinner-circle.component';
 import { ProductService } from '../../../../services/product/product.service';
 
 @Component({

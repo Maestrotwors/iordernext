@@ -6,17 +6,17 @@ import {
 } from '@angular/router';
 
 import { Injectable } from '@angular/core';
+import { AuthService } from '@app-services/auth/auth.service';
 
 @Injectable()
 export class IsSupplierGuard implements CanActivate {
-  constructor(private router: Router) {}
-  canActivate(route: ActivatedRouteSnapshot,state: RouterStateSnapshot) {
-    const customer = localStorage.getItem('MemberShipType');
+  constructor(private router: Router, private authService: AuthService) {}
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    const customer = localStorage.getItem('memberShipType');
     if (customer === 'Supplier') {
       return true;
     }
-    localStorage.clear();
-    this.router.navigateByUrl('');
+    this.authService.logOut();
     return false;
   }
 }

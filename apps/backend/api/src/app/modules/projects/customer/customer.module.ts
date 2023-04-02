@@ -7,6 +7,7 @@ import { PrismaService } from '@base/libs/backend/repository/src/lib/prisma.serv
 import { CategoryService } from './services/catalog/category.service';
 import { ProductService } from './services/product/product.service';
 import { SubSuppliersService } from './services/subsuppliers/subsuppliers.service';
+import { BasketService } from './services/basket/basket.service';
 
 @Module({
   imports: [AuthModule],
@@ -17,7 +18,8 @@ import { SubSuppliersService } from './services/subsuppliers/subsuppliers.servic
     ProductService,
     PrismaService,
     CategoryService,
-    SubSuppliersService
+    SubSuppliersService,
+    BasketService
   ],
   exports: [],
 })

@@ -1,4 +1,4 @@
-import { SpinnerCircleComponent } from './../../../../shared/components/spinners/spinner-circle/spinner-circle.component';
+import { SpinnerCircleComponent } from '../../../../shared/components/loaders/spinner-circle/spinner-circle.component';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 import { SuppliersService } from '../../services/suppliers/suppliers.service';

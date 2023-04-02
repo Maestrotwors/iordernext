@@ -77,3 +77,14 @@ model Catalog {
 
   @@schema("base")
 }
+
+model Basket {
+  id          Int      @id @default(autoincrement())
+  userId      Int
+  productId   Int
+  quantity    Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt @default(now())
+
+  @@schema("base")
+}

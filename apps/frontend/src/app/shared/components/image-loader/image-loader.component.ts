@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core';
 import { StateChange } from 'ng-lazyload-image';
-import { SpinnerSmallComponent } from '../spinners/spinner-small/spinner-small.component';
+import { SpinnerSmallComponent } from '../loaders/spinner-small/spinner-small.component';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 @Component({

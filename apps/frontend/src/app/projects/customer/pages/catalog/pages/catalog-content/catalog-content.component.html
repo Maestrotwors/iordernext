@@ -1,9 +1,13 @@
 <div class="catalog-content">
   <app-top-bar-menu></app-top-bar-menu>
-  <div>
+  <div class="products-container">
     <app-products-block-view></app-products-block-view>
     <!--<div>---------</div>
-  	<app-products-list-view></app-products-list-view>
-    <app-catalog-pagination></app-catalog-pagination>-->
+  	<app-products-list-view></app-products-list-view>-->
+    <app-catalog-pagination
+      (pageIndexChanged)="pageIndexChanged($event)"
+      [selectedPageIndex]="(products | async)?.page"
+      [productsCount]="(products | async)?.productsCount">
+    </app-catalog-pagination>
   </div>
 </div>

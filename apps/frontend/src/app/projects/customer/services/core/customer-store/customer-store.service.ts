@@ -13,7 +13,8 @@ export class CustomerStoreService {
       },
       suppliers: new BehaviorSubject({ loading: true }),
       product: new BehaviorSubject({ loading: true }),
-      order: {},
+      basket: new BehaviorSubject({ loading: true }),
+      orders: {},
       selectedProduct: {},
     };
     console.log(storeService.store);

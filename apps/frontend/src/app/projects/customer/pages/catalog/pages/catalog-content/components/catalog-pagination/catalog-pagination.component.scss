@@ -1,8 +1,30 @@
-.pagination {
-  position: absolute;
-  bottom: 2rem;
-  background-color: red;
-  margin: auto;
-  text-align: center;
+.pagination-container {
+  position: sticky;
+  bottom: 1rem;
+  margin: 2rem auto;
   width: 100%;
+
+  display: grid;
+  justify-content: center;
+
+
+  .pagination {
+    margin: auto;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--standard-border-color);
+    opacity: 0.9;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+  }
+
+  .pagination:hover {
+    opacity: 1;
+  }
+}
+
+
+::ng-deep svg {
+  margin-bottom: 5px;
 }

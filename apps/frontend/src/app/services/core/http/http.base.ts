@@ -19,12 +19,12 @@ export class HttpServiceBase {
 
   blockRequestsUntilTokenRefreshed(value: boolean) {
     return new Promise((resolve) => {
-        if (this.iAmWaitingForNewToken.value === true) {
-          resolve(false);
-        }
-        console.log(value);
-        this.iAmWaitingForNewToken.next(value);
-        resolve(true);
+      if (this.iAmWaitingForNewToken.value === true) {
+        resolve(false);
+      }
+      console.log(value);
+      this.iAmWaitingForNewToken.next(value);
+      resolve(true);
     });
   }
 
@@ -59,6 +59,18 @@ export class HttpServiceBase {
       ...options,
       ...auth,
     };
+  }
+
+  protected generateQueryString(query: object) {
+    return Object.keys(query).length === 0
+      ? ''
+      : '?' + this.objectToQuery(query);
+  }
+
+  private objectToQuery(obj: any) {
+    return Object.keys(obj)
+      .map((k) => encodeURIComponent(k) + '=' + encodeURIComponent(obj[k]))
+      .join('&');
   }
 
   private check<IHttpResponse>(source: Observable<IHttpResponse>) {

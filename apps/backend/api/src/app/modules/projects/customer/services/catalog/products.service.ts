@@ -5,51 +5,31 @@ import { Injectable } from '@nestjs/common';
 export class ProductsService {
   constructor(private prisma: PrismaService) {}
 
-  async getProducts() {
-    const catalog = await this.prisma.product.findMany({
-      take: 40,
-      where: {
-        id: {
-          gte: 9979,
-        }
-      }
+  async getProducts(query: object = {}) {
+    console.log(query);
+    return new Promise((resolve) => {
+      Promise.all([
+        this.getProductsData(query),
+        this.getProductsCount(query),
+      ]).then(([products, count]) => {
+        const response = {
+          productsCount: count,
+          products: products,
+        };
+        resolve(response);
+      });
     });
-    return {
-      productsCount: 33333,
-      products: catalog,
-    };
-    /*try {
-      return {
-        productsCount: 3,
-        products: [
-          {
-            id: '1',
-            name: 'Product 1',
-            price: 100,
-            available: 5,
-            image:
-              'https://prodasnovastacc.blob.core.windows.net/product-small-images/3/7702018874293.jpg',
-          },
-          {
-            id: '2',
-            name: 'Product 2',
-            price: 100,
-            available: 5,
-            image:
-              'https://prodasnovastacc.blob.core.windows.net/product-small-images/3/7702018874293.jpg',
-          },
-          {
-            id: '3',
-            name: 'Product 3',
-            price: 100,
-            available: 5,
-            image:
-              'https://prodasnovastacc.blob.core.windows.net/product-small-images/3/7702018874293.jpg',
-          },
-        ],
-      };
-    } catch {
-      throw new NotAcceptableException();
-    }*/
+  }
+
+  private getProductsCount(query: object) {
+    return this.prisma.product.count();
+  }
+
+  private async getProductsData(query: object) {
+    const limit = Number(query['limit']);
+    return await this.prisma.product.findMany({
+      skip: (query['page'] - 1) * limit,
+      take: limit,
+    });
   }
 }

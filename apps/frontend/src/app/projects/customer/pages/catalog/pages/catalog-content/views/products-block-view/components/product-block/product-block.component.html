@@ -8,16 +8,25 @@
     <div class="price-container">{{product.price}} грн.</div>
     <div class="title-container">{{product.name}}</div>
     <div class="additional-container table-2-col">
-      <div>Доступно:</div>
-      <div>{{product.available}}</div>
+      <div class="available-text">
+        <span>Доступно: </span>
+        <span>{{product.available}}</span>
+      </div>
+      <div>
+        <span>1л.</span>
+      </div>
     </div>
     <div class="order-container table-2-col">
-      <div>input</div>
-      <div>button</div>
+      <div>
+        <app-input-number (click)="$event.stopPropagation()"></app-input-number>
+      </div>
+      <div>
+        <button nz-button nzType="primary">Замовити</button>
+      </div>
     </div>
   </div>
 
-  <div class="additional-block">
+  <!--<div class="additional-block">
     <div class="table-2-col">
       <div>Штрих-код</div>
       <div>7702018874293</div>
@@ -27,4 +36,4 @@
       <div>24</div>
     </div>
   </div>
-</div>
+</div>-->

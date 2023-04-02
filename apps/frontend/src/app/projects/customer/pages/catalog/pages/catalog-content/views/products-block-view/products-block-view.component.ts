@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ProductBlockComponent } from './components/product-block/product-block.component';
 import { StoreService } from '@app-services/store/store/store.service';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
-import { SpinnerCircleComponent } from '@base/apps/frontend/src/app/shared/components/spinners/spinner-circle/spinner-circle.component';
+import { SpinnerCircleComponent } from '@base/apps/frontend/src/app/shared/components/loaders/spinner-circle/spinner-circle.component';
 import { fadeInAnimation } from '@base/apps/frontend/src/app/shared/animations/fade-in.animation';
 
 @Component({

@@ -1,5 +1,5 @@
 import { TopBarMenuComponent } from './../../components/top-bar-menu/top-bar-menu.component';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import { ProductsBlockViewComponent } from './views/products-block-view/products-block-view.component';
@@ -8,6 +8,7 @@ import { CatalogPaginationComponent } from './components/catalog-pagination/cata
 import { CatalogService } from '../../../../services/catalog/catalog.service';
 import { StoreService } from '@app-services/store/store/store.service';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
+import { CatalogMapService } from '../../../../services/catalog/catalog-map.service';
 
 @Component({
   selector: 'app-catalog-content',
@@ -23,17 +24,21 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
   styleUrls: ['./catalog-content.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CatalogContentComponent {
+export class CatalogContentComponent implements OnInit {
   constructor(
     private catalogService: CatalogService,
-    private storeService: StoreService
+    private storeService: StoreService,
+    private catalogMapService: CatalogMapService
   ) {}
 
-  public products: BehaviorSubject<any> =
-    this.storeService.store.account.catalog.products;
+  // private basket: BehaviorSubject<any> = this.storeService.store.account.catalog.products;
+  public products: BehaviorSubject<any> = this.storeService.store.account.catalog.products;
 
   pageIndexChanged(page: number) {
     window.scroll({ top: 0 });
     this.catalogService.getCatalog({ page: page });
   }
+
+  ngOnInit(): void {}
+
 }

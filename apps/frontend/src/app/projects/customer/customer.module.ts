@@ -13,8 +13,8 @@ import { routes } from './routes';
     RouterModule.forChild(routes),
     FooterComponent,
     HeaderComponent,
-    OfflineComponent
+    OfflineComponent,
   ],
-  declarations: [CustomerComponent],
+  declarations: [CustomerComponent]
 })
 export class CustomerModule {}

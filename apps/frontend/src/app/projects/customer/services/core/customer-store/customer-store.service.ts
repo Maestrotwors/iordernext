@@ -8,6 +8,7 @@ export class CustomerStoreService {
     storeService.store.account = {
       catalog: {
         products: new BehaviorSubject({ loading: true }),
+        productsMapped: new BehaviorSubject([]),
         categories: new BehaviorSubject({ loading: true }),
         subSuppliers: new BehaviorSubject({ loading: true }),
       },

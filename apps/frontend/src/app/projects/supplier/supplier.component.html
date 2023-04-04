@@ -1,12 +1,12 @@
-<ng-container *ngIf="(offlineService.onlineStatus | async) === onlineStatus.online">
+<div *ngIf="(offlineService.onlineStatus | async) === onlineStatus.online" class="supplier-container">
   <app-header></app-header>
   <div class="p-container supplier-content width-container">
     <app-menu-desktop></app-menu-desktop>
-    <div>
+    <div class="content">
       <app-title></app-title>
       <router-outlet></router-outlet>
     </div>
   </div>
   <app-footer></app-footer>
-</ng-container>
+</div>
 <app-offline *ngIf="(offlineService.onlineStatus | async) === onlineStatus.offline"></app-offline>

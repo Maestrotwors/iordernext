@@ -9,6 +9,7 @@ export class BasketService {
   constructor(private http: HttpService, private storeService: StoreService) {}
 
   async getMyBasket() {
+    this.storeService.store.account.basket.next({basket: [],loading: true});
     const basket = await this.http.getWithToken('customer/get-basket');
     this.storeService.store.account.basket.next({
       basket: basket.data,

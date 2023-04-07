@@ -5,33 +5,33 @@ export const routes: Route[] = [
   {
     path: '',
     loadChildren: () =>
-      import('./projects/landing/landing.module').then(
+      import('./pages/landing/landing.module').then(
         (m) => m.LandingModule
       ),
   },
   {
     path: 'admin',
     loadChildren: () =>
-      import('@base/apps/frontend/src/app/projects/admin/admin.module').then((m) => m.AdminModule),
+      import('@base/apps/frontend/src/app/pages/admin/admin.module').then((m) => m.AdminModule),
   },
   {
     path: 'member-user',
     canActivate: [IsCustomerGuard],
     loadChildren: () =>
-      import('@base/apps/frontend/src/app/projects/customer/customer.module').then(
+      import('@base/apps/frontend/src/app/pages/customer/customer.module').then(
         (m) => m.CustomerModule
       ),
   },
   {
     path: 'member-supplier',
     loadChildren: () =>
-      import('@base/apps/frontend/src/app/projects/supplier/supplier.module').then(
+      import('@base/apps/frontend/src/app/pages/supplier/supplier.module').then(
         (m) => m.SupplierModule
       ),
   },
   {
     path: '**',
     loadChildren: () =>
-      import('@base/apps/frontend/src/app/projects/landing/landing.module').then((m) => m.LandingModule),
+      import('@base/apps/frontend/src/app/pages/landing/landing.module').then((m) => m.LandingModule),
   },
 ];

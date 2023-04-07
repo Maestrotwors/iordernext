@@ -1,4 +1,4 @@
-import { HttpService } from '../http/http.service';
+import { HttpService } from '@app/frontend/core/http';
 import { Injectable } from '@angular/core';
 import { TokenService } from '@app-services/token/token.service';
 import { first } from 'rxjs/internal/operators/first';
@@ -60,8 +60,6 @@ export class AuthService {
           this.http.receivingNewToken
             .pipe(first((x) => x === false))
             .subscribe((x) => {
-              console.log(x);
-              console.log(this.tokenService.getAccessToken());
               resolve(this.tokenService.getAccessToken());
             });
         }

@@ -1,0 +1,14 @@
+<div class="catalog-content">
+  <app-top-bar-menu></app-top-bar-menu>
+  <div class="products-container">
+    <app-products-block-view></app-products-block-view>
+    <!--<div>---------</div>
+  	<app-products-list-view></app-products-list-view>-->
+    <app-catalog-pagination
+      (pageIndexChanged)="pageIndexChanged($event)"
+      [show]="((loading | async) === false) && (productsCount | async) !== 0"
+      [selectedPageIndex]="(pageParameters | async)?.page || 0"
+      [productsCount]="(productsCount | async) || 0">
+    </app-catalog-pagination>
+  </div>
+</div>

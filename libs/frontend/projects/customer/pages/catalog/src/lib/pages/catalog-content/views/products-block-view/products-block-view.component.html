@@ -1,0 +1,10 @@
+<div class="products-list" *ngIf="(loading | async) === false; else loadingtmpl">
+	<app-product-block *ngFor="let product of (products | async); trackBy: identify; let index = index"
+    [@fadeIn]="{value: '', params: { time:200, delay:  index < 20 ? index * 50 : 0}}"
+    [product]="product">
+  </app-product-block>
+</div>
+
+<ng-template #loadingtmpl>
+  <app-spinner-circle></app-spinner-circle>
+</ng-template>

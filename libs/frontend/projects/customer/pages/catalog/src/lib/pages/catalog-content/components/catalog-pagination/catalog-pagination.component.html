@@ -1,0 +1,10 @@
+<div class="pagination-container" *ngIf="show">
+  <div class="pagination">
+    <nz-pagination
+      [nzPageIndex]="selectedPageIndex"
+      [nzPageSize]="productsPrePage"
+      [nzTotal]="productsCount"
+      (nzPageIndexChange)="changePageIndex($event)">
+    </nz-pagination>
+  </div>
+</div>

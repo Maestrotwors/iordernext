@@ -1,4 +1,4 @@
-import { CatalogStore } from './../../store/catalog.store';
+import { CatalogProductsStore } from '@app/frontend/store';
 import { TopBarMenuComponent } from '../../components/top-bar-menu/top-bar-menu.component';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
@@ -26,15 +26,15 @@ import { CatalogService } from '@app/frontend/projects/customer/services/catalog
 export class CatalogContentComponent {
   constructor(
     private catalogService: CatalogService,
-    private catalogStore: CatalogStore
+    private catalogProductsStore: CatalogProductsStore
   ) {}
 
-  public productsCount = this.catalogStore.productsCount$;
-  public pageParameters = this.catalogStore.pageParameters$;
-  public loading = this.catalogStore.loading$
+  public productsCount = this.catalogProductsStore.productsCount$;
+  public pageParameters = this.catalogProductsStore.pageParameters$;
+  public loading = this.catalogProductsStore.loading$;
 
   pageIndexChanged(page: number) {
     window.scroll({ top: 0 });
-    this.catalogService.getCatalog({ page: page, limit: 40 });
+    this.catalogService.getProducts({ page: page, limit: 40 });
   }
 }

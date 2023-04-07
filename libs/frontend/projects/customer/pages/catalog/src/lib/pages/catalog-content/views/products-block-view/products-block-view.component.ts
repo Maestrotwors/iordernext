@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ProductBlockComponent } from './components/product-block/product-block.component';
 import { SpinnerCircleComponent } from '@app/frontend/ui';
 import { fadeInAnimation } from '@app/frontend/animations';
-import { CatalogStore } from '../../../../store/catalog.store';
+import { CatalogProductsStore } from '@app/frontend/store';
 
 @Component({
   selector: 'app-products-block-view',
@@ -15,13 +15,11 @@ import { CatalogStore } from '../../../../store/catalog.store';
   animations: [fadeInAnimation],
 })
 export class ProductsBlockViewComponent {
-  constructor(
-    private catalogStore: CatalogStore
-  ) {}
+  constructor(private catalogProductsStore: CatalogProductsStore) {}
 
-  products = this.catalogStore.products$;
-  productsCount = this.catalogStore.productsCount$
-  loading = this.catalogStore.loading$;
+  products = this.catalogProductsStore.products$;
+  productsCount = this.catalogProductsStore.productsCount$;
+  loading = this.catalogProductsStore.loading$;
 
   identify(index: number, el: any): number {
     return el.id;

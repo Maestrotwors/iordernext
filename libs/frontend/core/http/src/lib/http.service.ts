@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { lastValueFrom } from 'rxjs/internal/lastValueFrom';
 import { HttpServiceBase } from './http.base';
-import { TokenService } from '@app-services/token/token.service';
+import { TokenService } from '@app/frontend/core/token';
 
 @Injectable({ providedIn: 'root' })
 export class HttpService extends HttpServiceBase {

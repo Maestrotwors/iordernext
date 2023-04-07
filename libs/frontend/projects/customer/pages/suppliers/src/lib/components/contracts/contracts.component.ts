@@ -2,7 +2,7 @@ import { fadeInAnimation } from '@app/frontend/animations';
 import { SupplierEmblemBigComponent } from '@app/frontend/ui';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
+import { ContractsStore } from '@app/frontend/store';
 
 @Component({
   selector: 'app-contracts-suppliers',
@@ -11,12 +11,12 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
   templateUrl: './contracts.component.html',
   styleUrls: ['./contracts.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [fadeInAnimation]
+  animations: [fadeInAnimation],
 })
 export class ContractsComponent {
-  constructor() {}
+  constructor(private contractsStore: ContractsStore) {}
 
-  suppliers: BehaviorSubject<any> = new BehaviorSubject([]);
+  public suppliers = this.contractsStore.contracts$;
 
   identify(index: number, el: any): number {
     return el.id;

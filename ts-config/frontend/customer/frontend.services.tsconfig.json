@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@app/frontend/projects/customer/services/catalog": [
+        "libs/frontend/projects/customer/services/catalog/src/index.ts"
+      ],
+      "@app/frontend/projects/customer/services/product": [
+        "libs/frontend/projects/customer/services/product/src/index.ts"
+      ],
+      "@app/frontend/projects/customer/services/suppliers": [
+        "libs/frontend/projects/customer/services/suppliers/src/index.ts"
+      ]
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "name": "transport-models-customer",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/transport-models/customer/src",
+  "prefix": "app",
+  "tags": [],
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/transport-models/customer/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/transport-models/customer/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/transport-models/customer/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/transport-models/customer/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/transport-models/customer/**/*.ts",
+          "libs/transport-models/customer/**/*.html"
+        ]
+      }
+    }
+  }
+}

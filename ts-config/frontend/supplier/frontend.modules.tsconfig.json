@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@app/frontend/projects/suppliers/pages/clients": [
+        "libs/frontend/projects/suppliers/pages/clients/src/index.ts"
+      ],
+      "@app/frontend/projects/suppliers/pages/cooperation-requests": [
+        "libs/frontend/projects/suppliers/pages/cooperation-requests/src/index.ts"
+      ],
+      "@app/frontend/projects/suppliers/pages/goods-catalog": [
+        "libs/frontend/projects/suppliers/pages/goods-catalog/src/index.ts"
+      ],
+      "@app/frontend/projects/suppliers/pages/import-catalog": [
+        "libs/frontend/projects/suppliers/pages/import-catalog/src/index.ts"
+      ],
+      "@app/frontend/projects/suppliers/pages/not-enough-goods": [
+        "libs/frontend/projects/suppliers/pages/not-enough-goods/src/index.ts"
+      ],
+      "@app/frontend/projects/suppliers/pages/orders": [
+        "libs/frontend/projects/suppliers/pages/orders/src/index.ts"
+      ],
+      "@app/frontend/projects/suppliers/pages/promos": [
+        "libs/frontend/projects/suppliers/pages/promos/src/index.ts"
+      ],
+      "@app/frontend/projects/suppliers/pages/provider": [
+        "libs/frontend/projects/suppliers/pages/provider/src/index.ts"
+      ],
+      "@app/frontend/projects/suppliers/pages/recommended": [
+        "libs/frontend/projects/suppliers/pages/recommended/src/index.ts"
+      ],
+      "@app/frontend/projects/suppliers/pages/regions": [
+        "libs/frontend/projects/suppliers/pages/regions/src/index.ts"
+      ],
+      "@app/frontend/projects/suppliers/promos": [
+        "libs/frontend/projects/suppliers/promos/src/index.ts"
+      ],
+      "@app/frontend/projects/suppliers/provider": [
+        "libs/frontend/projects/suppliers/provider/src/index.ts"
+      ]
+    }
+  }
+}

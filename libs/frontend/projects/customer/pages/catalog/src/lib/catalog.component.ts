@@ -16,7 +16,7 @@ export class CatalogComponent implements OnInit {
   constructor(private catalogService: CatalogService) {}
 
   ngOnInit() {
-    this.catalogService.getCatalog();
+    this.catalogService.getProducts()
     this.catalogService.getCategories();
     this.catalogService.getSubSuppliers();
   }

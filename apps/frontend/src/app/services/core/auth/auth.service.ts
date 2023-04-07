@@ -1,6 +1,6 @@
 import { HttpService } from '@app/frontend/core/http';
 import { Injectable } from '@angular/core';
-import { TokenService } from '@app-services/token/token.service';
+import { TokenService } from '@app/frontend/core/token';
 import { first } from 'rxjs/internal/operators/first';
 //import { IHttpResponse } from '@front-interfaces/http-response.interface';
 

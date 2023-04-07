@@ -1,5 +1,5 @@
 import { HttpHeaders } from '@angular/common/http';
-import { TokenService } from '@app-services/token/token.service';
+import { TokenService } from '@app/frontend/core/token';
 import { backendConstants } from '@base/constants/backend';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { Observable } from 'rxjs/internal/Observable';

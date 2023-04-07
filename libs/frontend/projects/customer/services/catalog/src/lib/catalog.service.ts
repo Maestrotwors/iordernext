@@ -1,8 +1,7 @@
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
-//import { StoreService } from '@app-services/store/store/store.service';
+import { CatalogCategoriesStore, CatalogProductsStore, CatalogSubSuppliersStore } from '@app/frontend/store';
 import { HttpService } from '@app/frontend/core/http';
-//import { CatalogStore } from '../../pages/catalog/store/catalog.store';
 import { ProductsInfoQuery } from './interfaces/products-info-query';
 
 @Injectable({
@@ -12,36 +11,37 @@ export class CatalogService {
   //private store = this.storeService.store.account;
   constructor(
     private http: HttpService,
-    //private storeService: StoreService,
-    private router: Router,
-    //private catalogStore: CatalogStore
+    public catalogCategoriesStore: CatalogCategoriesStore,
+    public catalogProductsStore: CatalogProductsStore,
+    public catalogSubSuppliersStore: CatalogSubSuppliersStore,
+    private router: Router
   ) {}
 
-  getCatalog(query: ProductsInfoQuery = { limit: 40, page: 1 }) {
+  getProducts(query: ProductsInfoQuery = { limit: 40, page: 1 }) {
     this.http
       .getWithToken$('customer/get-catalog', query)
-      //.pipe((source) => this.catalogStore.trackLoadingPipe(source))
+      .pipe((source) => this.catalogProductsStore.trackLoadingPipe(source))
       .subscribe((x: any) => {
-        //this.catalogStore.updateProducts(x.data, query);
+        this.catalogProductsStore.updateProducts(x.data, query);
       });
   }
 
   getCategories() {
-    this.http.getWithToken$('customer/get-categories').subscribe((x) => {
-      /*this.store.catalog.categories.next({
-        categories: x.data,
-        loading: false,
-      });*/
-    });
+    this.http
+      .getWithToken$('customer/get-categories')
+      .pipe((source) => this.catalogCategoriesStore.trackLoadingPipe(source))
+      .subscribe((x: any) => {
+        this.catalogCategoriesStore.updateCategories(x.data);
+      });
   }
 
   getSubSuppliers() {
-    this.http.getWithToken$('customer/get-sub-suppliers').subscribe((x) => {
-      /*this.store.catalog.subSuppliers.next({
-        subSuppliers: x.data,
-        loading: false,
-      });*/
-    });
+    this.http
+      .getWithToken$('customer/get-sub-suppliers')
+      .pipe((source) => this.catalogSubSuppliersStore.trackLoadingPipe(source))
+      .subscribe((x: any) => {
+        this.catalogSubSuppliersStore.updateSubSuppliers(x.data);
+      });
   }
 
   toCatalog() {

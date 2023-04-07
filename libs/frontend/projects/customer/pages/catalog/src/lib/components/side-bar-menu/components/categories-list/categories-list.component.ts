@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
+import { CatalogCategoriesStore } from '@app/frontend/store';
 
 @Component({
   selector: 'app-categories-list',
@@ -11,8 +11,8 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CategoriesListComponent {
-  constructor() {}
-  categories: BehaviorSubject<any> = new BehaviorSubject([]);
+  constructor(private catalogCategoriesStore: CatalogCategoriesStore) {}
+  public categories = this.catalogCategoriesStore.categories$;
 
   identify(index: number, item: any) {
     return item.id;

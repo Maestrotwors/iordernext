@@ -15,9 +15,16 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@app-services/*": ["apps/frontend/src/app/services/core/*"],
+
+      "@app/frontend/store": ["libs/frontend/store/src/index.ts"],
+      "@app/frontend/ui": ["libs/frontend/ui/src/index.ts"],
       "@app/frontend/animations": ["libs/frontend/animations/src/index.ts"],
       "@app/frontend/core/http": ["libs/frontend/core/http/src/index.ts"],
+      "@app/frontend/core/token": ["libs/frontend/core/token/src/index.ts"],
+
+
+
+      "@app-services/*": ["apps/frontend/src/app/services/core/*"],
       "@app/frontend/projects/customer/pages/catalog": [
         "libs/frontend/projects/customer/pages/catalog/src/index.ts"
       ],
@@ -93,8 +100,19 @@
       "@app/frontend/projects/suppliers/provider": [
         "libs/frontend/projects/suppliers/provider/src/index.ts"
       ],
-      "@app/frontend/store": ["libs/frontend/store/src/index.ts"],
-      "@app/frontend/ui": ["libs/frontend/ui/src/index.ts"],
+
+      "@app/transport-models/admin": [
+        "libs/transport-models/admin/src/index.ts"
+      ],
+      "@app/transport-models/basic": [
+        "libs/transport-models/basic/src/index.ts"
+      ],
+      "@app/transport-models/customer": [
+        "libs/transport-models/customer/src/index.ts"
+      ],
+      "@app/transport-models/supplier": [
+        "libs/transport-models/supplier/src/index.ts"
+      ],
       "@base/*": ["./*"],
       "@be-cache": ["libs/backend/cache/src/index.ts"],
       "@be-cache/services/*": ["libs/backend/cache/src/lib/*"],

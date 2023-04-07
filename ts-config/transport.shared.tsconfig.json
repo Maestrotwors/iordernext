@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@app/transport-models/admin": [
+        "libs/transport-models/admin/src/index.ts"
+      ],
+      "@app/transport-models/basic": [
+        "libs/transport-models/basic/src/index.ts"
+      ],
+      "@app/transport-models/customer": [
+        "libs/transport-models/customer/src/index.ts"
+      ],
+      "@app/transport-models/supplier": [
+        "libs/transport-models/supplier/src/index.ts"
+      ]
+    }
+  }
+}

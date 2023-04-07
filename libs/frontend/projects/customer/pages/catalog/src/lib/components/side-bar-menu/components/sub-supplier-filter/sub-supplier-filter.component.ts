@@ -1,7 +1,7 @@
 import { SelectComponent } from '@app/frontend/ui';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
+import { CatalogSubSuppliersStore } from '@app/frontend/store';
 
 @Component({
   selector: 'app-sub-supplier-filter',
@@ -12,7 +12,7 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SubSupplierFilterComponent {
-  constructor() {}
+  constructor(private catalogSubSuppliersStore: CatalogSubSuppliersStore) {}
 
-  protected subSuppliers: BehaviorSubject<any> = new BehaviorSubject([]);
+  public subSuppliers = this.catalogSubSuppliersStore.subSuppliers$;
 }

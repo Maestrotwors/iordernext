@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@app/frontend/projects/customer/pages/catalog": [
+        "libs/frontend/projects/customer/pages/catalog/src/index.ts"
+      ],
+      "@app/frontend/projects/customer/pages/contact-us": [
+        "libs/frontend/projects/customer/pages/contact-us/src/index.ts"
+      ],
+      "@app/frontend/projects/customer/pages/delivery": [
+        "libs/frontend/projects/customer/pages/delivery/src/index.ts"
+      ],
+      "@app/frontend/projects/customer/pages/how-to-use": [
+        "libs/frontend/projects/customer/pages/how-to-use/src/index.ts"
+      ],
+      "@app/frontend/projects/customer/pages/order": [
+        "libs/frontend/projects/customer/pages/order/src/index.ts"
+      ],
+      "@app/frontend/projects/customer/pages/order-final-page": [
+        "libs/frontend/projects/customer/pages/order-final-page/src/index.ts"
+      ],
+      "@app/frontend/projects/customer/pages/profile": [
+        "libs/frontend/projects/customer/pages/profile/src/index.ts"
+      ],
+      "@app/frontend/projects/customer/pages/refund": [
+        "libs/frontend/projects/customer/pages/refund/src/index.ts"
+      ],
+      "@app/frontend/projects/customer/pages/rules": [
+        "libs/frontend/projects/customer/pages/rules/src/index.ts"
+      ],
+      "@app/frontend/projects/customer/pages/suppliers": [
+        "libs/frontend/projects/customer/pages/suppliers/src/index.ts"
+      ]
+    }
+  }
+}

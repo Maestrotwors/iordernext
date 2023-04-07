@@ -3,6 +3,6 @@
   <nz-select
     [class.width-full]="width === 'full'"
     [nzLoading]="data['loading']">
-    <nz-option *ngFor="let item of data?.subSuppliers; trackBy: identify" [nzValue]="item['id']" [nzLabel]="item['name']"></nz-option>
+    <nz-option *ngFor="let item of data; trackBy: identify" [nzValue]="item['id']" [nzLabel]="item['name']"></nz-option>
   </nz-select>
 </div>

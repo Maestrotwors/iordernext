@@ -1,5 +1,5 @@
-<div>
-  <ul *ngIf="(categories | async)?.categories?.length > 0">
-    <li *ngFor="let category of (categories | async)?.categories; trackBy: identify">{{category.name}}</li>
-  </ul>
-</div>
+<ul>
+  <li *ngFor="let category of (categories | async); trackBy: identify">
+    {{category.name}}
+  </li>
+</ul>

@@ -1,6 +1,7 @@
 import { CatalogProductsStore } from '@app/frontend/store';
 import { TopBarMenuComponent } from '../../components/top-bar-menu/top-bar-menu.component';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { SpinnerCircleComponent } from '@app/frontend/ui';
 
 import { CommonModule } from '@angular/common';
 import { ProductsBlockViewComponent } from './views/products-block-view/products-block-view.component';
@@ -18,6 +19,7 @@ import { CustomerCatalogService } from '@app/frontend/services';
     ProductsBlockViewComponent,
     CatalogPaginationComponent,
     TopBarMenuComponent,
+    SpinnerCircleComponent,
   ],
   templateUrl: './catalog-content.component.html',
   styleUrls: ['./catalog-content.component.scss'],
@@ -31,6 +33,7 @@ export class CatalogContentComponent implements OnInit {
 
   public productsCount = this.catalogProductsStore.productsCount$;
   public pageParameters = this.catalogProductsStore.pageParameters$;
+  public products = this.catalogProductsStore.productsMapped$;
   public loading = this.catalogProductsStore.loading$;
 
   ngOnInit() {

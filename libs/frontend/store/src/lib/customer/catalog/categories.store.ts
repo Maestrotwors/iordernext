@@ -7,7 +7,7 @@ import { CustomerCatalogCategory } from '@app/frontend/models';
 @Injectable({
   providedIn: 'root',
 })
-export class CatalogCategoriesStore extends BaseStore {
+export class CustomerCatalogCategoriesStore extends BaseStore {
   private _categories$: BehaviorSubject<CustomerCatalogCategory[]> =
     new BehaviorSubject<CustomerCatalogCategory[]>([]);
 

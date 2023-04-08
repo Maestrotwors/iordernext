@@ -6,4 +6,5 @@ export * from './lib/projects/customer/customer.service';
 export * from './lib/projects/customer/product/product.service';
 export * from './lib/projects/customer/contracts/contracts.service';
 export * from './lib/projects/customer/products/catalog.service';
+export * from './lib/projects/customer/products/catalog-navigation.service';
 export * from './lib/projects/customer/basket/basket.service';

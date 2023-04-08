@@ -5,3 +5,7 @@ export interface CustomerCurrentProduct {
   price: number;
   available: number;
 }
+
+export interface CustomerCurrentProductMapped extends CustomerCurrentProduct {
+  inBasket: number;
+}

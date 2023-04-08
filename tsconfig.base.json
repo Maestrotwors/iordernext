@@ -16,8 +16,9 @@
     "baseUrl": ".",
     "paths": {
       "@app/frontend/animations": ["libs/frontend/animations/src/index.ts"],
+      "@app/frontend/constants": ["libs/frontend/constants/src/index.ts"],
+      "@app/frontend/helpers": ["libs/frontend/helpers/src/index.ts"],
       "@app/frontend/models": ["libs/frontend/models/src/index.ts"],
-
       "@app/frontend/projects/customer/pages/catalog": [
         "libs/frontend/projects/customer/pages/catalog/src/index.ts"
       ],
@@ -96,7 +97,6 @@
       "@app/frontend/services": ["libs/frontend/services/src/index.ts"],
       "@app/frontend/store": ["libs/frontend/store/src/index.ts"],
       "@app/frontend/ui": ["libs/frontend/ui/src/index.ts"],
-
       "@app/transport-models/admin": [
         "libs/transport-models/admin/src/index.ts"
       ],
@@ -109,18 +109,6 @@
       "@app/transport-models/supplier": [
         "libs/transport-models/supplier/src/index.ts"
       ],
-
-
-
-
-
-
-
-
-
-
-
-
       "@base/*": ["./*"],
       "@be-cache": ["libs/backend/cache/src/index.ts"],
       "@be-cache/services/*": ["libs/backend/cache/src/lib/*"],

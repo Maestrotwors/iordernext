@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CatalogCategoriesStore } from '@app/frontend/store';
+import { CustomerCatalogCategoriesStore } from '@app/frontend/store';
 
 @Component({
   selector: 'app-categories-list',
@@ -11,8 +11,8 @@ import { CatalogCategoriesStore } from '@app/frontend/store';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CategoriesListComponent {
-  constructor(private catalogCategoriesStore: CatalogCategoriesStore) {}
-  public categories = this.catalogCategoriesStore.categories$;
+  constructor(private CustomerCatalogCategoriesStore: CustomerCatalogCategoriesStore) {}
+  public categories = this.CustomerCatalogCategoriesStore.categories$;
 
   identify(index: number, item: any) {
     return item.id;

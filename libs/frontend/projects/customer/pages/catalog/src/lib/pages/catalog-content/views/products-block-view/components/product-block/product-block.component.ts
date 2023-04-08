@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CustomerProductService } from '@app/frontend/services';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { InputNumberComponent } from '@app/frontend/ui';
+import { CustomerProductMapped } from '@app/frontend/models';
 
 @Component({
   selector: 'app-product-block',
@@ -19,7 +20,7 @@ import { InputNumberComponent } from '@app/frontend/ui';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductBlockComponent {
-  @Input() product: any;
+  @Input() product!: CustomerProductMapped;
 
   constructor(private productService: CustomerProductService) {}
 

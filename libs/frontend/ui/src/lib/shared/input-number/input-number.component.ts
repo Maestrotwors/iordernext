@@ -1,12 +1,20 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
+import { FormsModule } from '@angular/forms';
+import { NumberParser } from '@app/frontend/helpers';
 
 @Component({
   selector: 'app-input-number',
   standalone: true,
-  imports: [NzInputNumberModule],
+  imports: [NzInputNumberModule, FormsModule],
   templateUrl: './input-number.component.html',
   styleUrls: ['./input-number.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class InputNumberComponent {}
+export class InputNumberComponent {
+  @Input() value = 0;
+  @Input() max = Infinity;
+
+  constructor(public numberParser: NumberParser) {}
+  parser = this.numberParser.parseNumber;
+}

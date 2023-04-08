@@ -18,7 +18,10 @@
     </div>
     <div class="order-container table-2-col">
       <div>
-        <app-input-number (click)="$event.stopPropagation()"></app-input-number>
+        <app-input-number
+          [value]="product.inBasket"
+          (click)="$event.stopPropagation()">
+        </app-input-number>
       </div>
       <div>
         <button nz-button nzType="primary">Замовити</button>

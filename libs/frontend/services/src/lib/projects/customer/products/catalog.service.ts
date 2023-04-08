@@ -1,6 +1,5 @@
-import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
-import { CatalogCategoriesStore, CatalogProductsStore, CatalogSubSuppliersStore } from '@app/frontend/store';
+import { CustomerCatalogCategoriesStore, CatalogProductsStore, CatalogSubSuppliersStore } from '@app/frontend/store';
 import { HttpService } from '@app/frontend/services';
 import {
   IHttpResponse,
@@ -8,18 +7,18 @@ import {
   CustomerSubSupplier,
 } from '@app/frontend/models';
 import { ApiGetCatalog, ApiGetCategories } from '@app/transport-models/customer';
+import { CustomerMapProductsService } from './map-products.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CustomerCatalogService {
-
   constructor(
     private http: HttpService,
-    public catalogCategoriesStore: CatalogCategoriesStore,
+    public CustomerCatalogCategoriesStore: CustomerCatalogCategoriesStore,
     public catalogProductsStore: CatalogProductsStore,
     public catalogSubSuppliersStore: CatalogSubSuppliersStore,
-    private router: Router
+    private mappedProductsService: CustomerMapProductsService
   ) {}
 
   getProducts(query: ProductsInfoQuery = { limit: 40, page: 1 }) {
@@ -37,9 +36,9 @@ export class CustomerCatalogService {
   getCategories() {
     this.http
       .getWithToken$('customer/get-categories')
-      .pipe((source) => this.catalogCategoriesStore.trackLoadingPipe(source))
+      .pipe((source) => this.CustomerCatalogCategoriesStore.trackLoadingPipe(source))
       .subscribe((response: IHttpResponse) => {
-        this.catalogCategoriesStore.updateCategories(
+        this.CustomerCatalogCategoriesStore.updateCategories(
           <ApiGetCategories>response.data
         );
       });
@@ -54,9 +53,5 @@ export class CustomerCatalogService {
           <CustomerSubSupplier[]>response.data
         );
       });
-  }
-
-  toCatalog() {
-    this.router.navigateByUrl('member-user/catalog');
   }
 }

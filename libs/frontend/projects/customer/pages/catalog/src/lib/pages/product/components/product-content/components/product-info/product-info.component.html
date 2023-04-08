@@ -6,10 +6,10 @@
     </nz-tag>
   </div>
   <div class="price">{{(product | async)?.price}} грн.</div>
-  <div class="available">Доступно товарів: 2163</div>
+  <div class="available">Доступно товарів: {{(product | async)?.available}}</div>
   <div class="order">
     <div>
-      <app-input-number></app-input-number>
+      <app-input-number [value]="(product | async)?.inBasket || 0"></app-input-number>
     </div>
     <div>
       <button nz-button nzType="primary">Замовити</button>

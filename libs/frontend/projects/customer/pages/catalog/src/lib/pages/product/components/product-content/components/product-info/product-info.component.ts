@@ -16,5 +16,5 @@ import { CustomerCatalogProductStore } from '@app/frontend/store';
 export class ProductInfoComponent {
   constructor(private catalogProductStore: CustomerCatalogProductStore) {}
 
-  public product = this.catalogProductStore.product$;
+  public product = this.catalogProductStore.productMapped$;
 }

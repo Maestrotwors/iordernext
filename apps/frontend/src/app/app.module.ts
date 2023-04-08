@@ -3,7 +3,6 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppCoreModule } from './modules/core.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { CustomPreloadingStrategyService } from '@app-services/preloading-strategy/preloading-strategy.service';
 import { Interceptor } from './interceptors/interceptor';
 import { IsCustomerGuard } from './guards/customer.guard';
 import { IsSupplierGuard } from './guards/supplier.guard';
@@ -12,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NZ_DATE_CONFIG, NZ_I18N, uk_UA } from 'ng-zorro-antd/i18n';
+import { CustomPreloadingStrategyService } from './services/core/preloading-strategy/preloading-strategy.service';
 
 @NgModule({
   declarations: [AppComponent],

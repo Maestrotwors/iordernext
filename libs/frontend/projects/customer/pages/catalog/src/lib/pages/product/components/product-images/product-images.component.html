@@ -1,6 +1,5 @@
 <div class="image-container">
-  <app-image-loader [src]="(product | async)?.product.image">
-    <img class="image" [src]="(product | async)?.product.image" />
+  <app-image-loader [src]="(product | async)?.['image']">
+    <img class="image" [src]="(product | async)?.image" />
   </app-image-loader>
-  <!--<img [src]="(product | async)?.product.image">-->
 </div>

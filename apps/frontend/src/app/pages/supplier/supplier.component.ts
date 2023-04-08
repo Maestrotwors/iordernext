@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
-import { OfflineService } from '@app-services/offline/offline.service';
-import { onlineStatus } from '@app-services/offline/online-status.type';
+import { OfflineService } from '../../services/core/offline/offline.service';
+import { onlineStatus } from '../../services/core/offline/online-status.type';
 
 @Component({
   selector: 'app-supplier',

@@ -1,8 +1,7 @@
 import { OfflineService } from '../../services/core/offline/offline.service';
 import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { onlineStatus } from '@app-services/offline/online-status.type';
-import { CustomerService } from './services/core/customer/customer.service';
-
+import { CustomerService } from '@app/frontend/services';
+import { onlineStatus } from '../../services/core/offline/online-status.type';
 
 @Component({
   selector: 'app-customer',

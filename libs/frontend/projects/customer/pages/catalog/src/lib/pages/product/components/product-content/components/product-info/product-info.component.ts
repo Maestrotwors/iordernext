@@ -2,8 +2,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NzTagModule } from 'ng-zorro-antd/tag';
 import { NzButtonModule } from 'ng-zorro-antd/button';
-import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { InputNumberComponent } from '@app/frontend/ui';
+import { CustomerCatalogProductStore } from '@app/frontend/store';
 
 @Component({
   selector: 'app-product-info',
@@ -14,7 +14,7 @@ import { InputNumberComponent } from '@app/frontend/ui';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductInfoComponent {
-  constructor() {}
+  constructor(private catalogProductStore: CustomerCatalogProductStore) {}
 
-  public product: BehaviorSubject<any> = new BehaviorSubject({}) //this.storeService.store.account.product;
+  public product = this.catalogProductStore.product$;
 }

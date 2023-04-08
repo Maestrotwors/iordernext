@@ -4,7 +4,7 @@
       <app-spinner-small class="loading-spinner-inner"
         *ngIf="status === null"></app-spinner-small>
     </div>
-    <img [lazyLoad]="src" class="invisible-img" [offset]="200"
+    <img [lazyLoad]="src || ''" class="invisible-img" [offset]="200"
       (onStateChange)="callbackFunction($event)">
   </div>
   <div *ngSwitchCase="true">

@@ -13,7 +13,7 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ImageLoaderComponent {
-  @Input() src = '';
+  @Input() src: string | undefined = '';
 
   status: boolean | null = null;
 

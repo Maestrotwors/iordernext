@@ -4,10 +4,9 @@ import { CommonModule } from '@angular/common';
 import { ProductAdditionalInfoComponent } from './components/product-additional-info/product-additional-info.component';
 import { ProductContentComponent } from './components/product-content/product-content.component';
 import { ActivatedRoute } from '@angular/router';
-//import { StoreService } from '@app-services/store/store/store.service';
-import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { SpinnerCircleComponent } from '@app/frontend/ui';
-import { ProductService } from '@app/frontend/projects/customer/services/product';
+import { CustomerProductService } from '@app/frontend/services';
+import { CustomerCatalogProductStore } from '@app/frontend/store';
 
 @Component({
   selector: 'app-product',
@@ -17,7 +16,7 @@ import { ProductService } from '@app/frontend/projects/customer/services/product
     ProductImagesComponent,
     ProductAdditionalInfoComponent,
     ProductContentComponent,
-    SpinnerCircleComponent
+    SpinnerCircleComponent,
   ],
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss'],
@@ -26,11 +25,11 @@ import { ProductService } from '@app/frontend/projects/customer/services/product
 export class ProductComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
-    private productService: ProductService,
-    //private storeService: StoreService
+    private productService: CustomerProductService,
+    private catalogProductStore: CustomerCatalogProductStore
   ) {}
 
-  public product: BehaviorSubject<any> = new BehaviorSubject({}); // this.storeService.store.account.product;
+  public loading = this.catalogProductStore.loading$;
 
   ngOnInit(): void {
     this.productService.getProduct(this.productId);

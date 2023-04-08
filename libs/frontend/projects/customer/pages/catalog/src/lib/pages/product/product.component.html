@@ -1,6 +1,6 @@
 <div class="width-container p-container">
   <div class="product-dektop">
-    <div class="product-main-container" *ngIf="!(product | async)?.loading; else loadingtmpl">
+    <div class="product-main-container" *ngIf="(loading | async) === false; else loadingtmpl">
       <div class="product-container">
         <app-product-images></app-product-images>
         <app-product-content></app-product-content>

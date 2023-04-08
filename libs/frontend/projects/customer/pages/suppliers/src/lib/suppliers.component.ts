@@ -1,11 +1,11 @@
 import { SpinnerCircleComponent } from '@app/frontend/ui';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
-import { SuppliersService } from '@app/frontend/projects/customer/services/suppliers';
 import { ContractsComponent } from './components/contracts/contracts.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { AsyncPipe, NgIf } from '@angular/common';
 import { ContractsStore } from '@app/frontend/store';
+import { CustomerContractsService } from '@app/frontend/services';
 
 @Component({
   selector: 'app-suppliers',
@@ -23,13 +23,13 @@ import { ContractsStore } from '@app/frontend/store';
 })
 export class SuppliersComponent implements OnInit {
   constructor(
-    private suppliersService: SuppliersService,
+    private contractsService: CustomerContractsService,
     private contractsStore: ContractsStore
   ) {}
 
   public loading = this.contractsStore.loading$;
 
   ngOnInit() {
-    this.suppliersService.getSuppliers();
+    this.contractsService.getSuppliers();
   }
 }

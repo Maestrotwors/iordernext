@@ -3,7 +3,7 @@ import {
   HttpRequest,
 } from '@angular/common/http';
 
-import { AuthService } from '@app-services/auth/auth.service';
+import { AuthService } from '@app/frontend/services';
 import { Injectable } from '@angular/core';
 import { lastValueFrom } from 'rxjs/internal/lastValueFrom';
 

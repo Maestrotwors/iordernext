@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AuthService } from '@app-services/auth/auth.service';
+import { AuthService } from '@app/frontend/services';
 
 @Injectable({ providedIn: 'root' })
 export class Http403ErrorService {

@@ -2,7 +2,7 @@ import { RouterOutlet } from '@angular/router';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 import { SideBarMenuComponent } from './components/side-bar-menu/side-bar-menu.component';
-import { CatalogService } from '@app/frontend/projects/customer/services/catalog';
+import { CustomerCatalogService } from '@app/frontend/services';
 
 @Component({
   selector: 'app-catalog',
@@ -13,10 +13,9 @@ import { CatalogService } from '@app/frontend/projects/customer/services/catalog
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CatalogComponent implements OnInit {
-  constructor(private catalogService: CatalogService) {}
+  constructor(private catalogService: CustomerCatalogService) {}
 
   ngOnInit() {
-    this.catalogService.getProducts()
     this.catalogService.getCategories();
     this.catalogService.getSubSuppliers();
   }

@@ -1,3 +1,3 @@
-import { ISupplier } from './supplier.interface';
+import { CustomerSupplier } from '@app/frontend/models';
 
-export type IGetSupplier = ISupplier[];
+export type ApiGetSuppliers = CustomerSupplier[];

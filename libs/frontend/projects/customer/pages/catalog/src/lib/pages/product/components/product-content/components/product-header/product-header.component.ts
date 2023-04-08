@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NzButtonModule } from 'ng-zorro-antd/button';
-import { CatalogService } from '@app/frontend/projects/customer/services/catalog';
+import { CustomerCatalogService } from '@app/frontend/services';
 
 @Component({
   selector: 'app-product-header',
@@ -12,7 +12,7 @@ import { CatalogService } from '@app/frontend/projects/customer/services/catalog
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductHeaderComponent {
-  constructor(private catalogService: CatalogService) {}
+  constructor(private catalogService: CustomerCatalogService) {}
 
   toCatalog() {
     this.catalogService.toCatalog();

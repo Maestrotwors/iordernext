@@ -1,12 +1,12 @@
 import { CatalogProductsStore } from '@app/frontend/store';
 import { TopBarMenuComponent } from '../../components/top-bar-menu/top-bar-menu.component';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
 import { ProductsBlockViewComponent } from './views/products-block-view/products-block-view.component';
 import { ProductsListViewComponent } from './views/products-list-view/products-list-view.component';
 import { CatalogPaginationComponent } from './components/catalog-pagination/catalog-pagination.component';
-import { CatalogService } from '@app/frontend/projects/customer/services/catalog';
+import { CustomerCatalogService } from '@app/frontend/services';
 
 
 @Component({
@@ -23,15 +23,19 @@ import { CatalogService } from '@app/frontend/projects/customer/services/catalog
   styleUrls: ['./catalog-content.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CatalogContentComponent {
+export class CatalogContentComponent implements OnInit {
   constructor(
-    private catalogService: CatalogService,
+    private catalogService: CustomerCatalogService,
     private catalogProductsStore: CatalogProductsStore
   ) {}
 
   public productsCount = this.catalogProductsStore.productsCount$;
   public pageParameters = this.catalogProductsStore.pageParameters$;
   public loading = this.catalogProductsStore.loading$;
+
+  ngOnInit() {
+    this.catalogService.getProducts();
+  }
 
   pageIndexChanged(page: number) {
     window.scroll({ top: 0 });

@@ -20,11 +20,12 @@
       <div>
         <app-input-number
           [value]="product.inBasket"
+          (modelChanged)="valueInBasketChanged($event)"
           (click)="$event.stopPropagation()">
         </app-input-number>
       </div>
       <div>
-        <button nz-button nzType="primary">Замовити</button>
+        <button nz-button nzType="primary" (click)="saveInBasket()">Замовити</button>
       </div>
     </div>
   </div>

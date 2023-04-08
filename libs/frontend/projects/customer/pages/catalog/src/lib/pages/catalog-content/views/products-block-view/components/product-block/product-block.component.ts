@@ -21,10 +21,23 @@ import { CustomerProductMapped } from '@app/frontend/models';
 })
 export class ProductBlockComponent {
   @Input() product!: CustomerProductMapped;
+  newQuantity: number | null = null;
 
   constructor(private productService: CustomerProductService) {}
 
+  valueInBasketChanged(value: number) {
+    this.newQuantity = value;
+  }
+
   selectProduct(id: number) {
     this.productService.selectProduct(id);
+  }
+
+  saveInBasket() {
+    if (this.newQuantity === null) {
+      return;
+    }
+    this.productService.saveInBasket(this.product.id, this.newQuantity);
+    this.newQuantity = null;
   }
 }

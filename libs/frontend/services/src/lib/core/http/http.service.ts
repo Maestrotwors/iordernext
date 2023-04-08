@@ -41,40 +41,41 @@ export class HttpService extends HttpServiceBase {
 
   postWithToken$(
     url: string,
-    body: object,
+    body: object | object[] | null,
     query: object = {}
   ): Observable<IHttpResponse> {
     const queryString = this.generateQueryString(query);
     return this.http
       .post(
         this.hostUrl + url + queryString,
-        this.processOptionsWithToken(body)
+        body,
+        this.processOptionsWithToken()
       )
       .pipe((source) => this.checkPipeWithToken(source));
   }
 
   putWithToken$(
     url: string,
-    body: object,
+    body: object | object[] | null,
     query: object = {}
   ): Observable<IHttpResponse> {
     const queryString = this.generateQueryString(query);
     return this.http
-      .get(this.hostUrl + url + queryString, this.processOptionsWithToken(body))
+      .put(
+        this.hostUrl + url + queryString,
+        body,
+        this.processOptionsWithToken()
+      )
       .pipe((source) => this.checkPipeWithToken(source));
   }
 
   deleteWithToken$(
     url: string,
-    body: object,
     query: object = {}
   ): Observable<IHttpResponse> {
     const queryString = this.generateQueryString(query);
     return this.http
-      .delete(
-        this.hostUrl + url + queryString,
-        this.processOptionsWithToken(body)
-      )
+      .delete(this.hostUrl + url + queryString, this.processOptionsWithToken())
       .pipe((source) => this.checkPipeWithToken(source));
   }
 
@@ -114,9 +115,8 @@ export class HttpService extends HttpServiceBase {
 
   async deleteWithToken(
     url: string,
-    body: object,
     query: object = {}
   ): Promise<IHttpResponse> {
-    return await lastValueFrom(this.deleteWithToken$(url, body, query));
+    return await lastValueFrom(this.deleteWithToken$(url, query));
   }
 }

@@ -79,12 +79,14 @@ model Catalog {
 }
 
 model Basket {
-  id          Int      @id @default(autoincrement())
-  userId      Int
-  productId   Int
-  quantity    Int
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt @default(now())
+  id             Int      @id @default(autoincrement())
+  userId         Int
+  subSupplierId  Int      @default(1)
+  productId      Int
+  quantity       Int
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt @default(now())
 
+  @@unique([userId, subSupplierId, productId], name: "user_subSupplier_product_index")
   @@schema("base")
 }

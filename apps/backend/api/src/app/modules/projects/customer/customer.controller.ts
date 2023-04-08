@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Query } from '@nestjs/common';
+import { Controller, Get, Param, Post, Query, Body, Req, HttpCode } from '@nestjs/common';
 
 import { Auth } from '../../../decorators/auth.decorator';
 import { Role } from '@base/libs/backend/models/src/lib/auth/roles';
@@ -56,5 +56,12 @@ export class CustomerController {
   @Auth([Role.Customer])
   async getBasket(@Query() query) {
     return await this.basketService.getMyBasket(1, query);
+  }
+
+  @Post('save-in-basket')
+  @HttpCode(200)
+  @Auth([Role.Customer])
+  async saveInBasket(@Req() request, @Body() body) {
+    return await this.basketService.saveInBasket(request.user.id, body);
   }
 }

@@ -16,12 +16,11 @@
         <span>1л.</span>
       </div>
     </div>
-    <div class="order-container table-2-col">
+    <div class="order-container table-2-col" (click)="$event.stopPropagation()">
       <div>
         <app-input-number
           [value]="product.inBasket"
-          (modelChanged)="valueInBasketChanged($event)"
-          (click)="$event.stopPropagation()">
+          (modelChanged)="valueInBasketChanged($event)">
         </app-input-number>
       </div>
       <div>

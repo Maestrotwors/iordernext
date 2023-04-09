@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { CustomerBasketProduct } from '@app/frontend/models';
 import { NzTableModule } from 'ng-zorro-antd/table';
 
 @Component({
@@ -11,7 +12,9 @@ import { NzTableModule } from 'ng-zorro-antd/table';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class OrderTableComponent {
-  public basketData = [
+  @Input() basket: CustomerBasketProduct[] = [];
+
+  /*public basketData = [
     {
       image:
         'https://fastly.picsum.photos/id/5/200/300.jpg?hmac=1TWjKFT7_MRP0ApEyDUA3eCP0HXaKTWJfHgVjwGNoZU',
@@ -23,7 +26,7 @@ export class OrderTableComponent {
       uom: '1л',
       available: 100,
       promo: 7.25,
-      case: 0.08
+      case: 0.08,
     },
-  ];
+  ];*/
 }

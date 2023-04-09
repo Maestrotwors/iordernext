@@ -9,9 +9,13 @@ import { IHttpResponse } from '@app/frontend/models';
 @Injectable()
 export class BaseStore {
   private _loading$ = new BehaviorSubject(true);
+  loadingKeys: { [key: string]: BehaviorSubject<boolean> } = {};
   loading$ = this._loading$.asObservable();
 
-  trackLoadingPipe(source: Observable<IHttpResponse>) {
+  trackLoadingPipe(source: Observable<IHttpResponse>, key: string = 'loading') {
+    if (!this.loadingKeys[key]) {
+      this.loadingKeys[key] = new BehaviorSubject<boolean>(true);
+    }
     return source.pipe(
       tap(() => {
         this._loading$.next(true);

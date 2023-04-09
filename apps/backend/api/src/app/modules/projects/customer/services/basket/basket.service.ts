@@ -12,10 +12,6 @@ export class BasketService {
 
   // TODO add class validator
   async saveInBasket(userId: number, body: ApiRequestSaveInBasket) {
-    console.log('saveInBasket');
-    console.log(userId);
-    console.log(body);
-
     if (body.count > 0) {
       await this.prisma.basket.upsert({
         where: {

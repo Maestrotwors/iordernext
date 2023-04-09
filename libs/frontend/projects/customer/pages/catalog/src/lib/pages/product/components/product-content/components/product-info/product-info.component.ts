@@ -4,6 +4,7 @@ import { NzTagModule } from 'ng-zorro-antd/tag';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { InputNumberComponent } from '@app/frontend/ui';
 import { CustomerCatalogProductStore } from '@app/frontend/store';
+import { CustomerProductService } from '@app/frontend/services';
 
 @Component({
   selector: 'app-product-info',
@@ -14,7 +15,26 @@ import { CustomerCatalogProductStore } from '@app/frontend/store';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductInfoComponent {
-  constructor(private catalogProductStore: CustomerCatalogProductStore) {}
+  newQuantity: number | null = null;
+  constructor(
+    private catalogProductStore: CustomerCatalogProductStore,
+    private productService: CustomerProductService
+  ) {}
 
   public product = this.catalogProductStore.productMapped$;
+
+  valueInBasketChanged(value: number) {
+    this.newQuantity = value;
+  }
+
+  saveInBasket() {
+    if (this.newQuantity === null) {
+      return;
+    }
+    this.productService.saveInBasket(
+      this.catalogProductStore.getProduct().id,
+      this.newQuantity
+    );
+    this.newQuantity = null;
+  }
 }

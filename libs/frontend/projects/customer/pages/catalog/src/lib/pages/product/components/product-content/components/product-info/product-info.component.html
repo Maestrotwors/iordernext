@@ -9,10 +9,12 @@
   <div class="available">Доступно товарів: {{(product | async)?.available}}</div>
   <div class="order">
     <div>
-      <app-input-number [value]="(product | async)?.inBasket || 0"></app-input-number>
+      <app-input-number
+        [value]="(product | async)?.inBasket || 0"
+        (modelChanged)="valueInBasketChanged($event)"></app-input-number>
     </div>
     <div>
-      <button nz-button nzType="primary">Замовити</button>
+      <button nz-button nzType="primary" (click)="saveInBasket()">Замовити</button>
     </div>
   </div>
 </div>

@@ -1,4 +1,5 @@
-import { Controller, Get, Param, Post, Query, Body, Req, HttpCode } from '@nestjs/common';
+import { ApiRequestSaveInBasket } from '@app/transport-models/customer';
+import { Controller, Get, Param, Post, Query, Body, Req, HttpCode, NotAcceptableException } from '@nestjs/common';
 
 import { Auth } from '../../../decorators/auth.decorator';
 import { Role } from '@base/libs/backend/models/src/lib/auth/roles';
@@ -61,7 +62,7 @@ export class CustomerController {
   @Post('save-in-basket')
   @HttpCode(200)
   @Auth([Role.Customer])
-  async saveInBasket(@Req() request, @Body() body) {
+  async saveInBasket(@Req() request, @Body() body: ApiRequestSaveInBasket) {
     return await this.basketService.saveInBasket(request.user.id, body);
   }
 }

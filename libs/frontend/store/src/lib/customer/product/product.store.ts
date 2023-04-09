@@ -25,4 +25,8 @@ export class CustomerCatalogProductStore extends BaseStore {
   updateMappedProduct(product: CustomerCurrentProductMapped) {
     this._productMapped$.next(product);
   }
+
+  getProduct(): CustomerCurrentProduct {
+    return this._productMapped$.getValue() as CustomerCurrentProduct;
+  }
 }

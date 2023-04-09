@@ -1,7 +1,6 @@
 import { Controller, Get, Post, Body, UnauthorizedException, NotAcceptableException, Req, Res, HttpStatus, ForbiddenException } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { LogInDto } from './dto/logIn.dto';
-import { RefreshTokenDto } from './dto/refresh-token.dto';
 import { UserTokensDto } from './dto/user-tokens.dto';
 import { SignUpDto } from './dto/signup.dto';
 import { ChangePasswordDto } from './dto/change-password.dto';
@@ -9,6 +8,7 @@ import { Auth } from '../../../decorators/auth.decorator';
 import { Role } from '../../../../../../../../libs/backend/models/src/lib/auth/roles';
 import { NoCache } from '../../../decorators/no-cache.decorator';
 import { Response } from 'express';
+import { ApiRequestRefreshToken } from '@app/transport-models/basic';
 
 @Controller('auth')
 export class AuthController {
@@ -53,7 +53,7 @@ export class AuthController {
 
   @Post('refresh-token')
   async refreshToken(
-    @Body() body: RefreshTokenDto
+    @Body() body: ApiRequestRefreshToken
   ): Promise<UserTokensDto | null> {
     try {
       return await this.authService.refreshToken(body.refreshToken);

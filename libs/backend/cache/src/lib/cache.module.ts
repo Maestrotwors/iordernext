@@ -6,17 +6,17 @@ import { env } from '@base/config/dev.env';
 import { redisStore } from "cache-manager-redis-yet";
 
 @Module({
-	controllers: [],
-	providers: [CacheService],
-	imports: [
-		CM.register<RedisClientOptions>({
-			isGlobal: true,
-			store: redisStore,
-			url: `redis://${env.REDIS_HOST}:${env.REDIS_PORT}`,
-			password: env.REDIS_PASSWORD,
-			ttl: env.REDIS_TTL
-		})
-	],
-	exports: [CacheService]
+  controllers: [],
+  providers: [CacheService],
+  imports: [
+    CM.register<RedisClientOptions>({
+      isGlobal: true,
+      store: redisStore,
+      url: `redis://${env.REDIS_HOST}:${env.REDIS_PORT}/0`,
+      password: env.REDIS_PASSWORD,
+      ttl: env.REDIS_TTL,
+    }),
+  ],
+  exports: [CacheService],
 })
 export class CacheModule {}

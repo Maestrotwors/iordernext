@@ -1,8 +1,0 @@
-<div class="container">
-  <p class="caption">{{caption}}</p>
-  <nz-select
-    [class.width-full]="width === 'full'"
-    [nzLoading]="data['loading']">
-    <nz-option *ngFor="let item of data; trackBy: identify" [nzValue]="item['id']" [nzLabel]="item['name']"></nz-option>
-  </nz-select>
-</div>

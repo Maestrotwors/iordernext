@@ -5,8 +5,12 @@
       "path": "."
     },
     {
-      "name": "📦 frontend/store",
-      "path": "./libs/frontend/store/src/lib"
+      "name": "🚀 frontend",
+      "path": "./apps/frontend/src/app"
+    },
+    {
+      "name": "🔧 frontend/services",
+      "path": "./libs/frontend/services/src/lib"
     },
     {
       "name": "🗂 frontend/models",

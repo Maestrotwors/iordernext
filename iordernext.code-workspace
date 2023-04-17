@@ -1,0 +1,25 @@
+{
+	"folders": [
+    {
+      "name": "Project",
+      "path": "."
+    },
+    {
+      "name": "front",
+      "path": "apps/frontend/src"
+    },
+    {
+      "name": "api",
+      "path": "apps/backend/api/src"
+    },
+    {
+      "name": "api-models",
+      "path": "libs/api-models/src/lib"
+    },
+    {
+      "name": "backend/models",
+      "path": "libs/backend/models/src/lib"
+    }
+  ],
+	"settings": {}
+}

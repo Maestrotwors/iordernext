@@ -1,0 +1,13 @@
+.product-dektop {
+  display: grid;
+
+  .product-main-container {
+    margin-top: var(--standard-margin-top);
+  }
+
+  .product-container {
+    display: grid;
+    grid-template-columns: 20rem 1fr;
+    grid-gap: 1rem;
+  }
+}

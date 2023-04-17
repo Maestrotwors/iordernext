@@ -1,0 +1,93 @@
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["multiSchema"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+
+  schemas  = ["base", "user", "product"]
+
+}
+
+// prisma/schema.prisma
+
+model Article {
+  id          Int      @id @default(autoincrement())
+  title       String   @unique
+  description String?
+  body        String
+  published   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt @default(now())
+
+  @@schema("base")
+}
+
+model User {
+  id          Int      @id @default(autoincrement())
+  login       String   @unique
+  email       String   @unique
+  name        String
+  password    String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt @default(now())
+
+  @@schema("base")
+}
+
+model Supplier {
+  id          Int      @id @unique @default(autoincrement())
+  name        String   @unique
+  image       String
+  @@schema("base")
+}
+
+model SupplierDeliveryPoint {
+  id                Int      @id @unique @default(autoincrement())
+  supplierId        Int
+  deliveryPointId   Int
+  @@schema("base")
+}
+
+model Product {
+  id          Int      @id @unique @default(autoincrement())
+  name        String
+  image       String
+  price       Int
+  available   Int      @default(0)
+
+  @@schema("base")
+}
+
+model Category {
+  id             Int      @id @unique @default(autoincrement())
+  name           String
+  parentId       Int?
+  subSupplierId  Int
+
+  @@schema("base")
+}
+
+model Catalog {
+  id               Int      @id @default(autoincrement())
+  productId        Int
+
+
+  @@schema("base")
+}
+
+model Basket {
+  id               Int      @id @default(autoincrement())
+  userId           Int
+  subSupplierId    Int      @default(1)
+  productId        Int
+  deliveryPointId  Int
+  quantity         Int
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt @default(now())
+
+  @@unique([userId, subSupplierId, productId], name: "user_subSupplier_product_index")
+  @@schema("base")
+}

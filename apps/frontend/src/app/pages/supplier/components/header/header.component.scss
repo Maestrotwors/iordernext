@@ -1,0 +1,23 @@
+.header {
+	background-color: var(--main-bg-color);
+
+	.header-content {
+		padding: 10px var(--standard-padding);
+		display: grid;
+		grid-template-columns: auto 1fr auto;
+
+		.header-icon {
+			width: 5rem;
+			.logo-icon {
+				height: 1.3rem;
+			}
+		}
+
+		.header-title {
+			text-align: center;
+			color: white;
+			font-weight: bold;
+		}
+		
+	}
+}

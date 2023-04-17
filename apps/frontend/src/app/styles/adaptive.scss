@@ -1,0 +1,84 @@
+:root {
+	--max-tablet-width: 900px;
+	--max-mobile-width: 800px;
+	--max-small-mobile-width: 600px;
+}
+
+.desktop {
+	display: none;
+}
+
+.tablet {
+	display: none;
+}
+
+.tablet-desktop {
+	display: none;
+}
+
+.mobile {
+	display: none;
+}
+
+.small-mobile {
+	display: none;
+}
+
+.big-mobile {
+	display: none;
+}
+
+.desktop-tablet-big-mobile {
+	display: none;
+}
+
+//desktop
+@media screen and (min-width: var(--max-tablet-width))  {
+	.desktop {
+		display: grid;
+	}
+}
+
+//tablet
+@media screen and (min-width: var(--max-mobile-width)) and (max-width: var(--max-tablet-width))  {
+	.tablet {
+		display: grid;
+	}
+}
+
+//tablet-desktop
+@media screen and (min-width: var(--max-mobile-width))  {
+	.tablet-desktop {
+		display: grid;
+	}
+}
+
+//desktop-tablet-big-mobile
+@media screen and (min-width: var(--max-small-mobile-width))  {
+	.desktop-tablet-big-mobile {
+		display: grid;
+	}
+}
+
+//mobile
+@media screen and (max-width: var(--max-mobile-width))  {
+	.mobile {
+		display: inline-block;
+		background-color: red;
+	}
+}
+
+//big-mobile
+@media screen and (min-width: var(--max-small-mobile-width)) and (max-width: var(--max-mobile-width))  {
+	.big-mobile {
+		display: inline-block;
+	}
+}
+
+//small-mobile
+@media screen and (max-width: var(--max-small-mobile-width))  {
+	.small-mobile {
+		display: grid;
+	}
+}
+

@@ -1,0 +1,19 @@
+@import 'apps/frontend/src/app/styles/animations/fade-in.scss';
+
+.image-container {
+  height: 25rem;
+  max-height: 25rem;
+  max-width: 20rem;
+  width: 20rem;
+  margin: auto;
+}
+
+.image {
+  height: 25rem;
+  max-height: 25rem;
+  max-width: 20rem;
+  width: 20rem;
+  margin: auto;
+  object-fit: contain;
+  animation: fadeIn 0.55s;
+}

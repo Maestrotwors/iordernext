@@ -1,0 +1,8 @@
+services:
+  nest-api:
+    build:
+      context: ./apps/backend/api
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+

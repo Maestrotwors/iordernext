@@ -1,0 +1,6 @@
+.row {
+  display: grid;
+  grid-template-columns: 15rem 1fr;
+  border-bottom: 1px solid var(--standard-border-color);
+  padding: 0.4rem 0;
+}

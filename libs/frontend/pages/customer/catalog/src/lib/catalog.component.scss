@@ -1,0 +1,8 @@
+.catalog-container {
+
+}
+
+.catalog-dektop {
+	display: grid;
+	grid-template-columns: var(--catalog-left-bar-width) 1fr;
+}

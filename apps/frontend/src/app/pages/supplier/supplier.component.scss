@@ -1,0 +1,26 @@
+@import '../../styles/base-colors.scss';
+@import '../../styles/width.scss';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.supplier-container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+
+  .supplier-content {
+    display: grid;
+    grid-template-columns: 16rem 1fr;
+    height: 100%;
+  }
+}
+
+.content {
+  padding: 10px;
+}
+
+body {
+
+}

@@ -1,0 +1,9 @@
+@import './styles/adaptive.scss';
+@import './styles/padding.scss';
+@import './styles/base-colors.scss';
+@import './styles/icomoon.scss';
+@import './styles/width.scss';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

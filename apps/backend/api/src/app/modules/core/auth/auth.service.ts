@@ -9,7 +9,6 @@ import { SignUpDto } from './dto/signup.dto';
 import { TokenService } from './token.service';
 import { UserEntity } from './entities/user.entity';
 import { UserService } from "./user.service";
-import { UserTokensDto } from './dto/user-tokens.dto';
 import { env } from '@base/config/dev.env';
 import { ApiRequestRefreshToken, ApiResponseRefreshToken } from '@app/transport-models/basic';
 
@@ -30,7 +29,7 @@ export class AuthService {
     return { param: 1, value: 1 };
   }
 
-  async refreshToken(token: string): Promise<ApiRequestRefreshToken> {
+  async refreshToken(token: string): Promise<any> {
     const verificedToken = await this.tokenService.verifyRefreshToken(token);
     if (!verificedToken) {
       throw new NotAcceptableException('Invalid refresh token');

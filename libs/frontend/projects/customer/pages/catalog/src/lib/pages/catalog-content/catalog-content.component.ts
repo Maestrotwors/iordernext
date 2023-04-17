@@ -7,7 +7,10 @@ import { CommonModule } from '@angular/common';
 import { ProductsBlockViewComponent } from './views/products-block-view/products-block-view.component';
 import { ProductsListViewComponent } from './views/products-list-view/products-list-view.component';
 import { CatalogPaginationComponent } from './components/catalog-pagination/catalog-pagination.component';
-import { CustomerCatalogService } from '@app/frontend/services';
+import {
+  CustomerCatalogService,
+  CustomerCatalogNavigationService,
+} from '@app/frontend/services';
 
 
 @Component({
@@ -28,6 +31,7 @@ import { CustomerCatalogService } from '@app/frontend/services';
 export class CatalogContentComponent implements OnInit {
   constructor(
     private catalogService: CustomerCatalogService,
+    private catalogNavigationService: CustomerCatalogNavigationService,
     private catalogProductsStore: CatalogProductsStore
   ) {}
 
@@ -42,6 +46,7 @@ export class CatalogContentComponent implements OnInit {
 
   pageIndexChanged(page: number) {
     window.scroll({ top: 0 });
+    this.catalogNavigationService.goToCatalog({ page });
     this.catalogService.getProducts({ page: page, limit: 40 });
   }
 }

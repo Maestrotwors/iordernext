@@ -54,7 +54,7 @@ export class AuthController {
   @Post('refresh-token')
   async refreshToken(
     @Body() body: ApiRequestRefreshToken
-  ): Promise<UserTokensDto | null> {
+  ): Promise<ApiRequestRefreshToken | null> {
     try {
       return await this.authService.refreshToken(body.refreshToken);
     } catch {

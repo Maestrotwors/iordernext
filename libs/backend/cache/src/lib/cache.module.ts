@@ -6,7 +6,6 @@ import { env } from '@base/config/dev.env';
 import { redisStore } from "cache-manager-redis-yet";
 
 @Module({
-  controllers: [],
   providers: [CacheService],
   imports: [
     CM.register<RedisClientOptions>({

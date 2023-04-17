@@ -8,6 +8,7 @@ import {
 } from '@app/frontend/models';
 import { ApiGetCatalog, ApiGetCategories } from '@app/transport-models/customer';
 import { CustomerMapProductsService } from './map-products.service';
+import { CustomerRouteCatalogService } from './route-catalog.service';
 
 @Injectable({
   providedIn: 'root',
@@ -18,17 +19,19 @@ export class CustomerCatalogService {
     public CustomerCatalogCategoriesStore: CustomerCatalogCategoriesStore,
     public catalogProductsStore: CatalogProductsStore,
     public catalogSubSuppliersStore: CatalogSubSuppliersStore,
-    private mappedProductsService: CustomerMapProductsService
+    private mappedProductsService: CustomerMapProductsService,
+    private routeCatalogService: CustomerRouteCatalogService
   ) {}
 
   getProducts(query: ProductsInfoQuery = { limit: 40, page: 1 }) {
+    const queryParameters = { limit: 40, page: 1, ...query };
     this.http
       .getWithToken$('customer/get-catalog', query)
       .pipe((source) => this.catalogProductsStore.trackLoadingPipe(source))
       .subscribe((response: IHttpResponse) => {
         this.catalogProductsStore.updateProducts(
           <ApiGetCatalog>response.data,
-          query
+          queryParameters
         );
       });
   }
@@ -36,7 +39,9 @@ export class CustomerCatalogService {
   getCategories() {
     this.http
       .getWithToken$('customer/get-categories')
-      .pipe((source) => this.CustomerCatalogCategoriesStore.trackLoadingPipe(source))
+      .pipe((source) =>
+        this.CustomerCatalogCategoriesStore.trackLoadingPipe(source)
+      )
       .subscribe((response: IHttpResponse) => {
         this.CustomerCatalogCategoriesStore.updateCategories(
           <ApiGetCategories>response.data
@@ -54,4 +59,5 @@ export class CustomerCatalogService {
         );
       });
   }
+
 }

@@ -5,20 +5,60 @@
       "path": "."
     },
     {
-      "name": "front",
-      "path": "apps/frontend/src"
+      "name": "-frontend-",
+      "path": "./apps/frontend/src/app"
     },
     {
-      "name": "api",
-      "path": "apps/backend/api/src"
+      "name": "frontend/services",
+      "path": "./libs/frontend/services/src/lib"
+    },
+    {
+      "name": "frontend/store",
+      "path": "./libs/frontend/store/src/lib"
+    },
+    {
+      "name": "frontend/models",
+      "path": "./libs/frontend/models/src/lib"
+    },
+    {
+      "name": "frontend/constants",
+      "path": "./libs/frontend/constants/src/lib"
+    },
+    {
+      "name": "frontend/helpers",
+      "path": "./libs/frontend/helpers/src/lib"
+    },
+    {
+      "name": "frontend/pages",
+      "path": "./libs/frontend/pages"
+    },
+    {
+      "name": "-api-",
+      "path": "./apps/backend/api/src/app"
     },
     {
       "name": "api-models",
-      "path": "libs/api-models/src/lib"
+      "path": "./libs/api-models/src/lib"
     },
     {
       "name": "backend/models",
-      "path": "libs/backend/models/src/lib"
+      "path": "./libs/backend/models/src/lib"
+    },
+    {
+      "name": "backend/auth",
+      "path": "./libs/backend/auth/src/lib"
+    },
+    {
+      "name": "backend/cache",
+      "path": "./libs/backend/cache/src/lib"
+    },
+    {
+      "name": "backend/repository",
+      "path": "./libs/backend/repository/src/lib"
+    },
+    {
+      "name": "backend/helpers",
+      "path": "./libs/backend/helpers/src/lib"
     }
   ],
 	"settings": {}

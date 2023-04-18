@@ -2,6 +2,7 @@ import { fadeInAnimation } from '@frontend/animations';
 import { SupplierEmblemBigComponent } from '@frontend/ui';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ContractsStore } from '@frontend/store/customer';
 
 @Component({
   selector: 'app-contracts-suppliers',
@@ -13,6 +14,6 @@ import { CommonModule } from '@angular/common';
   animations: [fadeInAnimation],
 })
 export class ContractsComponent {
-  constructor() {}
-
+  contracts$ = this.contractsStore.contracts$;
+  constructor(private contractsStore: ContractsStore) {}
 }

@@ -3,7 +3,7 @@ import {
   IsString,
 } from 'class-validator';
 
-export class ApiRequestBodyChangePassword {
+export class ApiRequestChangePasswordBody {
   @IsNotEmpty({ message: 'oldPassword is empty' })
   @IsString()
   oldPassword!: string;

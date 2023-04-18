@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { ProductsBlockViewComponent } from './views/products-block-view/products-block-view.component';
 import { ProductsListViewComponent } from './views/products-list-view/products-list-view.component';
 import { CatalogPaginationComponent } from './components/catalog-pagination/catalog-pagination.component';
+import { ProductsStore } from '@frontend/store/customer';
 
 
 @Component({
@@ -24,5 +25,7 @@ import { CatalogPaginationComponent } from './components/catalog-pagination/cata
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CatalogContentComponent {
+  constructor(private productsStore: ProductsStore) {}
 
+  products = this.productsStore.products$
 }

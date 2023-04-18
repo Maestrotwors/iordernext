@@ -1,11 +1,6 @@
-export interface CustomerProduct {
-  id: number;
-  name: string;
-  image: string;
-  price: number;
-  available: number;
-}
+import { Product } from '@api-models/customer/catalog';
 
-export interface CustomerProductMapped extends CustomerProduct {
+export type CustomerProduct = Product;
+export interface CustomerProductMapped extends Product {
   inBasket: number;
 }

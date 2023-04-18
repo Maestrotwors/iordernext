@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ImageLoaderComponent } from '@frontend/ui';
+import { ImageLoaderComponent } from '../../../shared/image-loader/image-loader.component';
 
 @Component({
   selector: 'app-supplier-emblem-big',

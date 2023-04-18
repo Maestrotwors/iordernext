@@ -4,7 +4,7 @@ import {
 } from 'class-validator';
 import { Role } from './role/roles';
 
-export class ApiRequestBodyLogIn {
+export class ApiRequestLogInBody {
   @IsNotEmpty({ message: 'logIn is empty' })
   @IsString()
   login!: string;

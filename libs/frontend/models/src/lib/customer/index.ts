@@ -1,3 +1,4 @@
 export * from './product/product';
 export * from './products/product';
-export * from './products/products-info-query';
+export * from './suppliers/suppliers';
+export * from './basket/basket';

@@ -15,17 +15,8 @@
   position: relative;
 }
 
-.image {
-  width: auto;
-  height: auto;
-  max-width: 180px;
-	max-height: 90px;
-  margin: auto;
-  animation: fadeIn 0.95s;
-}
-
 .emblem-with-hower-text:hover {
-  img {
+  image-class {
     transition: .5s;
     transform: scale(1.07);
     filter: blur(0.3rem);
@@ -44,4 +35,13 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.image-class {
+  width: 90px;
+  height: 30px;
+  max-width: 30px;
+  max-height: 30px;
+  margin: auto;
+  animation: fadeIn 0.95s;
 }

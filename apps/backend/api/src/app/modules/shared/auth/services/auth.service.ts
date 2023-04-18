@@ -1,4 +1,4 @@
-import { ApiRequestBodyLogIn, ApiRequestBodyRefreshToken } from '@api-models/shared/auth';
+import { ApiRequestLogInBody, ApiRequestRefreshTokenBody } from '@api-models/shared/auth';
 import { LogInService, RefreshTokenService } from '@backend/auth';
 import { ForbiddenException, Injectable } from '@nestjs/common';
 
@@ -9,7 +9,7 @@ export class AuthService {
     private refreshTokenService: RefreshTokenService
   ) {}
 
-  async logIn(body: ApiRequestBodyLogIn) {
+  async logIn(body: ApiRequestLogInBody) {
     return await this.logInService.logIn(body);
   }
 

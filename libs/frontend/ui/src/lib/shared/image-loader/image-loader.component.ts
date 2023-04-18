@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, HostBinding, Input } from '@angular/core';
 import { SpinnerSmallComponent } from '../loaders/spinner-small/spinner-small.component';
 import { LazyLoadImageModule, StateChange } from 'ng-lazyload-image';
 
@@ -11,13 +11,15 @@ import { LazyLoadImageModule, StateChange } from 'ng-lazyload-image';
   imports: [SpinnerSmallComponent, CommonModule, LazyLoadImageModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ImageLoaderComponent {
+export class ImageLoaderComponent implements AfterViewInit {
   @Input() src: string | undefined = '';
-
   status: boolean | null = null;
+  @HostBinding('class.image-class') class = 'image-class';
+  constructor(private cdr: ChangeDetectorRef, private elementRef: ElementRef) {}
 
-  constructor(private cdr: ChangeDetectorRef) {}
-
+  ngAfterViewInit(): void {
+    console.log(this.class);
+  }
   notFound() {
     this.status = false;
     this.cdr.detectChanges();

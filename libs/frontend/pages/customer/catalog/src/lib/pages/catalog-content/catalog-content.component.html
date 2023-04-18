@@ -1,20 +1,20 @@
 <div class="catalog-content">
   <app-top-bar-menu></app-top-bar-menu>
-  <!--<div class="products-container">
-    <div *ngIf="(loading | async) === false; else loadingtmpl">
+  <div class="products-container">
+    <div>
       <app-products-block-view
         [products]="(products | async) || []">
       </app-products-block-view>
       <div>---------</div>
       <app-products-list-view></app-products-list-view>
     </div>
-    <app-catalog-pagination
+    <!-- *ngIf="(loading | async) === false; else loadingtmpl"   <app-catalog-pagination
       (pageIndexChanged)="pageIndexChanged($event)"
       [show]="((loading | async) === false) && (productsCount | async) !== 0"
       [selectedPageIndex]="(pageParameters | async)?.page || 0"
       [productsCount]="(productsCount | async) || 0">
-    </app-catalog-pagination>
-  </div>-->
+    </app-catalog-pagination>-->
+  </div>
 </div>
 
 <ng-template #loadingtmpl>

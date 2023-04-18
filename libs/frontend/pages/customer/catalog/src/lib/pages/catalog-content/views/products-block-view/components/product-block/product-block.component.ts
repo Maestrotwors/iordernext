@@ -2,7 +2,7 @@ import { ImageLoaderComponent, InputNumberComponent } from '@frontend/ui';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NzButtonModule } from 'ng-zorro-antd/button';
-
+import { CustomerProduct } from '@frontend/models/customer';
 @Component({
   selector: 'app-product-block',
   standalone: true,
@@ -17,9 +17,9 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductBlockComponent {
+  @Input() product: CustomerProduct | null = null;
 
   newQuantity: number | null = null;
-  product = {};
   valueInBasketChanged(value: number) {
     this.newQuantity = value;
   }

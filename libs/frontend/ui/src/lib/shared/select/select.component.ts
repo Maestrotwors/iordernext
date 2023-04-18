@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NzSelectModule } from 'ng-zorro-antd/select';
+import { identify as identi } from '@frontend/helpers';
 
 @Component({
   selector: 'app-select',
@@ -13,9 +14,7 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 export class SelectComponent {
   @Input() caption = '';
   @Input() width = '';
-  @Input() data:any = [];
+  @Input() data: any = [];
 
-  identify(index: number, item: any) {
-    return item.id;
-  }
+  identify = identi;
 }

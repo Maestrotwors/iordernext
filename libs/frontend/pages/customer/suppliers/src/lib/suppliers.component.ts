@@ -4,6 +4,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ContractsComponent } from './components/contracts/contracts.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { AsyncPipe, NgIf } from '@angular/common';
+import { ContractsService } from '@frontend/services/projects/customer/contracts';
 
 @Component({
   selector: 'app-suppliers',
@@ -20,8 +21,9 @@ import { AsyncPipe, NgIf } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SuppliersComponent implements OnInit {
+  constructor(private contractsService: ContractsService) {}
 
   ngOnInit() {
-    //this.contractsService.getSuppliers();
+    this.contractsService.getContracts();
   }
 }

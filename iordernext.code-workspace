@@ -9,23 +9,27 @@
       "path": "./apps/frontend/src/app"
     },
     {
-      "name": "🔧 frontend/services",
+      "name": "🔧 services",
       "path": "./libs/frontend/services/src/lib"
     },
     {
-      "name": "🗂 frontend/models",
+      "name": "🗄 store",
+      "path": "./libs/frontend/store/src/lib"
+    },
+    {
+      "name": "🗂 models",
       "path": "./libs/frontend/models/src/lib"
     },
     {
-      "name": "⚙️ frontend/constants",
+      "name": "⚙️ constants",
       "path": "./libs/frontend/constants/src/lib"
     },
     {
-      "name": "🧮 frontend/helpers",
+      "name": "🧮 helpers",
       "path": "./libs/frontend/helpers/src/lib"
     },
     {
-      "name": "📗 frontend/pages",
+      "name": "📗 pages",
       "path": "./libs/frontend/pages"
     },
     {

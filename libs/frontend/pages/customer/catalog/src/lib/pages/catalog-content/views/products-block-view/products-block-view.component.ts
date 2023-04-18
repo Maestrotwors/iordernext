@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductBlockComponent } from './components/product-block/product-block.component';
 import { fadeInAnimation } from '@frontend/animations';
-import { CustomerProductMapped } from '@frontend/models/customer';
+import { CustomerProduct } from '@frontend/models/customer';
 
 @Component({
   selector: 'app-products-block-view',
@@ -14,6 +14,6 @@ import { CustomerProductMapped } from '@frontend/models/customer';
   animations: [fadeInAnimation],
 })
 export class ProductsBlockViewComponent {
-  @Input() products: CustomerProductMapped[] = [];
+  @Input() products: CustomerProduct[] = [];
 
 }

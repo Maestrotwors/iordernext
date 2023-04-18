@@ -1,5 +1,5 @@
 import { AuthBaseService } from './core/auth-base.service';
-import { ApiRequestBodyLogIn, Role } from '@api-models/shared/auth';
+import { ApiRequestLogInBody, Role } from '@api-models/shared/auth';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { UserService } from './core/user.service';
 
@@ -9,7 +9,7 @@ export class LogInService {
     private userService: UserService,
     private authBaseService: AuthBaseService
   ) {}
-  async logIn(body: ApiRequestBodyLogIn) {
+  async logIn(body: ApiRequestLogInBody) {
     return await this.loginFromRepository(body.login, body.password);
   }
 

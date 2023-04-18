@@ -1,8 +1,10 @@
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, ActivatedRoute } from '@angular/router';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { SideBarMenuComponent } from './components/side-bar-menu/side-bar-menu.component';
+import { ProductsRouteService } from '@frontend/services/projects/customer/catalog-products';
 
+@UntilDestroy()
 @Component({
   selector: 'app-catalog',
   templateUrl: './catalog.component.html',
@@ -12,9 +14,22 @@ import { SideBarMenuComponent } from './components/side-bar-menu/side-bar-menu.c
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CatalogComponent implements OnInit {
+  constructor(
+    private route: ActivatedRoute,
+    private productsRouteService: ProductsRouteService
+  ) {}
 
   ngOnInit() {
+    this.subscribeToRouteChange();
     //this.catalogService.getCategories();
     //this.catalogService.getSubSuppliers();
+  }
+
+  subscribeToRouteChange() {
+    this.route.queryParams
+      .pipe(untilDestroyed(this))
+      .subscribe((queryParams) => {
+        this.productsRouteService.queryParamsChanged(queryParams);
+      });
   }
 }

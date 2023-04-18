@@ -1,8 +1,6 @@
-<!--<div class="product-block" (click)="selectProduct(product.id)">
+<div class="product-block" (click)="selectProduct(product.id)" *ngIf="product">
   <div class="image-container">
-    <app-image-loader [src]="product.image">
-      <img class="image" [src]="product.image" />
-    </app-image-loader>
+    <!--<app-image-loader [src]="product.image"></app-image-loader>-->
   </div>
   <div>
     <div class="price-container">{{product.price}} грн.</div>
@@ -18,14 +16,14 @@
     </div>
     <div class="order-container table-2-col" (click)="$event.stopPropagation()">
       <div>
-        <app-input-number
+        <!--<app-input-number
           [value]="product.inBasket"
           (modelChanged)="valueInBasketChanged($event)">
-        </app-input-number>
+        </app-input-number>-->
       </div>
       <div>
         <button nz-button nzType="primary" (click)="saveInBasket()">Замовити</button>
       </div>
     </div>
   </div>
-</div>-->
+</div>

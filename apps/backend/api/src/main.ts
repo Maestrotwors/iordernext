@@ -8,7 +8,7 @@ async function bootstrap() {
   const globalPrefix = 'api';
   app.setGlobalPrefix(globalPrefix);
   app.useGlobalPipes(
-    new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true })
+    new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true, transform: true })
   );
   const port = process.env.PORT || 3333;
   await app.listen(port);

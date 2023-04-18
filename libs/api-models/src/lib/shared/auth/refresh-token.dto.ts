@@ -1,6 +1,6 @@
 import { IsNotEmpty, IsString } from 'class-validator';
 
-export class ApiRequestBodyRefreshToken {
+export class ApiRequestRefreshTokenBody {
   @IsNotEmpty({ message: 'refreshToken is empty' })
   @IsString()
   public refreshToken!: string;

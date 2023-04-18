@@ -13,7 +13,7 @@ export const routes: Route[] = [
             (c) => c.SuppliersComponent
           ),
         data: {
-          preloadAfter: 1500,
+          preloadAfter: 1500
         },
       },
       {

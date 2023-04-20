@@ -1,4 +1,4 @@
-import { compare, hash }  from "bcrypt";
+import { compare }  from "bcrypt";
 
 import { Injectable } from "@nestjs/common";
 import { UserRepository } from '../repositories/user.repository';

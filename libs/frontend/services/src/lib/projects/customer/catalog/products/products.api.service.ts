@@ -3,7 +3,7 @@ import { HttpResponseData, HttpResponseError, isHttpResponseData } from '@fronte
 import { ApiResponseGetProducts } from '@api-models/customer/catalog';
 import { Params } from '@angular/router';
 import { ProductsStore } from '@frontend/store/customer';
-import { HttpService } from '../../../core/http/http.service';
+import { HttpService } from '../../../../core/http/http.service';
 import { ROUTE_CUSTOMER } from '@api-models/shared/route';
 
 @Injectable({

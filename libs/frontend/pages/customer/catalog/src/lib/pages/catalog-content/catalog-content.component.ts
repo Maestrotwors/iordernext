@@ -7,7 +7,7 @@ import { ProductsBlockViewComponent } from './views/products-block-view/products
 import { ProductsListViewComponent } from './views/products-list-view/products-list-view.component';
 import { CatalogPaginationComponent } from './components/catalog-pagination/catalog-pagination.component';
 import { ProductsPageInfoStore, ProductsStore } from '@frontend/store/customer';
-import { ProductsPageService } from '@frontend/services/projects/customer/catalog-products';
+import { ProductsPageService } from '@frontend/services/projects/customer/catalog/products';
 
 
 @Component({

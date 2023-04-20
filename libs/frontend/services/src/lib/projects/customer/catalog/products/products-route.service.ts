@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Params } from '@angular/router';
 import { ProductsApiService } from './products.api.service';
-import { BasketService } from '../basket/basket.service';
+import { BasketService } from '../../basket/basket.service';
 import { ProductsPageInfoStore } from '@frontend/store/customer';
 
 @Injectable({

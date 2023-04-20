@@ -1,6 +1,3 @@
-import { Transform } from 'class-transformer';
-import { IsNumber } from 'class-validator';
-
 export interface Product {
   id: number;
   name: string;
@@ -9,22 +6,11 @@ export interface Product {
   available: number;
 }
 
-export class ApiRequestGetProductQuery {
-  @Transform(({ value }) => Number(value))
-  @IsNumber()
-  id!: number;
-
-  @Transform(({ value }) => Number(value))
-  @IsNumber()
-  sId!: number;
-
-  @Transform(({ value }) => Number(value))
-  @IsNumber()
-  dp!: number;
-
-  @Transform(({ value }) => Number(value))
-  @IsNumber()
-  le!: number;
+export interface ApiRequestGetProductQuery {
+  id: number;
+  sId: number;
+  dp: number;
+  le: number;
 }
 
 export type ApiResponseGetProduct = Product;

@@ -21,6 +21,7 @@
           "apps/frontend/src/styles.scss"
         ],
         "scripts": []
+        
       },
       "configurations": {
         "production": {

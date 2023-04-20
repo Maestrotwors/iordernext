@@ -9,8 +9,10 @@ export interface BasketProduct {
   updatedAt: Date;
 }
 
-export class ApiRequestGetBasketQuery {
-
+export interface ApiRequestGetBasketQuery {
+  sId: number;
+  dp: number;
+  le: number;
 }
 
 export type ApiResponseGetBasket = BasketProduct[];

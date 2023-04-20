@@ -1,6 +1,5 @@
 import { Controller, Get, Query } from '@nestjs/common';
 
-import { ApiRequestGetProductsQuery } from '@api-models/customer/catalog';
 import { ApiRequestGetBasketQuery } from '@api-models/customer/basket';
 
 import { ProductsService } from './services/catalog/products.service';
@@ -8,7 +7,10 @@ import { ProductService } from './services/product/product.service';
 import { SuppliersService } from './services/suppliers/suppliers.service';
 import { BasketService } from './services/basket/basket.service';
 import { ROUTE_CUSTOMER } from '@api-models/shared/route';
-import { ApiRequestGetProductQuery } from '@api-models/customer/product';
+import {
+  ApiRequestGetProductQueryValidator,
+  ApiRequestGetProductsQueryValidator,
+} from '@backend/models/core/validators/customer';
 @Controller()
 export class CustomerController {
   constructor(
@@ -24,7 +26,7 @@ export class CustomerController {
   }
 
   @Get(ROUTE_CUSTOMER.GetCatalog)
-  async getCatalog(@Query() query: ApiRequestGetProductsQuery) {
+  async getCatalog(@Query() query: ApiRequestGetProductsQueryValidator) {
     return await this.productsService.getProducts(query);
   }
 
@@ -39,7 +41,7 @@ export class CustomerController {
   }
 
   @Get(ROUTE_CUSTOMER.GetProduct)
-  async getProduct(@Query() query: ApiRequestGetProductQuery) {
+  async getProduct(@Query() query: ApiRequestGetProductQueryValidator) {
     return await this.productService.getProduct(query);
   }
 

@@ -5,8 +5,8 @@ import { ProductAdditionalInfoComponent } from './components/product-additional-
 import { ProductContentComponent } from './components/product-content/product-content.component';
 import { ActivatedRoute } from '@angular/router';
 import { SpinnerCircleComponent } from '@frontend/ui';
-import { ProductRouteService } from '@frontend/services/projects/customer/catalog-product';
-import { ProductStore } from '@frontend/store/customer';
+import { ProductRouteService } from '@frontend/services/projects/customer/catalog/product';
+
 @Component({
   selector: 'app-product',
   standalone: true,

@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
 import { AuthService } from '@frontend/services/core';
 
 @Component({
@@ -12,9 +11,9 @@ import { AuthService } from '@frontend/services/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LandingComponent {
-  constructor(private auth: AuthService, private router: Router) {}
-  async logInTest() {
-    const response = await this.auth.logIn('test', 'test');
+  constructor(private auth: AuthService) {}
 
+  async logInTest() {
+    this.auth.logIn('test', 'test');
   }
 }

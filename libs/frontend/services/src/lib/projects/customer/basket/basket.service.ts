@@ -16,7 +16,7 @@ export class BasketService {
 
   getBasket() {
     this.http
-      .get$<ApiResponseGetBasket>(ROUTE_CUSTOMER.getBasket, {})
+      .get$<ApiResponseGetBasket>(ROUTE_CUSTOMER.GetBasket, {})
       .subscribe(
         (
           response: HttpResponseError | HttpResponseData<ApiResponseGetBasket>

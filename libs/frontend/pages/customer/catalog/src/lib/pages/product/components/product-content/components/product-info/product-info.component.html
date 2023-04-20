@@ -1,17 +1,18 @@
 <div>
-  <div class="title">product</div>
+  <div class="title">{{(product$ | async)?.name}}</div>
   <div>
     <nz-tag>
       <span class="tag">Код товару: 7702018874293</span>
     </nz-tag>
   </div>
-  <div class="price">product грн.</div>
-  <div class="available">Доступно товарів: product</div>
+  <div class="price">{{(product$ | async)?.price}} грн.</div>
+  <div class="available">Доступно товарів: {{(product$ | async)?.available}}</div>
   <div class="order">
     <div>
       <app-input-number
         [value]="0"
-        (modelChanged)="valueInBasketChanged($event)"></app-input-number>
+        (modelChanged)="valueInBasketChanged($event)">
+      </app-input-number>
     </div>
     <div>
       <button nz-button nzType="primary" (click)="saveInBasket()">Замовити</button>

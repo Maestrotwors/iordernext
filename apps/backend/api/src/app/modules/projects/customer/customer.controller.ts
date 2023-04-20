@@ -4,44 +4,46 @@ import { ApiRequestGetProductsQuery } from '@api-models/customer/catalog';
 import { ApiRequestGetBasketQuery } from '@api-models/customer/basket';
 
 import { ProductsService } from './services/catalog/products.service';
+import { ProductService } from './services/product/product.service';
 import { SuppliersService } from './services/suppliers/suppliers.service';
 import { BasketService } from './services/basket/basket.service';
 import { ROUTE_CUSTOMER } from '@api-models/shared/route';
+import { ApiRequestGetProductQuery } from '@api-models/customer/product';
 @Controller()
 export class CustomerController {
   constructor(
     private suppliersService: SuppliersService,
     private productsService: ProductsService,
-    private basketService: BasketService
+    private basketService: BasketService,
+    private productService: ProductService
   ) {}
 
-  @Get(ROUTE_CUSTOMER.getSuppliers)
+  @Get(ROUTE_CUSTOMER.GetSuppliers)
   async getSuppliers() {
     return await this.suppliersService.getSuppliers();
   }
 
-  @Get(ROUTE_CUSTOMER.getCatalog)
+  @Get(ROUTE_CUSTOMER.GetCatalog)
   async getCatalog(@Query() query: ApiRequestGetProductsQuery) {
     return await this.productsService.getProducts(query);
   }
 
-  @Get(ROUTE_CUSTOMER.getCategories)
+  @Get(ROUTE_CUSTOMER.GetCategories)
   async getCategories() {
     //return await this.categoryService.getCategories();
   }
 
-  @Get(ROUTE_CUSTOMER.getBasket)
+  @Get(ROUTE_CUSTOMER.GetBasket)
   async getBasket(@Query() query: ApiRequestGetBasketQuery) {
     return await this.basketService.getBasket();
   }
 
-  /*
-  @Get('get-product/:id')
-  @Auth([Role.Customer])
-  async getProductById(@Param('id') id: number) {
-    return await this.productService.getProductById(id);
+  @Get(ROUTE_CUSTOMER.GetProduct)
+  async getProduct(@Query() query: ApiRequestGetProductQuery) {
+    return await this.productService.getProduct(query);
   }
 
+  /*
   @Get('get-sub-suppliers')
   @Auth([Role.Customer])
   async getSubSuppliers() {

@@ -1,5 +1,3 @@
 <div class="image-container">
-  <app-image-loader>
-    <img class="image" />
-  </app-image-loader>
+  <app-image-loader [src]="(product$ | async)?.image"></app-image-loader>
 </div>

@@ -21,8 +21,6 @@ export class CatalogComponent implements OnInit {
 
   ngOnInit() {
     this.subscribeToRouteChange();
-    //this.catalogService.getCategories();
-    //this.catalogService.getSubSuppliers();
   }
 
   subscribeToRouteChange() {

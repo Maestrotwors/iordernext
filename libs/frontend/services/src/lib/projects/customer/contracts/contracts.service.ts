@@ -18,7 +18,7 @@ export class ContractsService {
 
   getContracts() {
     this.http
-      .get$<ApiResponseSuppliers>(ROUTE_CUSTOMER.getSuppliers)
+      .get$<ApiResponseSuppliers>(ROUTE_CUSTOMER.GetSuppliers)
       .subscribe(
         (data: HttpResponseError | HttpResponseData<ApiResponseSuppliers>) => {
           if (isHttpResponseData(data)) {

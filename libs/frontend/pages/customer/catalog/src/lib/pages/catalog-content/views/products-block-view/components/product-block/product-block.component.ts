@@ -3,6 +3,9 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { CustomerProduct } from '@frontend/models/customer';
+import { RouterLink, RouterLinkWithHref } from '@angular/router';
+import { CustomerContractService } from '@frontend/services/projects/customer/core';
+
 @Component({
   selector: 'app-product-block',
   standalone: true,
@@ -11,6 +14,8 @@ import { CustomerProduct } from '@frontend/models/customer';
     ImageLoaderComponent,
     NzButtonModule,
     InputNumberComponent,
+    RouterLinkWithHref,
+    RouterLink,
   ],
   templateUrl: './product-block.component.html',
   styleUrls: ['./product-block.component.scss'],
@@ -19,7 +24,11 @@ import { CustomerProduct } from '@frontend/models/customer';
 export class ProductBlockComponent {
   @Input() product: CustomerProduct | null = null;
 
+  constructor(private customerContractService: CustomerContractService) {}
+
   newQuantity: number | null = null;
+  contractQueryParams = this.customerContractService.getContractQueryParams();
+
   valueInBasketChanged(value: number) {
     this.newQuantity = value;
   }

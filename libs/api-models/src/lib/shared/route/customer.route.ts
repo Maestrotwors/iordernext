@@ -1,6 +1,7 @@
 export const ROUTE_CUSTOMER = {
-  getCatalog: 'customer/get-catalog',
-  getBasket: 'customer/get-basket',
-  getSuppliers: 'customer/get-suppliers',
-  getCategories: 'get-categories'
+  GetCatalog: 'customer/get-catalog',
+  GetBasket: 'customer/get-basket',
+  GetSuppliers: 'customer/get-suppliers',
+  GetCategories: 'customer/get-categories',
+  GetProduct: 'customer/get-product',
 };

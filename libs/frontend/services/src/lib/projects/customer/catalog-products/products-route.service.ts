@@ -1,16 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Params } from '@angular/router';
-import { ProductsService } from './products.service';
+import { ProductsApiService } from './products.api.service';
 import { BasketService } from '../basket/basket.service';
+import { ProductsPageInfoStore } from '@frontend/store/customer';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductsRouteService {
-  constructor(private productsService: ProductsService, private basketService: BasketService) {}
+  constructor(
+    private productsApiService: ProductsApiService,
+    private basketService: BasketService,
+    private productsPageInfoStore: ProductsPageInfoStore
+  ) {}
 
   queryParamsChanged(queryParams: Params) {
-    this.productsService.getProducts(queryParams);
+    this.productsPageInfoStore.updatePage(queryParams);
+    this.productsApiService.getProducts(queryParams);
     this.basketService.getBasket();
   }
 

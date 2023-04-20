@@ -6,7 +6,8 @@ import { CommonModule } from '@angular/common';
 import { ProductsBlockViewComponent } from './views/products-block-view/products-block-view.component';
 import { ProductsListViewComponent } from './views/products-list-view/products-list-view.component';
 import { CatalogPaginationComponent } from './components/catalog-pagination/catalog-pagination.component';
-import { ProductsStore } from '@frontend/store/customer';
+import { ProductsPageInfoStore, ProductsStore } from '@frontend/store/customer';
+import { ProductsPageService } from '@frontend/services/projects/customer/catalog-products';
 
 
 @Component({
@@ -25,7 +26,17 @@ import { ProductsStore } from '@frontend/store/customer';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CatalogContentComponent {
-  constructor(private productsStore: ProductsStore) {}
+  constructor(
+    private productsStore: ProductsStore,
+    private productsPageInfoStore: ProductsPageInfoStore,
+    private productsPageService: ProductsPageService
+  ) {}
 
-  products = this.productsStore.products$
+  products = this.productsStore.products$;
+  totalCountProducts = this.productsStore.totalCountProducts$;
+  pageQueryParams = this.productsPageInfoStore.pageQueryParams$;
+
+  pageIndexChanged(pageIndex: number) {
+    this.productsPageService.navigateWithQueryParams({ page: pageIndex }); 
+  }
 }

@@ -21,11 +21,10 @@ export class SelectedContractStore {
       legalEntity: {
         id: 1,
         name: 'новий кпк',
-      },
-      subSupplier: null,
+      }
     });
 
-  public selectedContract$ = this._selectedContract$.asObservable();
+  public selectedContractChanged$ = this._selectedContract$.asObservable();
 
   updateSelectedContract(contract: SelectedContract) {
     this._selectedContract$.next(contract);

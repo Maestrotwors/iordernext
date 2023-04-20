@@ -2,7 +2,7 @@ import { ImageLoaderComponent, InputNumberComponent } from '@frontend/ui';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NzButtonModule } from 'ng-zorro-antd/button';
-import { CustomerProduct } from '@frontend/models/customer';
+import { CustomerProductMapped } from '@frontend/models/customer';
 import { RouterLink, RouterLinkWithHref } from '@angular/router';
 import { CustomerContractService } from '@frontend/services/projects/customer/core';
 
@@ -22,7 +22,7 @@ import { CustomerContractService } from '@frontend/services/projects/customer/co
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductBlockComponent {
-  @Input() product: CustomerProduct | null = null;
+  @Input() product: CustomerProductMapped | null = null;
 
   constructor(private customerContractService: CustomerContractService) {}
 

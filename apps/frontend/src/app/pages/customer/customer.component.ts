@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
+import { CustomerInitializeService } from '@frontend/services/projects/customer/core';
 
 @Component({
   selector: 'app-customer',
@@ -8,4 +9,8 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
   encapsulation: ViewEncapsulation.None,
   providers: [],
 })
-export class CustomerComponent {}
+export class CustomerComponent {
+  constructor(private customerInitializeService: CustomerInitializeService) {
+    this.customerInitializeService.initialize();
+  }
+}

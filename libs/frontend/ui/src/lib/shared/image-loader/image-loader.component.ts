@@ -18,7 +18,7 @@ export class ImageLoaderComponent implements AfterViewInit {
   constructor(private cdr: ChangeDetectorRef, private elementRef: ElementRef) {}
 
   ngAfterViewInit(): void {
-    console.log(this.class);
+    //console.log(this.class);
   }
   notFound() {
     this.status = false;

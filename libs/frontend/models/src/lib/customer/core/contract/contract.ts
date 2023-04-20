@@ -14,14 +14,9 @@ export interface LegalEntity {
 	name: string;
 }
 
-export interface SubSupplier {
-	id: number;
-	name: string;
-}
-
 export interface SelectedContract {
 	supplier: Supplier;
 	deliveryPoint: DeliveryPoint;
 	legalEntity: LegalEntity;
-	subSupplier: SubSupplier | null;
+
 }

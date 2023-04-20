@@ -32,7 +32,7 @@ export class CatalogContentComponent {
     private productsPageService: ProductsPageService
   ) {}
 
-  products = this.productsStore.products$;
+  products = this.productsStore.productsMapped$;
   totalCountProducts = this.productsStore.totalCountProducts$;
   pageQueryParams = this.productsPageInfoStore.pageQueryParams$;
 

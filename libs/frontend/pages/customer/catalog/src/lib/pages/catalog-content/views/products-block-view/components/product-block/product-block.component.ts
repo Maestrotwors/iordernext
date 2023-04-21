@@ -5,6 +5,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { CustomerProductMapped } from '@frontend/models/customer';
 import { RouterLink, RouterLinkWithHref } from '@angular/router';
 import { CustomerContractService } from '@frontend/services/projects/customer/core';
+import { BasketService } from '@frontend/services/projects/customer/basket';
 
 @Component({
   selector: 'app-product-block',
@@ -22,9 +23,12 @@ import { CustomerContractService } from '@frontend/services/projects/customer/co
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductBlockComponent {
-  @Input() product: CustomerProductMapped | null = null;
+  @Input() product!: CustomerProductMapped;
 
-  constructor(private customerContractService: CustomerContractService) {}
+  constructor(
+    private customerContractService: CustomerContractService,
+    private basketService: BasketService
+  ) {}
 
   newQuantity: number | null = null;
   contractQueryParams = this.customerContractService.getContractQueryParams();
@@ -41,7 +45,7 @@ export class ProductBlockComponent {
     if (this.newQuantity === null) {
       return;
     }
-    //this.productService.saveInBasket(this.product.id, this.newQuantity);
+    this.basketService.saveInBasket(this.product.id, this.newQuantity);
     this.newQuantity = null;
   }
 }

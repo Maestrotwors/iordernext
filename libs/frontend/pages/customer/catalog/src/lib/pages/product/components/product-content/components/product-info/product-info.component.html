@@ -1,16 +1,16 @@
-<div>
-  <div class="title">{{(product$ | async)?.name}}</div>
+<div *ngIf="(product$ | async) as product">
+  <div class="title">{{product.name}}</div>
   <div>
     <nz-tag>
       <span class="tag">Код товару: 7702018874293</span>
     </nz-tag>
   </div>
-  <div class="price">{{(product$ | async)?.price}} грн.</div>
-  <div class="available">Доступно товарів: {{(product$ | async)?.available}}</div>
+  <div class="price">{{product.price}} грн.</div>
+  <div class="available">Доступно товарів: {{product.available}}</div>
   <div class="order">
     <div>
       <app-input-number
-        [value]="(product$ | async)?.inBasket || 0"
+        [value]="product.inBasket"
         (modelChanged)="valueInBasketChanged($event)">
       </app-input-number>
     </div>

@@ -15,6 +15,10 @@ export class ProductStore extends BaseStore {
   public product$ = this._product$.asObservable();
   public productMapped$ = this._productMapped$.asObservable();
 
+  getProduct(): CustomerCurrentProductMapped | null {
+    return this._productMapped$.getValue();
+  }
+
   updateProduct(product: CustomerCurrentProduct) {
     this._product$.next(product);
   }

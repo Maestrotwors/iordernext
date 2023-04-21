@@ -9,10 +9,7 @@ import { ROUTE_CUSTOMER } from '@api-models/shared/route';
   providedIn: 'root',
 })
 export class BasketService {
-  constructor(
-    private http: HttpService,
-    private basketStore: BasketStore
-  ) {}
+  constructor(private http: HttpService, private basketStore: BasketStore) {}
 
   getBasket() {
     this.http
@@ -28,5 +25,10 @@ export class BasketService {
           }
         }
       );
+  }
+
+  saveInBasket(productId: number, quantity: number) {
+    alert(productId);
+    alert(quantity);
   }
 }

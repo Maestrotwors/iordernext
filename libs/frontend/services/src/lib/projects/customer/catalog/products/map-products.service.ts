@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BasketProduct, CustomerProduct, CustomerProductMapped } from '@frontend/models/customer';
-import { BasketStore, ProductsStore } from '@frontend/store/customer';
-import { distinctUntilChanged } from 'rxjs';
+import { BasketStore, ProductsPageInfoStore, ProductsStore } from '@frontend/store/customer';
 import { combineLatest } from 'rxjs/internal/observable/combineLatest';
+import { distinctUntilChanged } from 'rxjs/internal/operators/distinctUntilChanged';
 import { filter } from 'rxjs/internal/operators/filter';
 
 @Injectable({
@@ -11,7 +11,8 @@ import { filter } from 'rxjs/internal/operators/filter';
 export class CustomerMapProductsService {
   constructor(
     private productsStore: ProductsStore,
-    private basketStore: BasketStore
+    private basketStore: BasketStore,
+    private productsPageInfoStore: ProductsPageInfoStore
   ) {
     this.subscribeToProductsAndBasketChanged();
   }
@@ -19,7 +20,7 @@ export class CustomerMapProductsService {
   private subscribeToProductsAndBasketChanged() {
     combineLatest([
       this.productsStore.products$.pipe(filter((x) => x !== null)),
-      this.basketStore.basket$.pipe(filter((x) => x !== null))
+      this.basketStore.basket$.pipe(filter((x) => x !== null)),
     ])
       .pipe(distinctUntilChanged())
       .subscribe(([products, basket]) => {

@@ -1,22 +1,21 @@
 export interface Supplier {
-	id: number;
-	name: string;
-	image: string;
+  id: number;
+  name: string;
+  image: string;
 }
 
 export interface DeliveryPoint {
-	id: number;
-	name: string;
+  id: number;
+  name: string;
 }
 
 export interface LegalEntity {
-	id: number;
-	name: string;
+  id: number;
+  name: string;
 }
 
-export interface SelectedContract {
-	supplier: Supplier;
-	deliveryPoint: DeliveryPoint;
-	legalEntity: LegalEntity;
-
+export class SelectedContract {
+  supplier!: Supplier;
+  deliveryPoint!: DeliveryPoint;
+  legalEntity!: LegalEntity;
 }

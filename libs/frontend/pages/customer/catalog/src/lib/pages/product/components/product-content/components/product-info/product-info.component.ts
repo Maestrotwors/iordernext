@@ -16,7 +16,7 @@ import { ProductStore } from '@frontend/store/customer';
 export class ProductInfoComponent {
   constructor(private productStore: ProductStore) {}
 
-  product$ = this.productStore.product$;
+  product$ = this.productStore.productMapped$;
   newQuantity: number | null = null;
 
   valueInBasketChanged(value: number) {

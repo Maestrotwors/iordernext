@@ -10,7 +10,7 @@
   <div class="order">
     <div>
       <app-input-number
-        [value]="0"
+        [value]="(product$ | async)?.inBasket || 0"
         (modelChanged)="valueInBasketChanged($event)">
       </app-input-number>
     </div>

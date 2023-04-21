@@ -7,11 +7,10 @@ import { CustomerProduct, CustomerProductMapped } from '@frontend/models/custome
   providedIn: 'root',
 })
 export class ProductsStore extends BaseStore {
-  private _products$: BehaviorSubject<CustomerProduct[]> = new BehaviorSubject<
-    CustomerProduct[]
-  >([]);
-  private _productsMapped$: BehaviorSubject<CustomerProductMapped[]> =
-    new BehaviorSubject<CustomerProductMapped[]>([]);
+  private _products$: BehaviorSubject<CustomerProduct[] | null> =
+    new BehaviorSubject<CustomerProduct[] | null>(null);
+  private _productsMapped$: BehaviorSubject<CustomerProductMapped[] | null> =
+    new BehaviorSubject<CustomerProductMapped[] | null>(null);
   private _totalCountProducts$: BehaviorSubject<number> =
     new BehaviorSubject<number>(0);
 

@@ -5,7 +5,7 @@ import { ProductAdditionalInfoComponent } from './components/product-additional-
 import { ProductContentComponent } from './components/product-content/product-content.component';
 import { ActivatedRoute } from '@angular/router';
 import { SpinnerCircleComponent } from '@frontend/ui';
-import { ProductRouteService } from '@frontend/services/projects/customer/catalog/product';
+import { ProductPageService, ProductRouteService } from '@frontend/services/projects/customer/catalog/product';
 
 @Component({
   selector: 'app-product',
@@ -24,7 +24,8 @@ import { ProductRouteService } from '@frontend/services/projects/customer/catalo
 export class ProductComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
-    private productRouteService: ProductRouteService
+    private productRouteService: ProductRouteService,
+    private productPageService: ProductPageService
   ) {}
 
   ngOnInit() {

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { RouterBaseService } from '../../../../core/router/router.base.service';
-import { CustomerMapProductsService } from './map-products';
+import { CustomerMapProductsService } from './map-products.service';
 
 @Injectable({
   providedIn: 'root',

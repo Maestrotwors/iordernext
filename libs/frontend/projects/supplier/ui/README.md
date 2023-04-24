@@ -1,0 +1,3 @@
+# frontend-projects-supplier-ui
+
+This library was generated with [Nx](https://nx.dev).

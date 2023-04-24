@@ -1,0 +1,20 @@
+{
+  "name": "frontend-projects-admin-ui",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/frontend/projects/admin/ui/src",
+  "prefix": "iorder",
+  "tags": [],
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/frontend/projects/admin/ui/**/*.ts",
+          "libs/frontend/projects/admin/ui/**/*.html"
+        ]
+      }
+    }
+  }
+}

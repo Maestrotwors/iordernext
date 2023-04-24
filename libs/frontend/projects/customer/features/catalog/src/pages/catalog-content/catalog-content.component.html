@@ -1,0 +1,22 @@
+<div class="catalog-content">
+  <app-top-bar-menu></app-top-bar-menu>
+  <div class="products-container">
+    <div class="products">
+      <div *ngIf="(productsLoading | async) === false; else loadingTemplate">
+        <app-products-block-view [products]="(products | async) || []">
+        </app-products-block-view>
+        <div>---------</div>
+        <!--<app-products-list-view></app-products-list-view>-->
+      </div>
+    </div>
+    <app-catalog-pagination
+      (pageIndexChanged)="pageIndexChanged($event)"
+      [selectedPageIndex]="(pageQueryParams | async)?.page || 1"
+      [productsCount]="(totalCountProducts | async) || 0">
+    </app-catalog-pagination>
+  </div>
+</div>
+
+<ng-template #loadingTemplate>
+  <app-spinner-circle></app-spinner-circle>
+</ng-template>

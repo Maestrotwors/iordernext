@@ -1,0 +1,11 @@
+<div>
+  <div>Підписано контракт</div>
+</div>
+
+<div class="contracts-container">
+  <app-contract-emblem-big 
+    *ngFor="let contract of contracts$ | async; trackBy: identify; let index = index" 
+    [@fadeIn]="{value: '', params: { time:200, delay:  index < 20 ? index * 50 : 0}}"
+    [src]="contract.image">
+  </app-contract-emblem-big>
+</div>

@@ -1,0 +1,152 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@api-models/*": ["libs/api-models/src/lib/*/index.ts"],
+      "@backend/auth": ["libs/backend/auth/src/index.ts"],
+      "@backend/cache": ["libs/backend/cache/src/index.ts"],
+      "@backend/helpers": ["libs/backend/helpers/src/index.ts"],
+      "@backend/models/*": ["libs/backend/models/src/lib/*/index.ts"],
+      "@backend/repository": ["libs/backend/repository/src/index.ts"],
+      "@config/*": ["config/*"],
+      "@frontend/core/models/*": [
+        "libs/frontend/core/models/src/lib/*/index.ts"
+      ],
+      "@frontend/core/shared/*": [
+        "libs/frontend/core/shared/src/lib/*/index.ts"
+      ],
+      "@frontend/core/ui/*": ["libs/frontend/core/ui/src/lib/*/index.ts"],
+      "@frontend/projects/admin/core": [
+        "libs/frontend/projects/admin/core/src/index.ts"
+      ],
+      "@frontend/projects/admin/models/*": [
+        "libs/frontend/projects/admin/models/src/lib/*/index.ts"
+      ],
+      "@frontend/projects/admin/shared": [
+        "libs/frontend/projects/admin/shared/src/index.ts"
+      ],
+      "@frontend/projects/admin/ui/*": [
+        "libs/frontend/projects/admin/ui/src/lib/*/index.ts"
+      ],
+      "@frontend/projects/customer/core": [
+        "libs/frontend/projects/customer/core/src/index.ts"
+      ],
+      "@frontend/projects/customer/features/catalog": [
+        "libs/frontend/projects/customer/features/catalog/src/index.ts"
+      ],
+      "@frontend/projects/customer/features/contact-us": [
+        "libs/frontend/projects/customer/features/contact-us/src/index.ts"
+      ],
+      "@frontend/projects/customer/features/contracts": [
+        "libs/frontend/projects/customer/features/contracts/src/index.ts"
+      ],
+      "@frontend/projects/customer/features/delivery": [
+        "libs/frontend/projects/customer/features/delivery/src/index.ts"
+      ],
+      "@frontend/projects/customer/features/how-to-use": [
+        "libs/frontend/projects/customer/features/how-to-use/src/index.ts"
+      ],
+      "@frontend/projects/customer/features/order": [
+        "libs/frontend/projects/customer/features/order/src/index.ts"
+      ],
+      "@frontend/projects/customer/features/order-final-page": [
+        "libs/frontend/projects/customer/features/order-final-page/src/index.ts"
+      ],
+      "@frontend/projects/customer/features/profile": [
+        "libs/frontend/projects/customer/features/profile/src/index.ts"
+      ],
+      "@frontend/projects/customer/features/refund": [
+        "libs/frontend/projects/customer/features/refund/src/index.ts"
+      ],
+      "@frontend/projects/customer/features/rules": [
+        "libs/frontend/projects/customer/features/rules/src/index.ts"
+      ],
+      "@frontend/projects/customer/models": [
+        "libs/frontend/projects/customer/models/src/index.ts"
+      ],
+      "@frontend/projects/customer/shared/*": [
+        "libs/frontend/projects/customer/shared/src/lib/*/index.ts"
+      ],
+      "@frontend/projects/customer/ui/*": [
+        "libs/frontend/projects/customer/ui/src/lib/*/index.ts"
+      ],
+      "@frontend/projects/landing/core": [
+        "libs/frontend/projects/landing/core/src/index.ts"
+      ],
+      "@frontend/projects/landing/features/contact-us": [
+        "libs/frontend/projects/landing/features/contact-us/src/index.ts"
+      ],
+      "@frontend/projects/landing/features/landing": [
+        "libs/frontend/projects/landing/features/landing/src/index.ts"
+      ],
+      "@frontend/projects/landing/features/sign-in": [
+        "libs/frontend/projects/landing/features/sign-in/src/index.ts"
+      ],
+      "@frontend/projects/landing/features/sign-up": [
+        "libs/frontend/projects/landing/features/sign-up/src/index.ts"
+      ],
+      "@frontend/projects/landing/models/*": [
+        "libs/frontend/projects/landing/models/src/lib/*/index.ts"
+      ],
+      "@frontend/projects/supplier/core": [
+        "libs/frontend/projects/supplier/core/src/index.ts"
+      ],
+      "@frontend/projects/supplier/features/clients": [
+        "libs/frontend/projects/supplier/features/clients/src/index.ts"
+      ],
+      "@frontend/projects/supplier/features/cooperation-request": [
+        "libs/frontend/projects/supplier/features/cooperation-request/src/index.ts"
+      ],
+      "@frontend/projects/supplier/features/goods-catalog": [
+        "libs/frontend/projects/supplier/features/goods-catalog/src/index.ts"
+      ],
+      "@frontend/projects/supplier/features/import-catalog": [
+        "libs/frontend/projects/supplier/features/import-catalog/src/index.ts"
+      ],
+      "@frontend/projects/supplier/features/not-enough-goods": [
+        "libs/frontend/projects/supplier/features/not-enough-goods/src/index.ts"
+      ],
+      "@frontend/projects/supplier/features/orders": [
+        "libs/frontend/projects/supplier/features/orders/src/index.ts"
+      ],
+      "@frontend/projects/supplier/features/promos": [
+        "libs/frontend/projects/supplier/features/promos/src/index.ts"
+      ],
+      "@frontend/projects/supplier/features/providers": [
+        "libs/frontend/projects/supplier/features/providers/src/index.ts"
+      ],
+      "@frontend/projects/supplier/features/recommended": [
+        "libs/frontend/projects/supplier/features/recommended/src/index.ts"
+      ],
+      "@frontend/projects/supplier/features/regions": [
+        "libs/frontend/projects/supplier/features/regions/src/index.ts"
+      ],
+      "@frontend/projects/supplier/models/*": [
+        "libs/frontend/projects/supplier/models/src/lib/*/index.ts"
+      ],
+      "@frontend/projects/supplier/shared": [
+        "libs/frontend/projects/supplier/shared/src/index.ts"
+      ],
+      "@frontend/projects/supplier/ui/*": [
+        "libs/frontend/projects/supplier/ui/src/*/lib/index.ts"
+      ],
+      "@frontend/projects/suppliers/features/clients": [
+        "libs/frontend/projects/suppliers/features/clients/src/index.ts"
+      ]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

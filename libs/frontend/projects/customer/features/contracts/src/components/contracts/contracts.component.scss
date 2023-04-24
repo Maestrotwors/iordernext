@@ -1,0 +1,6 @@
+.contracts-container {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill, 210px);
+  margin: 2rem 0;
+}

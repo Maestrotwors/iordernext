@@ -1,0 +1,11 @@
+@import './styles/adaptive.scss';
+@import './styles/padding.scss';
+@import './styles/base-colors.scss';
+@import './styles/icomoon.scss';
+@import './styles/width.scss';
+
+@import './styles/customize-ui.scss';
+
+body {
+	background-color: var(--project-background-color);
+}

@@ -1,0 +1,17 @@
+.product-dektop {
+  display: grid;
+
+  .main-container {
+    padding-left: var(--standard-padding);
+  }
+
+  .product-main-container {
+    margin-top: var(--standard-margin-top);
+  }
+
+  .product-container {
+    display: grid;
+    grid-template-columns: 20rem 1fr;
+    grid-gap: 1rem;
+  }
+}

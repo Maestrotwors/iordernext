@@ -1,0 +1,42 @@
+<a [routerLink]="['product', product.id]" [queryParams]="contractQueryParams" draggable="false" (click)="selectProduct(product.id)">
+  <div class="product-block" *ngIf="product">
+    <div class="image-container">
+      <img [src]="product.image" class="image" />
+    </div>
+    <div>
+      <div class="price-container">{{product.price}} грн.</div>
+      <div class="title-container">{{product.name}}</div>
+      <div class="additional-container table-2-col">
+        <div class="available-text">
+          <span>Доступно: </span>
+          <span>{{product.available}}</span>
+        </div>
+        <div>
+          <span>1л.</span>
+        </div>
+      </div>
+      <div class="order-container table-2-col">
+        <div>
+          <p-inputNumber 
+            [showButtons]="true" 
+            [(ngModel)]="product.inBasket"
+            [min]="0"
+            (click)="$event.stopPropagation();$event.preventDefault()">
+          </p-inputNumber>
+          <!--<app-input-number
+            
+            (click)="$event.stopPropagation();$event.preventDefault()"
+            (modelChanged)="valueInBasketChanged($event)">
+          </app-input-number>-->
+        </div>
+        <div>
+          <p-button label="Замовити" 
+            styleClass="p-button-sm p-button-outlined p-button-info"
+            (click)="saveInBasket();$event.stopPropagation();$event.preventDefault()">
+          </p-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</a>
+

@@ -1,0 +1,10 @@
+<div class="pagination-container" *ngIf="productsCount > productsPerPage">
+  <div class="pagination">
+    <p-paginator (onPageChange)="changePageIndex($event.page)" 
+      [totalRecords]="productsCount"
+      [first]="(currentPageIndex - 1) * productsPerPage" 
+      [rows]="productsPerPage"
+      [totalRecords]="productsCount">
+    </p-paginator>
+  </div>
+</div>

@@ -15,7 +15,7 @@ export class BaseStore {
       tap(() => {
         this.loadingKeys[key].next(true);
       }),
-      delay(0),
+      //delay(0),
       finalize(() => {
         this.loadingKeys[key].next(false);
       })

@@ -5,6 +5,7 @@ import { Params } from '@angular/router';
 import { ProductsStore } from '@frontend/store/customer';
 import { HttpService } from '../../../../core/http/http.service';
 import { ROUTE_CUSTOMER } from '@api-models/shared/route';
+import { tap } from 'rxjs/internal/operators/tap';
 
 @Injectable({
   providedIn: 'root',
@@ -16,12 +17,13 @@ export class ProductsApiService {
   ) {}
 
   getProducts(queryParams: Params) {
-    this.http
+    return this.http
       .get$<ApiResponseGetProducts>(ROUTE_CUSTOMER.GetCatalog, {
         page: queryParams['page'],
         take: 40,
       })
-      .subscribe((response: HttpResponseError | HttpResponseData<ApiResponseGetProducts>) => {
+      .pipe(
+        tap((response) => {
           if (isHttpResponseData(response)) {
             this.productsStore.updateProducts(
               response.data.products,
@@ -30,7 +32,7 @@ export class ProductsApiService {
           } else {
             this.productsStore.updateProducts([], 0);
           }
-        }
+        })
       );
   }
 }

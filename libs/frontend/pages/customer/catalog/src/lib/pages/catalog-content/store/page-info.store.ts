@@ -1,6 +1,6 @@
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { Injectable } from '@angular/core';
-import { BaseStore } from '../../base.store';
+import { BaseStore } from '../../../../../../../../store/src/lib/base.store';
 import { CatalogQueryParams } from '@frontend/models/customer';
 import { Params } from '@angular/router';
 

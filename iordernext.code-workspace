@@ -14,7 +14,7 @@
     },
     {
       "name": "🗄 store",
-      "path": "./libs/frontend/store/src/lib"
+      "path": "./libs/frontend/store/src/lib",
     },
     {
       "name": "🗂 models",

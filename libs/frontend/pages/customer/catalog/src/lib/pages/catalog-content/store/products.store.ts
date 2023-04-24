@@ -20,9 +20,7 @@ export class ProductsStore extends BaseStore {
 
   updateProducts(data: CustomerProduct[], count: number) {
     this._products$.next(data);
-    if (this._totalCountProducts$.getValue() !== count) {
-      this._totalCountProducts$.next(count);
-    }
+    this._totalCountProducts$.next(count);
   }
 
   updateMappedProducts(data: CustomerProductMapped[]) {

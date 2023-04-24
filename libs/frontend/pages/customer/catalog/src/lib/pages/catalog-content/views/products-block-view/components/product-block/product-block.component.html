@@ -1,5 +1,5 @@
-<a [routerLink]="['product', product.id]" [queryParams]="contractQueryParams" draggable="false">
-  <div class="product-block" (click)="selectProduct(product.id)" *ngIf="product">
+<a [routerLink]="['product', product.id]" [queryParams]="contractQueryParams" draggable="false" (click)="selectProduct(product.id)">
+  <div class="product-block" *ngIf="product">
     <div class="image-container">
       <app-image-loader [src]="product.image"></app-image-loader>
     </div>

@@ -1,7 +1,7 @@
 <div class="products-list">
 	<app-product-block 
 		*ngFor="let product of products; trackBy: identify; let index = index" 
-		[@fadeIn]="{value: '', params: { time:250, delay:  index < 20 ? index * 50 : 0}}" 
+		[@fadeIn]="{value: '', params: { time:150, delay:  index < 20 ? index * 20 : 0}}" 
 		[product]="product">
   	</app-product-block>
 </div>

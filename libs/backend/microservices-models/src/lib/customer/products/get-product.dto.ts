@@ -1,8 +1,5 @@
-export interface MsProductsRequestGetProduct {
-  id: number;
-  sId: number;
-  dp: number;
-  le: number;
-}
+import { ApiRequestGetProductQuery, ApiResponseGetProduct } from '@api-models/customer/product';
 
-export interface MsProductsResponseGetProduct {}
+export interface MsProductsRequestGetProduct extends ApiRequestGetProductQuery {};
+
+export interface MsProductsResponseGetProduct extends ApiResponseGetProduct {}

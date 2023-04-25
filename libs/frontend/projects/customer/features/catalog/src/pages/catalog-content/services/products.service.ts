@@ -18,7 +18,6 @@ import { BasketStore } from '@frontend/projects/customer/shared/store/basket';
 import { BasketProduct, CustomerProduct, CustomerProductMapped } from '@frontend/projects/customer/models';
 import { finalize } from 'rxjs/internal/operators/finalize';
 import { delay } from 'rxjs/internal/operators/delay';
-import { shareReplay } from 'rxjs/internal/operators/shareReplay';
 
 @Injectable()
 export class ProductsService {
@@ -41,7 +40,6 @@ export class ProductsService {
           this.productsStore.productsLoading$.next(true);
         }),
         delay(0),
-        shareReplay({ bufferSize: 1, refCount: true }),
         tap(
           (
             response:

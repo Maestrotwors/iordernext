@@ -7,3 +7,4 @@ export * from './lib/catalog/select-catalog-products-params';
 export * from './lib/contracts/contracts';
 export * from './lib/basket/basket';
 export * from './lib/selected-contract/selected-contract';
+export * from './lib/catalog/categories/categories';

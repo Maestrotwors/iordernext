@@ -5,9 +5,9 @@ import { IsNumber } from 'class-validator';
 export class ApiRequestGetProductsQueryValidator implements ApiRequestGetProductsQuery {
   @Transform(({ value }) => Number(value))
   @IsNumber()
-  page: number;
+  page!: number;
 
   @Transform(({ value }) => Number(value))
   @IsNumber()
-  take: number;
+  take!: number;
 }

@@ -6,12 +6,11 @@ import {
   ClientKafka,
   Transport,
 } from '@nestjs/microservices';
-//import { ProductsService } from './services/catalog/products.service';
-//import { ProductService } from './services/product/product.service';
 import { SuppliersService } from './services/suppliers/suppliers.service';
 import { BasketService } from './services/basket/basket.service';
 import { ROUTE_CUSTOMER } from '@api-models/shared/route';
 import {
+  ApiRequestGetCategoriesQueryValidator,
   ApiRequestGetProductQueryValidator,
   ApiRequestGetProductsQueryValidator,
 } from '@backend/models/core/validators/customer';
@@ -22,15 +21,15 @@ import {
   MsProductsRequestGetProducts,
   MsProductsResponseGetProducts,
   MsProductsRequestGetProduct,
+  MsProductsRequestGetCategories,
+  MsProductsResponseGetCategories,
 } from '@backend/microservices-models/customer/products';
 
 @Controller()
 export class CustomerController implements OnModuleInit, OnModuleDestroy {
   constructor(
     private suppliersService: SuppliersService,
-    //private productsService: ProductsService,
-    private basketService: BasketService,
-    //private productService: ProductService
+    private basketService: BasketService
   ) {}
 
   @Client({
@@ -56,7 +55,6 @@ export class CustomerController implements OnModuleInit, OnModuleDestroy {
   async onModuleDestroy() {
     await this.client.close();
   }
-  
 
   @Get(ROUTE_CUSTOMER.GetSuppliers)
   @Auth([Role.Customer])
@@ -80,12 +78,6 @@ export class CustomerController implements OnModuleInit, OnModuleDestroy {
     //return await this.productsService.getProducts(query);
   }
 
-  @Get(ROUTE_CUSTOMER.GetCategories)
-  @Auth([Role.Customer])
-  async getCategories() {
-    //return await this.categoryService.getCategories();
-  }
-
   @Get(ROUTE_CUSTOMER.GetBasket)
   @Auth([Role.Customer])
   async getBasket(@Query() query: ApiRequestGetBasketQuery) {
@@ -97,15 +89,27 @@ export class CustomerController implements OnModuleInit, OnModuleDestroy {
   getProduct(@Query() query: ApiRequestGetProductQueryValidator) {
     return new Promise((resolve) => {
       this.client
-        .send(
-          'get-product',
-          JSON.stringify(<MsProductsRequestGetProduct>query)
-        )
+        .send('get-product', JSON.stringify(<MsProductsRequestGetProduct>query))
         .subscribe((response: MsProductsResponseGetProducts) => {
           resolve(response);
         });
     });
     //return await this.productService.getProduct(query);
+  }
+
+  @Get(ROUTE_CUSTOMER.GetCategories)
+  @Auth([Role.Customer])
+  getCategories(@Query() query: ApiRequestGetCategoriesQueryValidator) {
+    /*return new Promise((resolve) => {
+      this.client
+        .send(
+          'get-categories',
+          JSON.stringify(<MsProductsRequestGetCategories>query)
+        )
+        .subscribe((response: MsProductsResponseGetCategories) => {
+          resolve(response);
+        });
+    });*/
   }
 
   /*

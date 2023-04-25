@@ -27,6 +27,6 @@ export class SideBarMenuComponent {
   constructor(private router: Router) {}
 
   goToContracts() {
-    this.router.navigate(['member-user/suppliers']);
+    this.router.navigate(['member-user/contracts']);
   }
 }

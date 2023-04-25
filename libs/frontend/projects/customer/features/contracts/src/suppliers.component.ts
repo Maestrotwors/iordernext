@@ -14,6 +14,7 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
   standalone: true,
   imports: [ContractsComponent, SidebarComponent, NgIf, AsyncPipe],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [ContractsService]
 })
 export class SuppliersComponent implements OnInit {
   constructor(private contractsService: ContractsService) {}

@@ -12,9 +12,7 @@ import { tap } from 'rxjs/internal/operators/tap';
 import { ContractsStore } from '../store/contracts.store';
 import { Observable } from 'rxjs/internal/Observable';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class ContractsService {
   constructor(private http: HttpService, private contractsStore: ContractsStore) {}
 

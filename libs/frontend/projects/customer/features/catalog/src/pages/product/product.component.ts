@@ -20,6 +20,7 @@ import { ProductImagesComponent } from './components/product-images/product-imag
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [ProductService]
 })
 export class ProductComponent implements OnInit {
   constructor(

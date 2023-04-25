@@ -70,9 +70,7 @@ export class CatalogContentComponent implements OnInit {
         }),
         untilDestroyed(this),
       )
-      .subscribe(() => {
-        this.scrollTop();
-      });
+      .subscribe();
   }
 
   private subscribeToProductsAndBasketChanged() {
@@ -82,10 +80,4 @@ export class CatalogContentComponent implements OnInit {
       .subscribe();
   }
 
-  // TODO ROuter
-  private scrollTop() {
-    window.scroll({
-      top: 0,
-    });
-  }
 }

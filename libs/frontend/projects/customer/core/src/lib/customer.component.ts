@@ -9,7 +9,7 @@ import { BasketService } from '@frontend/projects/customer/shared/services/baske
   styleUrls: ['./customer.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  providers: [],
+  providers: [ BasketService ],
 })
 export class CustomerComponent implements OnInit {
   constructor(private basketService: BasketService) {}

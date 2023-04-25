@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { routes } from './app.routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { HttpCacheInterceptorModule } from '@ngneat/cashew';
 
 @NgModule({
   declarations: [AppComponent],
@@ -13,7 +14,11 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' }),
+    RouterModule.forRoot(routes, {
+      initialNavigation: 'enabledBlocking',
+      scrollPositionRestoration: 'top',
+    }),
+    HttpCacheInterceptorModule.forRoot(),
   ],
   providers: [
     {

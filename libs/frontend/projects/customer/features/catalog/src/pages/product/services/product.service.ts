@@ -16,9 +16,7 @@ import { BasketStore } from '@frontend/projects/customer/shared/store/basket';
 import { BasketProduct } from '@api-models/customer/basket';
 import { CurrentProduct, CurrentProductMapped } from '@frontend/projects/customer/models';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class ProductService {
   constructor(
     private http: HttpService,

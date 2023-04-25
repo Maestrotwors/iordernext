@@ -10,7 +10,7 @@ import {
 import { lastValueFrom } from 'rxjs/internal/lastValueFrom';
 import { take } from 'rxjs/internal/operators/take';
 import { HttpBaseService } from './http-base.service';
-
+import { withCache } from '@ngneat/cashew';
 @Injectable({ providedIn: 'root' })
 export class HttpService extends HttpBaseService {
   constructor(private http: HttpClient) {
@@ -23,7 +23,7 @@ export class HttpService extends HttpBaseService {
     query = {}
   ): Observable<HttpResponseError | HttpResponseData<T>> {
     return this.http
-      .get(this.hostUrl + url, { params: query })
+      .get(this.hostUrl + url, { params: query, context: withCache() })
       .pipe(take(1), (source: Observable<any>) => this.check<T>(source));
   }
 

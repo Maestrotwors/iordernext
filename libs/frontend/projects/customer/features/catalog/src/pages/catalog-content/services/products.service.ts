@@ -58,7 +58,6 @@ export class ProductsService {
             }
           }
         ),
-
         finalize(() => {
           this.productsStore.productsLoading$.next(false);
         })

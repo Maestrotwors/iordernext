@@ -1,0 +1,52 @@
+{
+  "name": "backend-microservices-customer-customer",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/backend/microservices/customer/customer/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/backend/microservices/customer/customer",
+        "main": "apps/backend/microservices/customer/customer/src/main.ts",
+        "tsConfig": "apps/backend/microservices/customer/customer/tsconfig.app.json",
+        "assets": ["apps/backend/microservices/customer/customer/src/assets"],
+        "isolatedConfig": true,
+        "webpackConfig": "apps/backend/microservices/customer/customer/webpack.config.js"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "backend-microservices-customer-customer:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "backend-microservices-customer-customer:build:development"
+        },
+        "production": {
+          "buildTarget": "backend-microservices-customer-customer:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/backend/microservices/customer/customer/**/*.ts"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

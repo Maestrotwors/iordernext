@@ -6,7 +6,7 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function main() {
-    for (var i = 0; i < 100000; i++) {
+    for (var i = 0; i < 1000; i++) {
     console.log('mock product created, id: ' + i + 6);
     const productX = await prisma.product.upsert({
       where: { id: i + 6 },

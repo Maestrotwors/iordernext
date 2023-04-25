@@ -1,0 +1,52 @@
+{
+  "name": "backend-microservices-customer-orders",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/backend/microservices/customer/orders/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/apps/backend/microservices/customer/orders",
+        "main": "apps/backend/microservices/customer/orders/src/main.ts",
+        "tsConfig": "apps/backend/microservices/customer/orders/tsconfig.app.json",
+        "assets": ["apps/backend/microservices/customer/orders/src/assets"],
+        "isolatedConfig": true,
+        "webpackConfig": "apps/backend/microservices/customer/orders/webpack.config.js"
+      },
+      "configurations": {
+        "development": {},
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "backend-microservices-customer-orders:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "backend-microservices-customer-orders:build:development"
+        },
+        "production": {
+          "buildTarget": "backend-microservices-customer-orders:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/backend/microservices/customer/orders/**/*.ts"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

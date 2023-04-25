@@ -1,16 +1,16 @@
 import { Route } from '@angular/router';
 import { Role } from '@api-models/shared/auth';
-import { UserRoleGuard } from './guards/role.guard';
+import { userRoleGuard } from './guards/role.guard';
 
 export const routes: Route[] = [
   {
     path: 'member-user',
     loadChildren: () =>
       import('@frontend/projects/customer/core').then((m) => m.CustomerModule),
-    canActivate: [UserRoleGuard],
+    canActivate: [userRoleGuard],
     data: {
       activateRole: Role.Customer,
-    }
+    },
   },
   /*{
     path: 'admin',

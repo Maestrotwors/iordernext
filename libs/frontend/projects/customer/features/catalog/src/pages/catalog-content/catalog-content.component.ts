@@ -26,11 +26,12 @@ import { SpinnerCircleComponent } from '@frontend/core/ui/components/spinners/sp
     ProductsBlockViewComponent,
     CatalogPaginationComponent,
     TopBarMenuComponent,
-    SpinnerCircleComponent
+    SpinnerCircleComponent,
   ],
   templateUrl: './catalog-content.component.html',
   styleUrls: ['./catalog-content.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [ProductsService],
 })
 export class CatalogContentComponent implements OnInit {
   constructor(
@@ -62,12 +63,12 @@ export class CatalogContentComponent implements OnInit {
   private subscribeToRouteChange() {
     this.route.queryParams
       .pipe(
-        untilDestroyed(this),
         distinctUntilChanged(),
         switchMap((queryParams: Params) => {
           this.productsPageInfoStore.updatePage(queryParams);
           return this.productsService.getProducts(queryParams);
-        })
+        }),
+        untilDestroyed(this),
       )
       .subscribe(() => {
         this.scrollTop();
@@ -77,10 +78,11 @@ export class CatalogContentComponent implements OnInit {
   private subscribeToProductsAndBasketChanged() {
     this.productsService
       .productsAndBasketChanged()
-      .pipe(untilDestroyed(this), distinctUntilChanged())
+      .pipe(distinctUntilChanged(), untilDestroyed(this))
       .subscribe();
   }
 
+  // TODO ROuter
   private scrollTop() {
     window.scroll({
       top: 0,

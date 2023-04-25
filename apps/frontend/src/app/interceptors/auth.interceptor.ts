@@ -20,6 +20,7 @@ export class AuthInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<unknown>> {
     const token = localStorage.getItem('access_token');
 
+    // todo может перезаписать setHeaders
     if (token) {
       const authReq = request.clone({
         setHeaders: {

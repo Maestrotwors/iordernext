@@ -145,6 +145,9 @@
       ],
       "@frontend/projects/suppliers/features/clients": [
         "libs/frontend/projects/suppliers/features/clients/src/index.ts"
+      ],
+      "@backend/microservices-models/*": [
+        "libs/backend/microservices-models/src/lib/*/index.ts"
       ]
     }
   },

@@ -6,7 +6,7 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function main() {
-  for (var i = 0; i < 50001; i++) {
+  for (var i = 0; i < 501; i++) {
     // password = "test", hash is $2a$10$JjEFoHbJH32awcKgsFfPReonEVy3P9ZEpNlqm2tWB/dOQ6IxknM4S
 	i++;
 	console.log('mock user created, id: ' + i);

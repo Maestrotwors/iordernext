@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { SelectedContract } from '@frontend/projects/customer/models';
 import { SelectedContractStore } from '../../store/selected-contract';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class ContractService {
   constructor(private selectedContractStore: SelectedContractStore) {}
 

@@ -13,6 +13,7 @@ import {
   ApiRequestGetCategoriesQueryValidator,
   ApiRequestGetProductQueryValidator,
   ApiRequestGetProductsQueryValidator,
+  ApiRequestGetOrderQueryValidator
 } from '@backend/models/core/validators/customer';
 import { Auth } from '../../../decorators/auth.decorator';
 import { Role } from '@api-models/shared/auth';
@@ -94,6 +95,20 @@ export class CustomerController implements OnModuleInit, OnModuleDestroy {
           resolve(response);
         });
     });
+    //return await this.productService.getProduct(query);
+  }
+
+  @Get(ROUTE_CUSTOMER.GetOrder)
+  @Auth([Role.Customer])
+  getOrder(@Query() query: ApiRequestGetOrderQueryValidator) {
+    console.log(query);
+    /*return new Promise((resolve) => {
+      this.client
+        .send('get-orders', JSON.stringify(<MsProductsRequestGetOrder>query))
+        .subscribe((response: MsProductsResponseGetOrder) => {
+          resolve(response);
+        });
+    });*/
     //return await this.productService.getProduct(query);
   }
 

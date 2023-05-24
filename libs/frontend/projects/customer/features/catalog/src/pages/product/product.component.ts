@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductService } from './services/product.service';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { ProductImagesComponent } from './components/product-images/product-images.component';
+import { ProductStore } from './store/product.store';
 
 @UntilDestroy()
 @Component({
@@ -20,7 +21,7 @@ import { ProductImagesComponent } from './components/product-images/product-imag
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [ProductService]
+  providers: [ProductService, ProductStore]
 })
 export class ProductComponent implements OnInit {
   constructor(

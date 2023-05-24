@@ -19,12 +19,12 @@ export class CategoriesStore {
       parentId: null,
     },
     {
-      id: 1,
+      id: 2,
       name: 'Category 2',
       parentId: null,
     },
     {
-      id: 1,
+      id: 3,
       name: 'Category 3',
       parentId: null,
     },

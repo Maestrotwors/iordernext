@@ -31,7 +31,7 @@ import { SpinnerCircleComponent } from '@frontend/core/ui/components/spinners/sp
   templateUrl: './catalog-content.component.html',
   styleUrls: ['./catalog-content.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [ProductsService],
+  providers: [ProductsService, ProductsStore, ProductsPageInfoStore],
 })
 export class CatalogContentComponent implements OnInit {
   constructor(
@@ -65,8 +65,9 @@ export class CatalogContentComponent implements OnInit {
       .pipe(
         distinctUntilChanged(),
         switchMap((queryParams: Params) => {
+          const categoryId: number = Number(this.route.snapshot.paramMap.get('categoryId')) || -1;
           this.productsPageInfoStore.updatePage(queryParams);
-          return this.productsService.getProducts(queryParams);
+          return this.productsService.getProducts(queryParams, categoryId);
         }),
         untilDestroyed(this),
       )

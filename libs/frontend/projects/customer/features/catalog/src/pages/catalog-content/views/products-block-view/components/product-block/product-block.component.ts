@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink, RouterLinkWithHref } from '@angular/router';
+import { RouterLinkWithHref } from '@angular/router';
 import { CustomerProductMapped } from '@frontend/projects/customer/models';
 import { BasketService } from '@frontend/projects/customer/shared/services/basket';
 import { ContractService } from '@frontend/projects/customer/shared/services/contract';
@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-product-block',
   standalone: true,
-  imports: [CommonModule, ButtonModule, InputNumberModule, RouterLinkWithHref, RouterLink, FormsModule],
+  imports: [CommonModule, ButtonModule, InputNumberModule, RouterLinkWithHref, FormsModule],
   templateUrl: './product-block.component.html',
   styleUrls: ['./product-block.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -26,10 +26,6 @@ export class ProductBlockComponent {
 
   valueInBasketChanged(value: number) {
     this.newQuantity = value;
-  }
-
-  selectProduct(id: number) {
-    //this.productService.selectProduct(id);
   }
 
   saveInBasket() {

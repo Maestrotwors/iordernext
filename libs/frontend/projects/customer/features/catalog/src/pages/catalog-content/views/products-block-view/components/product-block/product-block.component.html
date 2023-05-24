@@ -1,4 +1,4 @@
-<a [routerLink]="['product', product.id]" [queryParams]="contractQueryParams" draggable="false" (click)="selectProduct(product.id)">
+<a [routerLink]="['/','member-user','catalog','product', product.id]" [queryParams]="contractQueryParams" draggable="false">
   <div class="product-block" *ngIf="product">
     <div class="image-container">
       <img [src]="product.image" class="image" />

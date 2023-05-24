@@ -16,7 +16,6 @@ import { combineLatest } from 'rxjs/internal/observable/combineLatest';
 import { filter } from 'rxjs/internal/operators/filter';
 import { BasketStore } from '@frontend/projects/customer/shared/store/basket';
 import { BasketProduct, CustomerProduct, CustomerProductMapped } from '@frontend/projects/customer/models';
-import { finalize } from 'rxjs/internal/operators/finalize';
 import { delay } from 'rxjs/internal/operators/delay';
 
 @Injectable()
@@ -28,12 +27,14 @@ export class ProductsService {
   ) {}
 
   getProducts(
-    queryParams: Params
+    queryParams: Params,
+    categoryId: number
   ): Observable<HttpResponseError | HttpResponseData<ApiResponseGetProducts>> {
     return this.http
       .get$<ApiResponseGetProducts>(ROUTE_CUSTOMER.GetCatalog, {
         page: queryParams['page'],
         take: 40,
+        category: categoryId || -1,
       })
       .pipe(
         tap(() => {
@@ -54,11 +55,9 @@ export class ProductsService {
             } else {
               this.productsStore.updateProducts([], 0);
             }
+            this.productsStore.productsLoading$.next(false);
           }
-        ),
-        finalize(() => {
-          this.productsStore.productsLoading$.next(false);
-        })
+        )
       );
   }
 

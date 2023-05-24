@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { CatalogQueryParams } from '@frontend/projects/customer/models';
 import { Params } from '@angular/router';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class ProductsPageInfoStore {
   private _pageQueryParams$: BehaviorSubject<CatalogQueryParams | null> =
     new BehaviorSubject<CatalogQueryParams | null>(null);

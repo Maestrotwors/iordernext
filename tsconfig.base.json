@@ -19,6 +19,9 @@
       "@backend/auth": ["libs/backend/auth/src/index.ts"],
       "@backend/cache": ["libs/backend/cache/src/index.ts"],
       "@backend/helpers": ["libs/backend/helpers/src/index.ts"],
+      "@backend/microservices-models/*": [
+        "libs/backend/microservices-models/src/lib/*/index.ts"
+      ],
       "@backend/models/*": ["libs/backend/models/src/lib/*/index.ts"],
       "@backend/repository": ["libs/backend/repository/src/index.ts"],
       "@config/*": ["config/*"],
@@ -145,9 +148,6 @@
       ],
       "@frontend/projects/suppliers/features/clients": [
         "libs/frontend/projects/suppliers/features/clients/src/index.ts"
-      ],
-      "@backend/microservices-models/*": [
-        "libs/backend/microservices-models/src/lib/*/index.ts"
       ]
     }
   },

@@ -3,3 +3,6 @@
   width="full"
   [data]="(subSuppliers | async)">
 </app-select>-->
+<div>
+  <p-dropdown [options]="subSuppliers" [(ngModel)]="selectedSubSupplier" optionLabel="name" class="p-dropdown" ></p-dropdown>
+</div>

@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { CurrentProduct, CurrentProductMapped } from '@frontend/projects/customer/models';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class ProductStore {
   private _product$: BehaviorSubject<CurrentProduct | null> =
     new BehaviorSubject<CurrentProduct | null>(null);

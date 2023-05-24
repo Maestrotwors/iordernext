@@ -2,5 +2,5 @@
   <!--<li *ngFor="let category of (categories | async); trackBy: identify">
     {{category.name}}
   </li>-->
-  <p-listbox [options]="(categories | async) ?? []" optionLabel="name"></p-listbox>
+  <p-listbox [options]="(categories | async) ?? []" optionLabel="name" [(ngModel)]="selectedCategory" (onChange)="selectCategory($event.value.id)"></p-listbox>
 </ul>

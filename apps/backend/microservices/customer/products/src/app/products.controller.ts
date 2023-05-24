@@ -18,11 +18,9 @@ export class ProductsController {
   ) {}
 
   @MessagePattern('get-products')
-  async getProducts(@Payload() message: any) {
+  async getProducts(@Payload() message: MsProductsRequestGetProducts) {
     try {
-      const msg: MsProductsRequestGetProducts =
-        message as MsProductsRequestGetProducts;
-      return await this.productsService.getProducts(msg);
+      return await this.productsService.getProducts(message);
     } catch (e) {
       return e;
     }

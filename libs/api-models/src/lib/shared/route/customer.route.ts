@@ -4,4 +4,5 @@ export const ROUTE_CUSTOMER = {
   GetSuppliers: 'customer/get-suppliers',
   GetCategories: 'customer/get-categories',
   GetProduct: 'customer/get-product',
+  GetOrder: 'customer/get-order',
 };

@@ -9,6 +9,7 @@ export interface Product {
 export interface ApiRequestGetProductsQuery {
   page: number;
   take: number;
+  category?: number;
 }
 
 export interface ApiResponseGetProducts {

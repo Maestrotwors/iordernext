@@ -7,7 +7,7 @@ export const routes: Route[] = [
     component: CatalogComponent,
     children: [
       {
-        path: '',
+        path: ':categoryId',
         loadComponent: () =>
           import('./pages/catalog-content/catalog-content.component').then(
             (c) => c.CatalogContentComponent
@@ -24,6 +24,16 @@ export const routes: Route[] = [
           ),
         data: {
           preloadAfter: 400,
+        },
+      },
+      {
+        path: '',
+        loadComponent: () =>
+          import('./pages/catalog-content/catalog-content.component').then(
+            (c) => c.CatalogContentComponent
+          ),
+        data: {
+          preloadAfter: 300,
         },
       },
     ],

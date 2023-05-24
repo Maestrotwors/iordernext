@@ -2,16 +2,14 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { Injectable } from '@angular/core';
 import { CustomerProduct, CustomerProductMapped } from '@frontend/projects/customer/models';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class ProductsStore {
   private _products$: BehaviorSubject<CustomerProduct[] | null> =
     new BehaviorSubject<CustomerProduct[] | null>(null);
   private _productsMapped$: BehaviorSubject<CustomerProductMapped[] | null> =
     new BehaviorSubject<CustomerProductMapped[] | null>(null);
-  private _totalCountProducts$: BehaviorSubject<number> =
-    new BehaviorSubject<number>(0);
+  private _totalCountProducts$: BehaviorSubject<number | null> =
+    new BehaviorSubject<number | null>(null);
   public productsLoading$: BehaviorSubject<boolean> =
     new BehaviorSubject<boolean>(true);
 

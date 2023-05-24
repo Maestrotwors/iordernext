@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { BasketService } from '@frontend/projects/customer/shared/services/basket';
+import { ContractService } from '@frontend/projects/customer/shared/services/contract';
 
 @UntilDestroy()
 @Component({
@@ -9,7 +10,7 @@ import { BasketService } from '@frontend/projects/customer/shared/services/baske
   styleUrls: ['./customer.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  providers: [ BasketService ],
+  providers: [BasketService, ContractService],
 })
 export class CustomerComponent implements OnInit {
   constructor(private basketService: BasketService) {}

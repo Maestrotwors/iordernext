@@ -7,6 +7,8 @@ import { routes } from './app.routes';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { HttpCacheInterceptorModule } from '@ngneat/cashew';
+import { LOCAL_STORAGE_TOKEN } from '@iorder/frontend/core/tokens';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -26,6 +28,17 @@ import { HttpCacheInterceptorModule } from '@ngneat/cashew';
       useClass: AuthInterceptor,
       multi: true,
     },
+    /*{
+      provide: LOCAL_STORAGE_TOKEN,
+      useFactory: () => {
+        const a = true;
+        if (a) {
+          return localStorage;
+        }
+        return localStorage;
+      },
+      deps: []
+    },*/
   ],
   bootstrap: [AppComponent],
 })

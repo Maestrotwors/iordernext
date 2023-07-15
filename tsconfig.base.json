@@ -148,7 +148,8 @@
       ],
       "@frontend/projects/suppliers/features/clients": [
         "libs/frontend/projects/suppliers/features/clients/src/index.ts"
-      ]
+      ],
+      "@iorder/frontend/core/tokens": ["libs/frontend/core/tokens/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

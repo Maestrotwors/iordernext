@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { HttpService } from '../http/http.service';
 
 import {
@@ -7,9 +7,11 @@ import {
   isHttpResponseData,
 } from '@frontend/core/models/http';
 import { ApiResponseLogIn, Role } from '@api-models/shared/auth';
+import { LOCAL_STORAGE_TOKEN } from '@iorder/frontend/core/tokens';
 
 @Injectable({ providedIn: 'root' })
 export class AuthLogInService {
+  ls = inject(LOCAL_STORAGE_TOKEN);
   constructor(private http: HttpService) {}
 
   async logIn(login: string, password: string): Promise<Role | false> {
@@ -26,11 +28,8 @@ export class AuthLogInService {
   }
 
   private setLocalStorage(response: HttpResponseData<ApiResponseLogIn>) {
-    localStorage.setItem('access_token', response.data.accessToken);
-    localStorage.setItem('refresh_token', response.data.refreshToken);
-    localStorage.setItem(
-      'memberShipType',
-      response.data.memberShipType.toString()
-    );
+    this.ls.setItem('access_token', response.data.accessToken);
+    this.ls.setItem('refresh_token', response.data.refreshToken);
+    this.ls.setItem('memberShipType', response.data.memberShipType.toString());
   }
 }
